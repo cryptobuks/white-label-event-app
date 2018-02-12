@@ -3,7 +3,7 @@ import { StackNavigator } from 'react-navigation';
 import { View, StyleSheet } from 'react-native';
 import { HomeScreen, DetailScreen, UserScreen } from './screens';
 import { initializeFirebase, subscribeToTrack, listenFirebaseChanges } from './utils/firebaseService';
-import { handleUserLogin } from './utils/authenticationService';
+import { handleFacebookLogin, handleGoogleLogin } from './utils/authenticationService';
 import getShiftData from './utils/shiftService';
 
 const Navigator = StackNavigator({
@@ -57,8 +57,15 @@ export default class App extends Component {
     });
   };
 
-  handleUserLogin = async () => {
-    const userInfo = await handleUserLogin();
+  handleFacebookLogin = async () => {
+    const userInfo = await handleFacebookLogin();
+    userInfo.picture = userInfo.picture.data.url;
+    this.setState({ userInfo });
+  };
+
+  handleGoogleLogin = async () => {
+    const userInfo = await handleGoogleLogin();
+    userInfo.first_name = userInfo.given_name;
     this.setState({ userInfo });
   };
 
@@ -70,7 +77,8 @@ export default class App extends Component {
           screenProps={{
             shiftData: this.state.shiftData,
             userInfo,
-            login: () => this.handleUserLogin(),
+            facebookLogin: () => this.handleFacebookLogin(),
+            googleLogin: () => this.handleGoogleLogin(),
             onChangeSubscription: trackId =>
               subscribeToTrack({
                 trackId,
