@@ -16,7 +16,9 @@ const Loading = ({ animating, color, hidesWhenStopped, size }) => (
 );
 
 Loading.defaultProps = {
+  animating: true,
   color: '#000',
+  hidesWhenStopped: true,
   size: 'large',
 };
 
