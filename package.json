@@ -27,7 +27,10 @@
     "test:watch": "node node_modules/jest/bin/jest.js --watch",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
-    "appr": "appr"
+    "appr": "appr",
+    "contributors:add": "all-contributors add",
+    "contributors:check-missing": "all-contributors check",
+    "contributors:generate": "all-contributors generate"
   },
   "jest": {
     "preset": "jest-expo"
