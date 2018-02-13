@@ -1,8 +1,8 @@
 // Facebook Authenthication
 const FB_APP_ID = '2049634398613694';
 // Google Authenthication
-const ANDROID_CLIENT_ID = '933483937797-rj4hje1jm3t72019lkrn9krdb74a8u5b.apps.googleusercontent.com' ;
-const IOS_CLIENT_ID = '933483937797-t9e5p7uklh78ttvcqtrgjmss5nuqeprv.apps.googleusercontent.com';
+const ANDROID_CLIENT_ID = '' ;
+const IOS_CLIENT_ID = '';
 
 export const handleFacebookLogin = async () => {
   const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync(FB_APP_ID, {
