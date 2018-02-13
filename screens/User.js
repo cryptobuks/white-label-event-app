@@ -17,6 +17,10 @@ const styles = StyleSheet.create({
     paddingRight: 60,
     paddingBottom: 60,
   },
+  buttons: {
+    height: 100,
+    justifyContent: 'space-between',
+  }
 });
 
 class UserScreen extends Component {
@@ -27,8 +31,10 @@ class UserScreen extends Component {
         <Text style={styles.whiteText}>
           Have a great day at Shift! Please login to subscribe for talks & sessions troughout the day.
         </Text>
-        <Button title="Login with Facebook" onPress={() => facebookLogin()} />
-        <Button title="Login with Google" onPress={() => googleLogin()} />
+        <View style={styles.buttons}>
+          <Button title="Login with Facebook" onPress={() => facebookLogin()} />
+          <Button title="Login with Google" onPress={() => googleLogin()} />
+        </View>
       </View>
     );
   }

@@ -59,14 +59,22 @@ export default class App extends Component {
 
   handleFacebookLogin = async () => {
     const userInfo = await handleFacebookLogin();
-    userInfo.picture = userInfo.picture.data.url;
-    this.setState({ userInfo });
+    this.setState({
+      userInfo: {
+        ...userInfo,
+        picture: userInfo.picture.data.url,
+      }
+    })
   };
 
   handleGoogleLogin = async () => {
     const userInfo = await handleGoogleLogin();
-    userInfo.first_name = userInfo.given_name;
-    this.setState({ userInfo });
+    this.setState({
+      userInfo: {
+        ...userInfo,
+        first_name: userInfo.given_name,
+      }
+    })
   };
 
   render() {
