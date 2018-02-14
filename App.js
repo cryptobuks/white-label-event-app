@@ -5,6 +5,7 @@ import { HomeScreen, DetailScreen, UserScreen } from './screens';
 import { initializeFirebase, subscribeToTrack, listenFirebaseChanges } from './utils/firebaseService';
 import { handleUserLogin } from './utils/authenticationService';
 import getShiftData from './utils/shiftService';
+import Loading from './components/loading';
 
 const Navigator = StackNavigator({
   Home: { screen: HomeScreen },
@@ -64,6 +65,11 @@ export default class App extends Component {
 
   render() {
     const { userInfo } = this.state;
+    if (this.state.shiftData.length < 1) {
+      return (
+        <Loading />
+      );
+    }
     return (
       <View style={styles.container}>
         <Navigator
