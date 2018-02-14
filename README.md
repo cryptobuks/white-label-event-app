@@ -8,7 +8,7 @@ The white label event app is an open source React Native app by [In The Pocket](
 
 You can run the latest build on the master branch via [Expo](https://expo.io/@itpocket/white-label-event-app).
 
-![white-label-event-app on Expo](https://i.imgur.com/P2YdeMS.png)
+![white-label-event-app on Expo](https://i.imgur.com/7YYDT20.png)
 
 ## How to contribute
 
