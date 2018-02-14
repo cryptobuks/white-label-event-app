@@ -25,6 +25,22 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "thibmaek",
+      "name": "Thibault Maekelbergh",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/6213695?v=4",
+      "profile": "https://thibmaekelbergh.be",
+      "contributions": [
+        "question",
+        "bug",
+        "code",
+        "example",
+        "ideas",
+        "infra",
+        "review",
+        "tool"
+      ]
     }
   ]
 }
