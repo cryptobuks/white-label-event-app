@@ -41,6 +41,22 @@
         "review",
         "tool"
       ]
+    },
+    {
+      "login": "kevinmeyvaert",
+      "name": "Kevin Meyvaert",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/12066078?v=4",
+      "profile": "http://ditiskev.in",
+      "contributions": [
+        "question",
+        "bug",
+        "code",
+        "example",
+        "ideas",
+        "infra",
+        "review",
+        "tool"
+      ]
     }
   ]
 }
