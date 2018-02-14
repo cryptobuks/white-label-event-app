@@ -1,5 +1,5 @@
 # white-label-event-app
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 [![Build Status](https://travis-ci.org/inthepocket/white-label-event-app.svg?branch=develop)](https://travis-ci.org/inthepocket/white-label-event-app) [![Discord](https://img.shields.io/discord/102860784329052160.svg?style=plastic)](https://discord.gg/GAACrwh)
 
 The white label event app is an open source React Native app by [In The Pocket](https://inthepocket.mobi).
