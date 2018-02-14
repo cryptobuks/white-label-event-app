@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   buttons: {
     height: 100,
     justifyContent: 'space-between',
-  }
+  },
 });
 
 class UserScreen extends Component {
