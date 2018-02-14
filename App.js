@@ -64,8 +64,8 @@ export default class App extends Component {
       userInfo: {
         ...userInfo,
         picture: userInfo.picture.data.url,
-      }
-    })
+      },
+    });
   };
 
   handleGoogleLogin = async () => {
@@ -74,8 +74,8 @@ export default class App extends Component {
       userInfo: {
         ...userInfo,
         first_name: userInfo.given_name,
-      }
-    })
+      },
+    });
   };
 
   render() {
