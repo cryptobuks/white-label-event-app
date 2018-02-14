@@ -1,7 +1,7 @@
 // Facebook Authenthication
 const FB_APP_ID = '2049634398613694';
 // Google Authenthication
-const ANDROID_CLIENT_ID = '' ;
+const ANDROID_CLIENT_ID = '';
 const IOS_CLIENT_ID = '';
 
 export const handleFacebookLogin = async () => {
@@ -27,7 +27,7 @@ export const handleGoogleLogin = async () => {
 
   if (result.type === 'success') {
     const userInfoResponse = await fetch('https://www.googleapis.com/userinfo/v2/me', {
-      headers: { Authorization: `Bearer ${result.accessToken}`},
+      headers: { Authorization: `Bearer ${result.accessToken}` },
     });
     return userInfoResponse.json();
   }
