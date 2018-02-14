@@ -1,5 +1,21 @@
 {
-  "files": ["CONTRIBUTORS.md"],
+  "projectName": "white-label-event-app",
   "projectOwner": "inthepocket",
-  "projectName": "white-label-event-mobile-app"
+  "files": [
+    "CONTRIBUTORS.md",
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "contributors": [
+    {
+      "login": "gdm-1718-jerobern",
+      "name": "Jeroen Bernaerts",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/28018450?v=4",
+      "profile": "https://github.com/gdm-1718-jerobern",
+      "contributions": [
+        "code"
+      ]
+    }
+  ]
 }
