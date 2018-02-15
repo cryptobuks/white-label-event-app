@@ -5,7 +5,12 @@ import { Header } from '../components';
 import { Colors } from '../utils/colors';
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'space-between', backgroundColor: Colors.white, padding: 30 },
+  container: {
+    flex: 1,
+    justifyContent: 'space-between',
+    backgroundColor: Colors.white,
+    padding: 30,
+  },
   card: { flex: 1 },
   innerCard: { marginTop: 50 },
   list: { marginBottom: 20 },
