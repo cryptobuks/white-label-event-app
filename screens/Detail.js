@@ -1,19 +1,29 @@
 import React from 'react';
-import { View, Linking } from 'react-native';
+import { View, Linking, StyleSheet } from 'react-native';
 import { Button, Badge, Card, List, ListItem, Text } from 'react-native-elements';
 import { Header } from '../components';
+import { Colors } from '../utils/colors';
+
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: 'space-between', backgroundColor: Colors.white, padding: 30 },
+  card: { flex: 1 },
+  innerCard: { marginTop: 50 },
+  list: { marginBottom: 20 },
+  meta: { marginTop: 10 },
+  badge: { margin: 32 },
+});
 
 const DetailScreen = ({ navigation: { state: { params }, navigate }, screenProps: { onChangeSubscription, usersPerSchedule, userId } }) => {
   const users = usersPerSchedule[params.scheduleItem.name] || [];
   const isSubscribed = users.indexOf(userId) !== -1;
 
   return (
-    <View style={{ flex: 1, justifyContent: 'space-between', backgroundColor: 'white', padding: 30 }}>
-      <Card title={params.scheduleItem.name} style={{ flex: 1 }}>
+    <View style={styles.container}>
+      <Card title={params.scheduleItem.name} style={styles.card}>
         <Text>{params.scheduleItem.description}</Text>
-        <View style={{ marginTop: 50 }}>
+        <View style={styles.innerCard}>
           <Text h4>Speakers:</Text>
-          <List containerStyle={{ marginBottom: 20 }}>
+          <List containerStyle={styles.list}>
             {params.scheduleItem.speakers.map((l, i) => (
               <ListItem
                 roundAvatar
@@ -26,7 +36,7 @@ const DetailScreen = ({ navigation: { state: { params }, navigate }, screenProps
             ))}
           </List>
         </View>
-        <View style={{ marginTop: 10 }}>
+        <View style={styles.meta}>
           <Text h4>
             When: {params.scheduleItem.schedule.startTime} - {params.scheduleItem.schedule.endTime}
           </Text>
@@ -34,8 +44,8 @@ const DetailScreen = ({ navigation: { state: { params }, navigate }, screenProps
         </View>
       </Card>
       <View>
-        <Badge containerStyle={{ margin: 32 }}>
-          <Text style={{ color: '#FFFFFF' }}>{`Attendees:${users.length}`}</Text>
+        <Badge containerStyle={styles.badge}>
+          <Text style={{ color: Colors.white }}>{`Attendees:${users.length}`}</Text>
         </Badge>
         {userId ? (
           <Button

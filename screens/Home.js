@@ -2,11 +2,12 @@ import React from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import ShiftSchedule from './ShiftSchedule';
 import { Header } from '../components';
+import { Colors } from '../utils/colors';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
   },
 });
 
