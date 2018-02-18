@@ -14,3 +14,9 @@
 - [ ] I added myself to the CONTRIBUTORS.md list using `npm run contributors:add <my-username>`.
 - [ ] I added a unit test for my code or a UI test (snapshot) for my component.
 - [ ] The code submitted was statically typed using [flow](https://flowtype.org)
+
+<!--
+  Add the correct ticket number by typing description or number after # below.
+  Remove the line, if your PR doesn't close a ticket.
+-->
+This PR closes ticket #
