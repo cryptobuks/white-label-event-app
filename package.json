@@ -27,7 +27,8 @@
     "test:watch": "node node_modules/jest/bin/jest.js --watch",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
-    "appr": "appr",
+    "deploy:pr": "itp-rn-scripts deploy-expo pr",
+    "deploy": "itp-rn-scripts deploy-expo",
     "contributors:add": "all-contributors add",
     "contributors:check-missing": "all-contributors check",
     "contributors:generate": "all-contributors generate"
@@ -36,7 +37,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "appr": "^1.1.1",
+    "itp-react-native-scripts": "git+https://github.com/inthepocket/itp-react-native-scripts.git##1-add-deployment-options",
     "expo": "^21.0.0",
     "firebase": "^4.4.0",
     "react": "16.0.0-alpha.12",
