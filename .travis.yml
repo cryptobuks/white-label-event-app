@@ -6,10 +6,12 @@ before_install:
 script:
 - npm run lint
 - npm test
-- if [["$encrypted_a3f2a9459865_key" ]]; then
+- if [[ "$encrypted_a3f2a9459865_key" ]]; then
     if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
       npm run deploy:pr;
-    else if [[ "$TRAVIS_BRANCH" = "develop" ]]; then
+    elif [[ "$TRAVIS_BRANCH" = "develop" ]]; then
       npm run deploy;
-    else if [[ "$TRAVIS_BRANCH" = "master" ]]; then
-      npm run deploy; fi
+    elif [[ "$TRAVIS_BRANCH" = "master" ]]; then
+      npm run deploy;
+    fi;
+  fi;
