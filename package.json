@@ -37,7 +37,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "itp-react-native-scripts": "git+https://github.com/inthepocket/itp-react-native-scripts.git##1-add-deployment-options",
+    "itp-react-native-scripts": "git+https://github.com/inthepocket/itp-react-native-scripts.git",
     "expo": "^21.0.0",
     "firebase": "^4.4.0",
     "react": "16.0.0-alpha.12",
