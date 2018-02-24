@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { Avatar, Button } from 'react-native-elements';
 
-import { Colors } from '../utils/colors';
+import { COLORS } from '../utils/colors';
 import { Header } from '../components';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.black,
+    backgroundColor: COLORS.black,
     justifyContent: 'center',
     alignItems: 'center',
   },
   whiteText: {
-    color: Colors.white,
+    color: COLORS.white,
     paddingLeft: 60,
     paddingRight: 60,
     paddingBottom: 60,

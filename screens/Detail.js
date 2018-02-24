@@ -2,13 +2,13 @@ import React from 'react';
 import { View, Linking, StyleSheet } from 'react-native';
 import { Button, Badge, Card, List, ListItem, Text } from 'react-native-elements';
 import { Header } from '../components';
-import { Colors } from '../utils/colors';
+import { COLORS } from '../utils/colors';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-between',
-    backgroundColor: Colors.white,
+    backgroundColor: COLORS.white,
     padding: 30,
   },
   card: { flex: 1 },
@@ -50,7 +50,7 @@ const DetailScreen = ({ navigation: { state: { params }, navigate }, screenProps
       </Card>
       <View>
         <Badge containerStyle={styles.badge}>
-          <Text style={{ color: Colors.white }}>{`Attendees:${users.length}`}</Text>
+          <Text style={{ color: COLORS.white }}>{`Attendees:${users.length}`}</Text>
         </Badge>
         {userId ? (
           <Button

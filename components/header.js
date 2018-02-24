@@ -2,7 +2,7 @@ import React from 'react';
 import { ImageBackground, StatusBar, Image, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 
-import { Colors } from '../utils/colors';
+import { COLORS } from '../utils/colors';
 
 const headerBackgroundImage = require('../assets/header.png');
 const logoImage = require('../assets/logo.png');
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   statusBar: {
-    backgroundColor: Colors.transparent,
+    backgroundColor: COLORS.transparent,
   },
   logoImage: {
     width: 100,
