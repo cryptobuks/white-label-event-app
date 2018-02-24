@@ -1,8 +1,9 @@
 {
-  "name": "white-label-event-app",
+  "name": "white-label-event-mobile-app",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "all-contributors-cli": "^4.10.1",
     "babel-eslint": "^8.0.1",
     "babel-preset-react-native": "^4.0.0",
     "eslint": "^4.8.0",
@@ -13,7 +14,6 @@
     "eslint-plugin-react": "^7.4.0",
     "eslint-plugin-react-native": "^3.1.0",
     "jest-expo": "^21.0.2",
-    "npm-check": "^5.5.2",
     "react-native-scripts": "1.5.0",
     "react-test-renderer": "16.0.0-alpha.12"
   },
@@ -22,21 +22,50 @@
     "start": "react-native-scripts start",
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
-    "deps:update": "npm-check -u --production --ignore={react,react-native}",
     "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js --watch",
+    "test": "node node_modules/jest/bin/jest.js",
+    "test:watch": "node node_modules/jest/bin/jest.js --watch",
     "lint": "eslint .",
-    "lint-fix": "eslint . --fix"
+    "lint-fix": "eslint . --fix",
+    "appr": "appr",
+    "contributors:add": "all-contributors add",
+    "contributors:check-missing": "all-contributors check",
+    "contributors:generate": "all-contributors generate"
   },
   "jest": {
     "preset": "jest-expo"
   },
   "dependencies": {
+    "appr": "^1.1.1",
     "expo": "^21.0.0",
-    "firebase": "^4.9.1",
-    "react": "^16.2.0",
-    "react-native": "^0.53.0",
-    "react-native-elements": "^0.19.0",
+    "firebase": "^4.4.0",
+    "react": "16.0.0-alpha.12",
+    "react-native": "^0.48.4",
+    "react-native-elements": "^0.17.0",
     "react-navigation": "^1.0.0-beta.13"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inthepocket/white-label-event-app"
+  },
+  "author": {
+    "email": "hello@inthepocket.com",
+    "name": "In The Pocket NV",
+    "url": "https://inthepocket.com"
+  },
+  "maintainers": [
+    {
+      "name": "Thibault Maekelbergh",
+      "email": "thibault.maekelbergh@inthepocket.com"
+    },
+    {
+      "name": "Kevin Meyvaert",
+      "email": "kevin.meyvaert@inthepocket.com"
+    },
+    {
+      "name": "Jonathan Dierckens",
+      "email": "jonathan.dierckens@inthepocket.com"
+    }
+  ],
+  "license": "MIT"
 }

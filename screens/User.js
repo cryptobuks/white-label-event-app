@@ -18,17 +18,24 @@ const styles = StyleSheet.create({
     paddingRight: 60,
     paddingBottom: 60,
   },
+  buttons: {
+    height: 100,
+    justifyContent: 'space-between',
+  },
 });
 
 class UserScreen extends Component {
   renderLoginButton() {
-    const { login } = this.props.screenProps;
+    const { facebookLogin, googleLogin } = this.props.screenProps;
     return (
       <View style={styles.container}>
         <Text style={styles.whiteText}>
-          Have a great day at Shift! Please login to subscribe for talsk & sessions troughout the day.
+          Have a great day at Shift! Please login to subscribe for talks & sessions troughout the day.
         </Text>
-        <Button title="Login" onPress={() => login()} />
+        <View style={styles.buttons}>
+          <Button title="Login with Facebook" onPress={() => facebookLogin()} />
+          <Button title="Login with Google" onPress={() => googleLogin()} />
+        </View>
       </View>
     );
   }
@@ -40,10 +47,10 @@ class UserScreen extends Component {
         <Avatar
           xlarge
           rounded
-          source={{ uri: userInfo.picture.data.url }}
+          source={{ uri: userInfo.picture }}
         />
         <Text style={styles.whiteText}>
-          Have a great day at Shift!
+          Have a great day at Shift {userInfo.first_name}!
         </Text>
       </View>
     );

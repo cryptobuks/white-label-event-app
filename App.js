@@ -3,8 +3,9 @@ import { StackNavigator } from 'react-navigation';
 import { View, StyleSheet } from 'react-native';
 import { HomeScreen, DetailScreen, UserScreen } from './screens';
 import { initializeFirebase, subscribeToTrack, listenFirebaseChanges } from './utils/firebaseService';
-import { handleUserLogin } from './utils/authenticationService';
+import { handleFacebookLogin, handleGoogleLogin } from './utils/authenticationService';
 import getShiftData from './utils/shiftService';
+import Loading from './components/loading';
 
 const Navigator = StackNavigator({
   Home: { screen: HomeScreen },
@@ -57,20 +58,41 @@ export default class App extends Component {
     });
   };
 
-  handleUserLogin = async () => {
-    const userInfo = await handleUserLogin();
-    this.setState({ userInfo });
+  handleFacebookLogin = async () => {
+    const userInfo = await handleFacebookLogin();
+    this.setState({
+      userInfo: {
+        ...userInfo,
+        picture: userInfo.picture.data.url,
+      },
+    });
+  };
+
+  handleGoogleLogin = async () => {
+    const userInfo = await handleGoogleLogin();
+    this.setState({
+      userInfo: {
+        ...userInfo,
+        first_name: userInfo.given_name,
+      },
+    });
   };
 
   render() {
     const { userInfo } = this.state;
+    if (this.state.shiftData.length < 1) {
+      return (
+        <Loading />
+      );
+    }
     return (
       <View style={styles.container}>
         <Navigator
           screenProps={{
             shiftData: this.state.shiftData,
             userInfo,
-            login: () => this.handleUserLogin(),
+            facebookLogin: () => this.handleFacebookLogin(),
+            googleLogin: () => this.handleGoogleLogin(),
             onChangeSubscription: trackId =>
               subscribeToTrack({
                 trackId,
