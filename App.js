@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 import { View, StyleSheet } from 'react-native';
 import { HomeScreen, DetailScreen, UserScreen } from './screens';
-import { initializeFirebase, subscribeToTrack, listenFirebaseChanges } from './utils/firebaseService';
+import { initializeFirebase, subscribeToTrack/* , listenFirebaseChanges */ } from './utils/firebaseService';
 import { handleFacebookLogin, handleGoogleLogin } from './utils/authenticationService';
-import getShiftData from './utils/shiftService';
-import Loading from './components/loading';
+// import Loading from './components/loading';
 
 const Navigator = StackNavigator({
+  User: { screen: UserScreen },
   Home: { screen: HomeScreen },
   Detail: { screen: DetailScreen },
-  User: { screen: UserScreen },
 });
 
 const styles = StyleSheet.create({
@@ -33,18 +32,18 @@ export default class App extends Component {
 
   componentWillMount() {
     initializeFirebase();
-    getShiftData()
-      .then((response) => {
-        this.setState({ shiftData: response.data });
-        return response.data;
-      })
-      .then((shiftData) => {
-        shiftData.forEach((shiftSchedule) => {
-          const firebaseRef = listenFirebaseChanges(shiftSchedule.name);
-          firebaseRef.on('value', snapshot => this.onChangeUsers(snapshot, shiftSchedule.name));
-          this.firebaseRefs[shiftSchedule.name] = firebaseRef;
-        });
-      });
+    // getShiftData()
+    //   .then((response) => {
+    //     this.setState({ shiftData: response.data });
+    //     return response.data;
+    //   })
+    //   .then((shiftData) => {
+    //     shiftData.forEach((shiftSchedule) => {
+    //       const firebaseRef = listenFirebaseChanges(shiftSchedule.name);
+    //       firebaseRef.on('value', snapshot => this.onChangeUsers(snapshot, shiftSchedule.name));
+    //       this.firebaseRefs[shiftSchedule.name] = firebaseRef;
+    //     });
+    //   });
   }
 
   componentWillUnmount() {
@@ -80,16 +79,16 @@ export default class App extends Component {
 
   render() {
     const { userInfo } = this.state;
-    if (this.state.shiftData.length < 1) {
-      return (
-        <Loading />
-      );
-    }
+    // if (this.state.shiftData.length < 1) {
+    //   return (
+    //     <Loading />
+    //   );
+    // }
     return (
       <View style={styles.container}>
         <Navigator
           screenProps={{
-            shiftData: this.state.shiftData,
+            // shiftData: this.state.shiftData,
             userInfo,
             facebookLogin: () => this.handleFacebookLogin(),
             googleLogin: () => this.handleGoogleLogin(),
@@ -100,7 +99,7 @@ export default class App extends Component {
                 subscribedUsers: this.state.usersPerSchedule[trackId] || [],
               }),
             userId: this.state.userInfo.id,
-            usersPerSchedule: this.state.usersPerSchedule,
+            // usersPerSchedule: this.state.usersPerSchedule,
           }}
         />
       </View>

@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const HomeScreen = ({ screenProps: { shiftData }, navigation }) => (
+const HomeScreen = ({ screenProps: { shiftData, userInfo }, navigation }) => (
   <FlatList
     style={styles.container}
     data={shiftData}

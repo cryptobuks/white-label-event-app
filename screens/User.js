@@ -25,12 +25,17 @@ const styles = StyleSheet.create({
 });
 
 class UserScreen extends Component {
+  componentWillMount() {
+    if (Object.keys(this.props.screenProps.userInfo).length !== 0) this.props.navigation.navigate('Home');
+  }
+
   renderLoginButton() {
     const { facebookLogin, googleLogin } = this.props.screenProps;
     return (
       <View style={styles.container}>
         <Text style={styles.whiteText}>
-          Have a great day at Shift! Please login to subscribe for talks & sessions troughout the day.
+          Have a great day at Shift! Please login to subscribe for talks &
+          sessions troughout the day.
         </Text>
         <View style={styles.buttons}>
           <Button title="Login with Facebook" onPress={() => facebookLogin()} />
@@ -42,18 +47,15 @@ class UserScreen extends Component {
 
   renderProfile() {
     const { userInfo } = this.props.screenProps;
-    return (
-      <View style={styles.container}>
-        <Avatar
-          xlarge
-          rounded
-          source={{ uri: userInfo.picture }}
-        />
-        <Text style={styles.whiteText}>
+    const { navigation } = this.props;
+
+    return (<View style={styles.container}>
+      <Avatar xlarge rounded source={{ uri: userInfo.picture }} />
+      <Text style={styles.whiteText}>
           Have a great day at Shift {userInfo.first_name}!
-        </Text>
-      </View>
-    );
+      </Text>
+      <Button title="Okay" onPress={() => navigation.navigate('Home')} />
+    </View>);
   }
 
   render() {
@@ -67,7 +69,7 @@ class UserScreen extends Component {
 
 UserScreen.navigationOptions = ({ navigation, screenProps }) => ({
   title: screenProps.userInfo ? screenProps.userInfo.name : 'Login',
-  header: <Header navigate={navigation.navigate} goBack={navigation.goBack} user />,
+  header: <Header navigate={navigation.navigate} user />,
 });
 
 export default UserScreen;
