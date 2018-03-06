@@ -34,7 +34,7 @@ class UserScreen extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.whiteText}>
-          Have a great day at Shift! Please login to subscribe for talks &
+          Please login to subscribe for talks &
           sessions troughout the day.
         </Text>
         <View style={styles.buttons}>
@@ -49,13 +49,14 @@ class UserScreen extends Component {
     const { userInfo } = this.props.screenProps;
     const { navigation } = this.props;
 
-    return (<View style={styles.container}>
-      <Avatar xlarge rounded source={{ uri: userInfo.picture }} />
-      <Text style={styles.whiteText}>
-          Have a great day at Shift {userInfo.first_name}!
-      </Text>
-      <Button title="Okay" onPress={() => navigation.navigate('Home')} />
-    </View>);
+    return (
+      <View style={styles.container}>
+        <Avatar xlarge rounded source={{ uri: userInfo.picture }} />
+        <Text style={styles.whiteText}>
+          Have a great day, {userInfo.first_name}!
+        </Text>
+        <Button title="Okay" onPress={() => navigation.navigate('Home')} />
+      </View>);
   }
 
   render() {

@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Header = ({ navigate, goBack, user }) => (
+const Header = ({ navigate, goBack }) => (
   <View style={[styles.background, !goBack ? styles.withPadding : styles.withoutPadding]}>
     <StatusBar barStyle="light-content" style={styles.statusBar} />
     {goBack && <Button backgroundColor="transparent" title="Back" onPress={() => goBack()} />}
