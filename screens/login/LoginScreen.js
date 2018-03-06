@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const LoginScreen = ({ screenProps: facebookLogin, googleLogin, userInfo }) => (
+const LoginScreen = ({ screenProps }) => (
 
   <View style={styles.container}>
     <Text style={styles.whiteText}>
@@ -30,8 +30,8 @@ const LoginScreen = ({ screenProps: facebookLogin, googleLogin, userInfo }) => (
         sessions troughout the day.
     </Text>
     <View style={styles.buttons}>
-      <Button title="Login with Facebook" onPress={() => facebookLogin()} />
-      <Button title="Login with Google" onPress={() => googleLogin()} />
+      <Button title="Login with Facebook" onPress={() => screenProps.facebookLogin()} />
+      <Button title="Login with Google" onPress={() => screenProps.googleLogin()} />
     </View>
   </View>
 );
