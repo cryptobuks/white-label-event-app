@@ -9,4 +9,3 @@ utils/firebaseConfig.json
 # OS specific
 .DS_Store
 Thumbs.db
-.vscode/

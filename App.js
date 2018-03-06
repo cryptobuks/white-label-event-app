@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 import { View, StyleSheet } from 'react-native';
-import { HomeScreen, DetailScreen, UserScreen } from './screens';
+import { HomeScreen, DetailScreen } from './screens';
+import LoginContainer from './screens/login/LoginContainer';
 import { initializeFirebase, subscribeToTrack } from './utils/firebaseService';
 import { handleFacebookLogin, handleGoogleLogin } from './utils/authenticationService';
 
 const Navigator = StackNavigator({
-  User: { screen: UserScreen },
+  Login: { screen: LoginContainer },
   Home: { screen: HomeScreen },
   Detail: { screen: DetailScreen },
 });
