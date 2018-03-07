@@ -1,6 +1,6 @@
 import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
-import { COLORS } from '../utils/colors';
+import { COLORS } from '../../utils/colors';
 
 const styles = StyleSheet.create({
   container: {
