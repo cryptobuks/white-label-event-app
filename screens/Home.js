@@ -1,7 +1,5 @@
 import React from 'react';
-import { FlatList, StyleSheet } from 'react-native';
-import ShiftSchedule from './ShiftSchedule';
-import { Header } from '../components';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { COLORS } from '../utils/colors';
 
 const styles = StyleSheet.create({
@@ -11,18 +9,12 @@ const styles = StyleSheet.create({
   },
 });
 
-const HomeScreen = ({ screenProps: { shiftData }, navigation }) => (
+const HomeScreen = () => (
   <FlatList
     style={styles.container}
-    data={shiftData}
     keyExtractor={item => item.name}
-    renderItem={({ item }) => <ShiftSchedule scheduleItem={item} navigation={navigation} />}
+    renderItem={({ item }) => <View />}
   />
 );
-
-HomeScreen.navigationOptions = ({ navigation }) => ({
-  title: 'Shift',
-  header: <Header navigate={navigation.navigate} />,
-});
 
 export default HomeScreen;
