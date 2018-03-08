@@ -7,13 +7,12 @@ import ScheduleItem from '../../components/scheduleItem';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexGrow: 1,
     alignItems: 'center',
     backgroundColor: COLORS.black,
-    height: 100,
   },
   flatlist: {
-    marginTop: 114,
+    paddingHorizontal: 16,
+    marginTop: 30,
   },
 });
 

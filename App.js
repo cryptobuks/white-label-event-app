@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, StatusBar } from 'react-native';
 // import LoginContainer from './screens/login/LoginContainer';
 import HomeContainer from './screens/home/HomeContainer';
 import { initializeFirebase, subscribeToTrack } from './utils/firebaseService';
@@ -33,6 +33,8 @@ export default class App extends Component {
       userInfo: {},
       usersPerSchedule: {},
     };
+
+    StatusBar.setBarStyle('light-content', true);
   }
 
   componentWillMount() {

@@ -115,36 +115,5 @@
         "name": "Jonathan Dierckens"
       }
     ]
-  },
-  {
-    "id": "4",
-    "title": "Shift The Game",
-    "description": "",
-    "imageUrl": "https://baconmockup.com/300/200",
-    "author": {
-      "id": "6",
-      "name": "Nog een dude",
-      "imageUrl": "https://baconmockup.com/300/200"
-    },
-    "date": "Tue Mar 07 2018 12:22:31 GMT+0100 (CET)",
-    "location": "Workshop Area",
-    "tags": [
-      {
-        "id": "agile",
-        "name": "Agile"
-      }
-    ],
-    "attendees": [
-      {
-        "id": "10",
-        "avatarUrl": "https://baconmockup.com/200/200",
-        "name": "Thibault Maekelbergh"
-      },
-      {
-        "id": "11",
-        "avatarUrl": "https://baconmockup.com/200/200",
-        "name": "Jonathan Dierckens"
-      }
-    ]
   }
 ]
