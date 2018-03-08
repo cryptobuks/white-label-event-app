@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 import { View, StyleSheet, StatusBar } from 'react-native';
-// import LoginContainer from './screens/login/LoginContainer';
 import HomeContainer from './screens/home/HomeContainer';
 import { initializeFirebase, subscribeToTrack } from './utils/firebaseService';
 import { handleFacebookLogin, handleGoogleLogin } from './utils/authenticationService';

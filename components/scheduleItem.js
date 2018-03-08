@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
+import format from 'date-fns/format';
 import { COLORS } from '../utils/colors';
 import ScheduleButton from './scheduleButton';
 
@@ -82,10 +83,7 @@ const ScheduleItem = ({ author, title, location, date }) => (
           <View style={styles.detailTextContainer}>
             <Text style={styles.location}>{location}</Text>
             <Text style={styles.time}>
-              {new Date(date).toLocaleTimeString('en-US', {
-                hour: '2-digit',
-                minute: '2-digit',
-              })}
+              {format(new Date(date), 'hh:mm A')}
             </Text>
           </View>
           <ScheduleButton />
