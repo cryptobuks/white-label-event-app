@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 import COLORS from '../../config/colors';
 import Metrics from '../../config/gridSizes';
-import TrackList from '../../components/trackList';
+import ScheduleItem from '../../components/scheduleItem';
 
-const HEADER = {
-  marginTop: Metrics.gridSize * 6,
+const CONTAINER = {
+  paddingHorizontal: Metrics.gridSize * 2,
+  marginTop: Metrics.gridSize * 10,
 };
 
 const styles = StyleSheet.create({
@@ -14,16 +15,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: COLORS.black,
   },
-  title: {
-    marginTop: HEADER.marginTop,
-    color: COLORS.white,
+  flatlist: {
+    paddingHorizontal: CONTAINER.paddingHorizontal,
+    marginTop: CONTAINER.marginTop,
   },
 });
 
 const HomeScreen = ({ sessions, trackName, trackId }) => (
   <View style={styles.container} >
-    <Text style={styles.title}>{trackName}</Text>
-    <TrackList sessions={sessions} trackId={trackId} />
+    <FlatList
+      data={sessions}
+      contentContainerStyle={styles.flatlist}
+      keyExtractor={item => item.id}
+      renderItem={({ item }) => (
+        <ScheduleItem {...item} />
+      )}
+    />
   </View>
 );
 
