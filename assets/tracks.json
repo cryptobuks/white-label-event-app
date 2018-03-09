@@ -1,0 +1,22 @@
+[
+  {
+    "id": "innovation",
+    "title": "Innovation"
+  },
+  {
+    "id": "pbd",
+    "title": "Product & Business development"
+  },
+  {
+    "id": "newTech",
+    "title": "New Tech"
+  },
+  {
+    "id": "ai",
+    "title": "AI"
+  },
+  {
+    "id": "agile",
+    "title": "Agile"
+  }
+]
