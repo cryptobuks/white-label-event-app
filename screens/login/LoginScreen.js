@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     paddingTop: 0,
   },
   buttons: {
-    height: 100,
+    height: Metrics.gridSize * 12.5,
     justifyContent: 'space-between',
   },
 });

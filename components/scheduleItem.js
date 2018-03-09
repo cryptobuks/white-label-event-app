@@ -7,9 +7,9 @@ import ScheduleDetail from './scheduleDetail';
 
 const CONTAINER = {
   width: Metrics.width - (Metrics.gridSize * 6),
-  height: 139,
+  height: Metrics.gridSize * 17.5,
   margin: Metrics.gridSize * 2,
-  borderRadius: 3,
+  borderRadius: Metrics.gridSize * 0.375,
 };
 
 const CONTENT = {
@@ -17,9 +17,9 @@ const CONTENT = {
 };
 
 const IMAGE = {
-  height: 100,
-  width: 100,
-  borderRadius: 3,
+  height: Metrics.gridSize * 12.5,
+  width: Metrics.gridSize * 12.5,
+  borderRadius: Metrics.gridSize * 0.375,
 };
 
 const styles = StyleSheet.create({
