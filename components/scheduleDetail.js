@@ -2,6 +2,8 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import format from 'date-fns/format';
 import COLORS from '../config/colors';
+import FONT_SIZES from '../config/fontSizes';
+import Metrics from '../config/gridSizes';
 import ScheduleButton from './scheduleButton';
 import Label from './label';
 
@@ -11,7 +13,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-end',
-    marginTop: 32,
+    marginTop: Metrics.gridSize * 4,
   },
   detailTextContainer: {
     flex: 1,
@@ -23,8 +25,8 @@ const styles = StyleSheet.create({
 const ScheduleDetail = ({ location, date }) => (
   <View style={styles.detailContainer}>
     <View style={styles.detailTextContainer}>
-      <Label value={location} fontSize={12} color={COLORS.grey} />
-      <Label value={format(date, 'hh:mm A')} fontSize={12} color={COLORS.pink} />
+      <Label value={location} fontSize={FONT_SIZES.tertiary} color={COLORS.grey} />
+      <Label value={format(date, 'hh:mm A')} fontSize={FONT_SIZES.tertiary} color={COLORS.pink} />
     </View>
     <ScheduleButton />
   </View>

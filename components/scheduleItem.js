@@ -1,14 +1,19 @@
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import COLORS from '../config/colors';
+import Metrics from '../config/gridSizes';
 import ScheduleHeader from './scheduleHeader';
 import ScheduleDetail from './scheduleDetail';
 
 const CONTAINER = {
-  width: 327,
+  width: Metrics.width - (Metrics.gridSize * 6),
   height: 139,
-  margin: 16,
+  margin: Metrics.gridSize * 2,
   borderRadius: 3,
+};
+
+const CONTENT = {
+  marginLeft: Metrics.gridSize * 13,
 };
 
 const IMAGE = {
@@ -35,7 +40,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     margin: CONTAINER.margin,
-    marginLeft: 106,
+    marginLeft: CONTENT.marginLeft,
   },
   image: {
     position: 'absolute',

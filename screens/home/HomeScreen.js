@@ -1,11 +1,12 @@
 import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import COLORS from '../../config/colors';
+import Metrics from '../../config/gridSizes';
 import ScheduleItem from '../../components/scheduleItem';
 
 const CONTAINER = {
-  paddingHorizontal: 16,
-  marginTop: 30,
+  paddingHorizontal: Metrics.gridSize * 2,
+  marginTop: Metrics.gridSize * 4,
 };
 
 const styles = StyleSheet.create({
