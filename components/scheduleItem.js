@@ -1,95 +1,61 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
-import format from 'date-fns/format';
-import { COLORS } from '../utils/colors';
-import ScheduleButton from './scheduleButton';
+import { View, StyleSheet, Image } from 'react-native';
+import COLORS from '../config/colors';
+import ScheduleHeader from './scheduleHeader';
+import ScheduleDetail from './scheduleDetail';
+
+const CONTAINER = {
+  width: 327,
+  height: 139,
+  margin: 16,
+  borderRadius: 3,
+};
+
+const IMAGE = {
+  height: 100,
+  width: 100,
+  borderRadius: 3,
+};
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignSelf: 'stretch',
+    height: CONTAINER.height,
+    marginVertical: CONTAINER.margin,
+  },
   blockContainer: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: COLORS.white,
-    width: 327,
-    borderRadius: 3,
-  },
-  container: {
-    flex: 1,
-    alignSelf: 'stretch',
-    height: 139,
-    marginVertical: 16,
+    width: CONTAINER.width,
+    borderRadius: CONTAINER.borderRadius,
   },
   contentContainer: {
     flex: 1,
-    margin: 16,
+    margin: CONTAINER.margin,
     marginLeft: 106,
-  },
-  detailContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-end',
-    marginTop: 32,
-  },
-  detailTextContainer: {
-    flex: 1,
-    height: 34,
-    justifyContent: 'space-between',
-  },
-  name: {
-    color: COLORS.black,
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  title: {
-    color: COLORS.black,
-    fontSize: 14,
-    fontWeight: '600',
-  },
-  location: {
-    color: COLORS.grey,
-    fontSize: 12,
-  },
-  time: {
-    color: COLORS.pink,
-    fontSize: 12,
-  },
-  titleContainer: {
-    height: 40,
-    width: 205,
-    justifyContent: 'space-between',
   },
   image: {
     position: 'absolute',
-    left: -16,
-    top: ((139 / 2) - (100 / 2)),
-    width: 100,
-    height: 100,
-    borderRadius: 3,
-    zIndex: 999,
+    left: -CONTAINER.margin,
+    top: ((CONTAINER.height / 2) - (IMAGE.height / 2)),
+    width: IMAGE.width,
+    height: IMAGE.height,
+    borderRadius: IMAGE.borderRadius,
   },
 });
 
 const ScheduleItem = ({ author, title, location, date }) => (
   <View style={styles.container}>
-    <Image style={styles.image} source={{ uri: author.imageUrl }} />
     <View style={styles.blockContainer}>
       <View style={styles.contentContainer}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.name}>{author.name}</Text>
-          <Text style={styles.title}>{title}</Text>
-        </View>
-        <View style={styles.detailContainer}>
-          <View style={styles.detailTextContainer}>
-            <Text style={styles.location}>{location}</Text>
-            <Text style={styles.time}>
-              {format(new Date(date), 'hh:mm A')}
-            </Text>
-          </View>
-          <ScheduleButton />
-        </View>
+        <ScheduleHeader author={author.name} title={title} />
+        <ScheduleDetail date={date} location={location} />
       </View>
     </View>
+    <Image style={styles.image} source={{ uri: author.imageUrl }} />
   </View>
 );
 

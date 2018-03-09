@@ -1,8 +1,12 @@
 import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
-import { COLORS } from '../../utils/colors';
-import sessions from '../../assets/sessions.json';
+import COLORS from '../../config/colors';
 import ScheduleItem from '../../components/scheduleItem';
+
+const CONTAINER = {
+  paddingHorizontal: 16,
+  marginTop: 30,
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -11,12 +15,12 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.black,
   },
   flatlist: {
-    paddingHorizontal: 16,
-    marginTop: 30,
+    paddingHorizontal: CONTAINER.paddingHorizontal,
+    marginTop: CONTAINER.marginTop,
   },
 });
 
-const HomeScreen = () => (
+const HomeScreen = ({ sessions }) => (
   <View style={styles.container} >
     <FlatList
       data={sessions}

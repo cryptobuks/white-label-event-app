@@ -7,7 +7,7 @@
     "author": {
       "id": "9",
       "name": "Stefanie Van Hove",
-      "imageUrl": "https://baconmockup.com/300/200"
+      "imageUrl": "https://picsum.photos/300/250/?random"
     },
     "date": "Tue Mar 06 2018 14:22:31 GMT+0100 (CET)",
     "location": "Talk Area",
@@ -24,22 +24,22 @@
     "attendees": [
       {
         "id": "10",
-        "avatarUrl": "https://baconmockup.com/200/200",
+        "avatarUrl": "https://picsum.photos/300/250/?random",
         "name": "Thibault Maekelbergh"
       },
       {
         "id": "11",
-        "avatarUrl": "https://baconmockup.com/200/200",
+        "avatarUrl": "https://picsum.photos/300/250/?random",
         "name": "Jonathan Dierckens"
       },
       {
         "id": "12",
-        "avatarUrl": "https://baconmockup.com/200/200",
+        "avatarUrl": "https://picsum.photos/300/250/?random",
         "name": "Kevin Meyvaert"
       },
       {
         "id": "13",
-        "avatarUrl": "https://baconmockup.com/200/200",
+        "avatarUrl": "https://picsum.photos/300/250/?random",
         "name": "Jarno Verreyt"
       }
     ]
@@ -48,11 +48,11 @@
     "id": "2",
     "title": "API Management",
     "description": "",
-    "imageUrl": "https://baconmockup.com/300/200",
+    "imageUrl": "https://picsum.photos/300/250/?random",
     "author": {
       "id": "8",
       "name": "Cedric Devroey",
-      "imageUrl": "https://baconmockup.com/300/200"
+      "imageUrl": "https://picsum.photos/300/250/?random"
     },
     "date": "Tue Mar 06 2018 16:22:31 GMT+0100 (CET)",
     "location": "Workshop Area",
@@ -65,22 +65,22 @@
     "attendees": [
       {
         "id": "10",
-        "avatarUrl": "https://baconmockup.com/200/200",
+        "avatarUrl": "https://picsum.photos/300/250/?random",
         "name": "Thibault Maekelbergh"
       },
       {
         "id": "11",
-        "avatarUrl": "https://baconmockup.com/200/200",
+        "avatarUrl": "https://picsum.photos/300/250/?random",
         "name": "Jonathan Dierckens"
       },
       {
         "id": "12",
-        "avatarUrl": "https://baconmockup.com/200/200",
+        "avatarUrl": "https://picsum.photos/300/250/?random",
         "name": "Kevin Meyvaert"
       },
       {
         "id": "13",
-        "avatarUrl": "https://baconmockup.com/200/200",
+        "avatarUrl": "https://picsum.photos/300/250/?random",
         "name": "Jarno Verreyt"
       }
     ]
@@ -89,11 +89,11 @@
     "id": "3",
     "title": "Shift The Game",
     "description": "",
-    "imageUrl": "https://baconmockup.com/300/200",
+    "imageUrl": "https://picsum.photos/300/250/?random",
     "author": {
       "id": "6",
       "name": "Tom Van Helleputte",
-      "imageUrl": "https://baconmockup.com/300/200"
+      "imageUrl": "https://picsum.photos/300/250/?random"
     },
     "date": "Tue Mar 07 2018 12:22:31 GMT+0100 (CET)",
     "location": "Workshop Area",
@@ -106,12 +106,12 @@
     "attendees": [
       {
         "id": "10",
-        "avatarUrl": "https://baconmockup.com/200/200",
+        "avatarUrl": "https://picsum.photos/300/250/?random",
         "name": "Thibault Maekelbergh"
       },
       {
         "id": "11",
-        "avatarUrl": "https://baconmockup.com/200/200",
+        "avatarUrl": "https://picsum.photos/300/250/?random",
         "name": "Jonathan Dierckens"
       }
     ]
