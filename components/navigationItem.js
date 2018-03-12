@@ -1,3 +1,5 @@
+/* eslint-disable react-native/no-unused-styles */
+
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { FONT_SIZES, METRICS, COLORS } from '../config';
@@ -25,9 +27,6 @@ const styles = StyleSheet.create({
     width: GLOBALS.itemWidth,
     fontWeight: 'bold',
   },
-
-  /* eslint-disable react-native/no-unused-styles */
-
   left: {
     textAlign: 'right',
     opacity: GLOBALS.naOpacity,
@@ -45,9 +44,7 @@ const styles = StyleSheet.create({
 const NavigationItem = ({ title, position }) => (
   <View style={styles.container}>
     <Text style={[styles.item, styles[position]]} >{title}</Text>
-    {
-      position === 'middle' ? <View style={styles.line} /> : null
-    }
+    { position === 'middle' ? <View style={styles.line} /> : null }
   </View>
 );
 
