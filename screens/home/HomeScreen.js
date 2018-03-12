@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, FlatList, Text } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 import COLORS from '../../config/colors';
 import Metrics from '../../config/gridSizes';
 import ScheduleItem from '../../components/scheduleItem';
