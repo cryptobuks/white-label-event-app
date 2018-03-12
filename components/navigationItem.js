@@ -1,12 +1,10 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import COLORS from '../config/colors';
-import Metrics from '../config/gridSizes';
-import FONT_SIZES from '../config/fontSizes';
+import { FONT_SIZES, METRICS, COLORS } from '../config';
 
 const GLOBALS = {
-  itemWidth: Metrics.gridSize * 28,
-  marginHorizontal: Metrics.gridSize * 3,
+  itemWidth: METRICS.gridSize * 28,
+  marginHorizontal: METRICS.gridSize * 3,
   naOpacity: 0.4,
 };
 
@@ -16,9 +14,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   line: {
-    marginTop: Metrics.gridSize,
-    width: Metrics.gridSize * 2.5,
-    height: Metrics.gridSize / 4,
+    marginTop: METRICS.gridSize,
+    width: METRICS.gridSize * 2.5,
+    height: METRICS.gridSize / 4,
     backgroundColor: COLORS.violetPink,
   },
   item: {

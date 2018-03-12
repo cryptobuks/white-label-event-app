@@ -2,11 +2,11 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import NavigationItem from './navigationItem';
 import InvisibleNavButtons from './invisibleNavButtons';
-import Metrics from '../config/gridSizes';
+import { METRICS } from '../config';
 
 const GLOBALS = {
-  itemWidth: Metrics.gridSize * 28,
-  marginHorizontal: Metrics.gridSize * 3,
+  itemWidth: METRICS.gridSize * 28,
+  marginHorizontal: METRICS.gridSize * 3,
 };
 
 const styles = StyleSheet.create({
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     width: GLOBALS.itemWidth * 3,
     flexDirection: 'row',
     position: 'absolute',
-    top: Metrics.gridSize * 8,
+    top: METRICS.gridSize * 8,
     alignSelf: 'center',
     justifyContent: 'center',
   },

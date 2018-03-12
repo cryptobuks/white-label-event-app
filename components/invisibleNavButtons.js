@@ -1,11 +1,10 @@
 import React from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from 'react-native';
-import Metrics from '../config/gridSizes';
-import COLORS from '../config/colors.js';
+import { COLORS, METRICS } from '../config';
 
 const GLOBALS = {
-  itemWidth: Metrics.gridSize * 28,
-  marginHorizontal: Metrics.gridSize * 3,
+  itemWidth: METRICS.gridSize * 28,
+  marginHorizontal: METRICS.gridSize * 3,
 };
 
 const styles = StyleSheet.create({

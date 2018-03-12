@@ -1,8 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import format from 'date-fns/format';
-import COLORS from '../config/colors';
-import Metrics from '../config/gridSizes';
+import { COLORS, METRICS } from '../config';
 import ScheduleButton from './scheduleButton';
 import Label from './label';
 
@@ -12,11 +11,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-end',
-    marginTop: Metrics.gridSize * 4,
+    marginTop: METRICS.gridSize * 4,
   },
   detailTextContainer: {
     flex: 1,
-    height: Metrics.gridSize * 4,
+    height: METRICS.gridSize * 4,
     justifyContent: 'space-between',
   },
 });

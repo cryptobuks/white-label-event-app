@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native';
-import COLORS from '../config/colors';
-import FONT_SIZES from '../config/fontSizes';
+import { COLORS, FONT_SIZES } from '../config/';
 
 const Title = ({ value, color, fontSize, fontWeight }) => (
   <Text style={{ color, fontSize, fontWeight }}>{value}</Text>
