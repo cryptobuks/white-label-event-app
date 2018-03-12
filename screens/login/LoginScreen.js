@@ -1,7 +1,8 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
-import { COLORS } from '../../utils/colors';
+import COLORS from '../../config/colors';
+import Metrics from '../../config/gridSizes';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,12 +13,11 @@ const styles = StyleSheet.create({
   },
   whiteText: {
     color: COLORS.white,
-    paddingLeft: 60,
-    paddingRight: 60,
-    paddingBottom: 60,
+    padding: Metrics.gridSize * 7.5,
+    paddingTop: 0,
   },
   buttons: {
-    height: 100,
+    height: Metrics.gridSize * 12.5,
     justifyContent: 'space-between',
   },
 });

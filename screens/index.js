@@ -1,2 +1,2 @@
-export { default as HomeScreen } from './Home';
+export { default as HomeContainer } from './home/HomeContainer';
 export { default as LoginContainer } from './login/LoginContainer';

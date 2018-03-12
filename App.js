@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
-import { View, StyleSheet } from 'react-native';
-import { HomeScreen } from './screens';
-import LoginContainer from './screens/login/LoginContainer';
+import { View, StyleSheet, StatusBar } from 'react-native';
+import { HomeContainer, LoginContainer } from './screens';
 import { initializeFirebase, subscribeToTrack } from './utils/firebaseService';
 import { handleFacebookLogin, handleGoogleLogin } from './utils/authenticationService';
 
 const Navigator = StackNavigator({
   Login: { screen: LoginContainer },
-  Home: { screen: HomeScreen },
+  Home: { screen: HomeContainer },
 },
 {
   navigationOptions: {
@@ -33,6 +32,8 @@ export default class App extends Component {
       userInfo: {},
       usersPerSchedule: {},
     };
+
+    StatusBar.setBarStyle('light-content', true);
   }
 
   componentWillMount() {
