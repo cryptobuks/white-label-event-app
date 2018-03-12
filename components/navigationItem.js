@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     marginTop: Metrics.gridSize,
     width: Metrics.gridSize * 2.5,
     height: Metrics.gridSize / 4,
-    backgroundColor: COLORS.pink,
+    backgroundColor: COLORS.violetPink,
   },
   item: {
     color: COLORS.white,

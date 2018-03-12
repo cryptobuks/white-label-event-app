@@ -25,7 +25,7 @@ const ScheduleDetail = ({ location, date }) => (
   <View style={styles.detailContainer}>
     <View style={styles.detailTextContainer}>
       <Label value={location} />
-      <Label value={format(date, 'hh:mm A')} color={COLORS.pink} />
+      <Label value={format(date, 'hh:mm A')} color={COLORS.violetPink} />
     </View>
     <ScheduleButton />
   </View>
