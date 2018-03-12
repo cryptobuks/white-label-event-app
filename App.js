@@ -63,6 +63,8 @@ export default class App extends Component<*, State> {
 
   handleFacebookLogin = async () => {
     const userInfo = await handleFacebookLogin();
+    if (!userInfo.id) return;
+
     this.setState({
       userInfo: {
         ...userInfo,
@@ -73,6 +75,8 @@ export default class App extends Component<*, State> {
 
   handleGoogleLogin = async () => {
     const userInfo = await handleGoogleLogin();
+    if (!userInfo.id) return;
+
     this.setState({
       userInfo: {
         ...userInfo,

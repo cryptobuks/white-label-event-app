@@ -21,9 +21,20 @@ export default class LoginContainer extends Component<Props> {
     }
   }
 
-  render() {
-    const { handleFacebookLogin, handleGoogleLogin } = this.props.screenProps;
+  handleFacebookLogin = () => {
+    this.props.screenProps.handleFacebookLogin();
+  };
 
-    return <LoginScreen onFacebookLogin={handleFacebookLogin} onGoogleLogin={handleGoogleLogin} />;
+  handleGoogleLogin = () => {
+    this.props.screenProps.handleGoogleLogin();
+  };
+
+  render() {
+    return (
+      <LoginScreen
+        onFacebookLogin={this.handleFacebookLogin}
+        onGoogleLogin={this.handleGoogleLogin}
+      />
+    );
   }
 }
