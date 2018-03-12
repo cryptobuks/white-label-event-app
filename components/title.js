@@ -1,9 +1,14 @@
 import React from 'react';
 import { Text } from 'react-native';
+import { TStyleSheet } from '../types/stylesheet';
 import COLORS from '../config/colors';
 import FONT_SIZES from '../config/fontSizes';
 
-const Title = ({ value, color, fontSize, fontWeight }) => (
+type Props = {
+  value: string,
+} & TStyleSheet;
+
+const Title = ({ value, color, fontSize, fontWeight }: Props) => (
   <Text style={{ color, fontSize, fontWeight }}>{value}</Text>
 );
 

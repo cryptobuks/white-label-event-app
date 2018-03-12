@@ -25,22 +25,22 @@
     "attendees": [
       {
         "id": "10",
-        "avatarUrl": "https://picsum.photos/300/250/?random",
+        "imageUrl": "https://picsum.photos/300/250/?random",
         "name": "Thibault Maekelbergh"
       },
       {
         "id": "11",
-        "avatarUrl": "https://picsum.photos/300/250/?random",
+        "imageUrl": "https://picsum.photos/300/250/?random",
         "name": "Jonathan Dierckens"
       },
       {
         "id": "12",
-        "avatarUrl": "https://picsum.photos/300/250/?random",
+        "imageUrl": "https://picsum.photos/300/250/?random",
         "name": "Kevin Meyvaert"
       },
       {
         "id": "13",
-        "avatarUrl": "https://picsum.photos/300/250/?random",
+        "imageUrl": "https://picsum.photos/300/250/?random",
         "name": "Jarno Verreyt"
       }
     ]
@@ -66,22 +66,22 @@
     "attendees": [
       {
         "id": "10",
-        "avatarUrl": "https://picsum.photos/300/250/?random",
+        "imageUrl": "https://picsum.photos/300/250/?random",
         "name": "Thibault Maekelbergh"
       },
       {
         "id": "11",
-        "avatarUrl": "https://picsum.photos/300/250/?random",
+        "imageUrl": "https://picsum.photos/300/250/?random",
         "name": "Jonathan Dierckens"
       },
       {
         "id": "12",
-        "avatarUrl": "https://picsum.photos/300/250/?random",
+        "imageUrl": "https://picsum.photos/300/250/?random",
         "name": "Kevin Meyvaert"
       },
       {
         "id": "13",
-        "avatarUrl": "https://picsum.photos/300/250/?random",
+        "imageUrl": "https://picsum.photos/300/250/?random",
         "name": "Jarno Verreyt"
       }
     ]
@@ -107,12 +107,12 @@
     "attendees": [
       {
         "id": "10",
-        "avatarUrl": "https://picsum.photos/300/250/?random",
+        "imageUrl": "https://picsum.photos/300/250/?random",
         "name": "Thibault Maekelbergh"
       },
       {
         "id": "11",
-        "avatarUrl": "https://picsum.photos/300/250/?random",
+        "imageUrl": "https://picsum.photos/300/250/?random",
         "name": "Jonathan Dierckens"
       }
     ]

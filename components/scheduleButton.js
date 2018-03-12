@@ -1,7 +1,12 @@
+// @flow
 import React, { Component } from 'react';
 import { TouchableWithoutFeedback, Image, StyleSheet } from 'react-native';
 import ASSETS from '../config/assets';
 import Metrics from '../config/gridSizes';
+
+type State = {
+  isActive: boolean,
+};
 
 const styles = StyleSheet.create({
   image: {
@@ -10,7 +15,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class ScheduleButton extends Component {
+export default class ScheduleButton extends Component<*, State> {
   state = {
     isActive: false,
   };

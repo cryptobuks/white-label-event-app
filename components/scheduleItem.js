@@ -1,9 +1,13 @@
+// @flow
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import COLORS from '../config/colors';
 import Metrics from '../config/gridSizes';
 import ScheduleHeader from './scheduleHeader';
 import ScheduleDetail from './scheduleDetail';
+import { TEvent } from '../types/eventdata';
+
+type Props = TEvent;
 
 const CONTAINER = {
   width: Metrics.width - Metrics.gridSize * 6,
@@ -52,7 +56,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ScheduleItem = ({ author, title, location, date }) => (
+const ScheduleItem = ({ author, title, location, date }: Props) => (
   <View style={styles.container}>
     <View style={styles.blockContainer}>
       <View style={styles.contentContainer}>

@@ -1,5 +1,13 @@
+// @flow
 import React from 'react';
 import { View, StyleSheet, ActivityIndicator } from 'react-native';
+import { TStyleSheet } from '../types/stylesheet';
+
+type Props = {
+  animating?: boolean,
+  hidesWhenStopped?: boolean,
+  size?: number | 'small' | 'large',
+} & TStyleSheet;
 
 const styles = StyleSheet.create({
   container: {
@@ -9,7 +17,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Loading = ({ animating, color, hidesWhenStopped, size }) => (
+const Loading = ({ animating, color, hidesWhenStopped, size }: Props) => (
   <View style={styles.container}>
     <ActivityIndicator
       animating={animating}

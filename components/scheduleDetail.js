@@ -1,10 +1,17 @@
+// @flow
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import format from 'date-fns/format';
+import { TDateLike } from '../types/primitives';
 import COLORS from '../config/colors';
 import Metrics from '../config/gridSizes';
 import ScheduleButton from './scheduleButton';
 import Label from './label';
+
+type Props = {
+  location: string,
+  date: TDateLike,
+};
 
 const styles = StyleSheet.create({
   detailContainer: {
@@ -21,7 +28,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ScheduleDetail = ({ location, date }) => (
+const ScheduleDetail = ({ location, date }: Props) => (
   <View style={styles.detailContainer}>
     <View style={styles.detailTextContainer}>
       <Label value={location} />

@@ -1,8 +1,14 @@
+// @flow
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import COLORS from '../../config/colors';
 import Metrics from '../../config/gridSizes';
+
+type Props = {
+  onFacebookLogin: Function,
+  onGoogleLogin: Function,
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -22,14 +28,14 @@ const styles = StyleSheet.create({
   },
 });
 
-const LoginScreen = ({ screenProps: { facebookLogin, googleLogin } }) => (
+const LoginScreen = ({ onFacebookLogin, onGoogleLogin }: Props) => (
   <View style={styles.container}>
     <Text style={styles.whiteText}>
       Please login to subscribe for talks & sessions troughout the day.
     </Text>
     <View style={styles.buttons}>
-      <Button title="Login with Facebook" onPress={() => facebookLogin()} />
-      <Button title="Login with Google" onPress={() => googleLogin()} />
+      <Button title="Login with Facebook" onPress={onFacebookLogin} />
+      <Button title="Login with Google" onPress={onGoogleLogin} />
     </View>
   </View>
 );

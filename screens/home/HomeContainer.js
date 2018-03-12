@@ -1,7 +1,8 @@
+// @flow
 import React from 'react';
 import HomeScreen from './HomeScreen';
-import sessions from '../../assets/sessions.json';
+import events from '../../assets/events.json';
 
-const HomeContainer = () => <HomeScreen sessions={sessions} />;
+const HomeContainer = () => <HomeScreen events={events} />;
 
 export default HomeContainer;

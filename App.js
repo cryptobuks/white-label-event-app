@@ -1,6 +1,9 @@
+// @flow
 import React, { Component } from 'react';
-import { StackNavigator } from 'react-navigation';
 import { View, StyleSheet, StatusBar } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+import { TFacebookUserInfo } from './types/authentication';
+import { TFirebaseSnapshot } from './types/firebase';
 import { HomeContainer, LoginContainer } from './screens';
 import { initializeFirebase, subscribeToTrack } from './utils/firebaseService';
 import { handleFacebookLogin, handleGoogleLogin } from './utils/authenticationService';
@@ -17,19 +20,23 @@ const Navigator = StackNavigator(
   },
 );
 
+type State = {
+  userInfo: TFacebookUserInfo | {},
+  usersPerSchedule: {},
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
 });
 
-export default class App extends Component {
+export default class App extends Component<*, State> {
   constructor(props) {
     super(props);
 
     this.firebaseRefs = {};
     this.state = {
-      shiftData: [],
       userInfo: {},
       usersPerSchedule: {},
     };
@@ -47,7 +54,7 @@ export default class App extends Component {
     );
   }
 
-  onChangeUsers = (snapshot, trackId) => {
+  onChangeUsers = (snapshot: TFirebaseSnapshot, trackId: string) => {
     const visitors = snapshot.val() && snapshot.val().userIds;
     this.setState({
       usersPerSchedule: { ...this.state.usersPerSchedule, [trackId]: visitors },
@@ -81,9 +88,9 @@ export default class App extends Component {
         <Navigator
           screenProps={{
             userInfo,
-            facebookLogin: () => this.handleFacebookLogin(),
-            googleLogin: () => this.handleGoogleLogin(),
-            onChangeSubscription: trackId =>
+            handleFacebookLogin: () => this.handleFacebookLogin(),
+            handleGoogleLogin: () => this.handleGoogleLogin(),
+            onChangeSubscription: (trackId: string) =>
               subscribeToTrack({
                 trackId,
                 currentUserId: this.state.userInfo.id,
