@@ -6,7 +6,7 @@ import ScheduleHeader from './scheduleHeader';
 import ScheduleDetail from './scheduleDetail';
 
 const CONTAINER = {
-  width: Metrics.width - (Metrics.gridSize * 6),
+  width: Metrics.width - Metrics.gridSize * 6,
   height: Metrics.gridSize * 17.5,
   margin: Metrics.gridSize * 2,
   borderRadius: Metrics.gridSize * 0.375,
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   image: {
     position: 'absolute',
     left: -CONTAINER.margin,
-    top: ((CONTAINER.height / 2) - (IMAGE.height / 2)),
+    top: CONTAINER.height / 2 - IMAGE.height / 2,
     width: IMAGE.width,
     height: IMAGE.height,
     borderRadius: IMAGE.borderRadius,

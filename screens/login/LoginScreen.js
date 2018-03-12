@@ -25,13 +25,13 @@ const styles = StyleSheet.create({
 const LoginScreen = ({ screenProps: { facebookLogin, googleLogin } }) => (
   <View style={styles.container}>
     <Text style={styles.whiteText}>
-        Please login to subscribe for talks &
-        sessions troughout the day.
+      Please login to subscribe for talks & sessions troughout the day.
     </Text>
     <View style={styles.buttons}>
       <Button title="Login with Facebook" onPress={() => facebookLogin()} />
       <Button title="Login with Google" onPress={() => googleLogin()} />
     </View>
-  </View>);
+  </View>
+);
 
 export default LoginScreen;

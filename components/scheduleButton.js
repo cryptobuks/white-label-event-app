@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 export default class ScheduleButton extends Component {
   state = {
     isActive: false,
-  }
+  };
 
   render() {
     const { isActive } = this.state;

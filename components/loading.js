@@ -11,7 +11,12 @@ const styles = StyleSheet.create({
 
 const Loading = ({ animating, color, hidesWhenStopped, size }) => (
   <View style={styles.container}>
-    <ActivityIndicator animating={animating} color={color} hidesWhenStopped={hidesWhenStopped} size={size} />
+    <ActivityIndicator
+      animating={animating}
+      color={color}
+      hidesWhenStopped={hidesWhenStopped}
+      size={size}
+    />
   </View>
 );
 

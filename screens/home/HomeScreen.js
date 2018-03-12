@@ -22,14 +22,12 @@ const styles = StyleSheet.create({
 });
 
 const HomeScreen = ({ sessions }) => (
-  <View style={styles.container} >
+  <View style={styles.container}>
     <FlatList
       data={sessions}
       contentContainerStyle={styles.flatlist}
       keyExtractor={item => item.id}
-      renderItem={({ item }) => (
-        <ScheduleItem {...item} />
-      )}
+      renderItem={({ item }) => <ScheduleItem {...item} />}
     />
   </View>
 );

@@ -5,15 +5,16 @@ import { HomeContainer, LoginContainer } from './screens';
 import { initializeFirebase, subscribeToTrack } from './utils/firebaseService';
 import { handleFacebookLogin, handleGoogleLogin } from './utils/authenticationService';
 
-const Navigator = StackNavigator({
-  Login: { screen: LoginContainer },
-  Home: { screen: HomeContainer },
-},
-{
-  navigationOptions: {
-    header: null,
+const Navigator = StackNavigator(
+  {
+    Login: { screen: LoginContainer },
+    Home: { screen: HomeContainer },
   },
-},
+  {
+    navigationOptions: {
+      header: null,
+    },
+  },
 );
 
 const styles = StyleSheet.create({
@@ -41,7 +42,9 @@ export default class App extends Component {
   }
 
   componentWillUnmount() {
-    Object.keys(this.firebaseRefs).forEach(trackId => this.firebaseRefs[trackId].off('value', this.onChangeUsers));
+    Object.keys(this.firebaseRefs).forEach(trackId =>
+      this.firebaseRefs[trackId].off('value', this.onChangeUsers),
+    );
   }
 
   onChangeUsers = (snapshot, trackId) => {

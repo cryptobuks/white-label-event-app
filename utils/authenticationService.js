@@ -12,7 +12,9 @@ export const handleFacebookLogin = async () => {
 
   if (type === 'success') {
     // Get the user's name using Facebook's Graph API
-    const userInfoResponse = await fetch(`https://graph.facebook.com/me?access_token=${token}&fields=id,first_name,picture.type(large)`);
+    const userInfoResponse = await fetch(
+      `https://graph.facebook.com/me?access_token=${token}&fields=id,first_name,picture.type(large)`,
+    );
     return userInfoResponse.json();
   }
   return {};
