@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableWithoutFeedback, Text } from 'react-native';
 import NavigationItem from './navigationItem';
+import InvisibleNavButtons from './invisibleNavButtons';
 import Metrics from '../config/gridSizes';
+import COLORS from '../config/colors.js';
 
 const GLOBALS = {
   itemWidth: Metrics.gridSize * 28,
@@ -16,12 +18,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: Metrics.gridSize * 8,
     alignSelf: 'center',
-    alignItems: 'center',
     justifyContent: 'center',
   },
 });
 
-const SchedulePagination = ({ index, total, tracks }) => (
+const SchedulePagination = ({ index, total, tracks, onNextTap }) => (
   <View style={styles.container}>
     {
       tracks[index - 1] ?
@@ -34,6 +35,7 @@ const SchedulePagination = ({ index, total, tracks }) => (
         <NavigationItem title={tracks[index + 1].title} position={'right'} /> :
         <NavigationItem title={''} position={'right'} />
     }
+    <InvisibleNavButtons index={index} total={total} onNextTap={onNextTap} />
   </View>
 );
 

@@ -5,30 +5,40 @@ import SchedulePagination from '../../components/schedulePagination';
 import sessions from '../../assets/sessions.json';
 import tracks from '../../assets/tracks.json';
 
-const HomeContainer = () => (
-  <Swiper
-    showsButtons={false}
-    loop={false}
-    removeClippedSubviews={false}
-    renderPagination={
-      (i, t) => (
-        <SchedulePagination
-          index={i}
-          total={t}
-          tracks={tracks}
-        />
-      )
-    }
-  >
-    {
-      tracks.map((t) => {
-        const trackSessions = sessions.filter(s => (
-          s.tags.some(st => st.id === t.id)
-        ));
-        return <HomeScreen key={t.id} trackName={t.title} trackId={t.id} sessions={trackSessions} />;
-      })
-    }
-  </Swiper>
-);
+const HomeContainer = () => {
+  let swiper;
+
+  const handleTouchableTap = (destination, total, index) => {
+    if (index + destination >= 0 && index + destination < total) swiper.scrollBy(destination, true);
+  };
+
+  return (
+    <Swiper
+      showsButtons={false}
+      loop={false}
+      removeClippedSubviews={false}
+      ref={($el) => { swiper = $el; }}
+      renderPagination={
+        (i, t) => (
+          <SchedulePagination
+            index={i}
+            total={t}
+            tracks={tracks}
+            onNextTap={handleTouchableTap}
+          />
+        )
+      }
+    >
+      {
+        tracks.map((t) => {
+          const trackSessions = sessions.filter(s => (
+            s.tags.some(st => st.id === t.id)
+          ));
+          return <HomeScreen key={t.id} trackName={t.title} trackId={t.id} sessions={trackSessions} />;
+        })
+      }
+    </Swiper>
+  );
+};
 
 export default HomeContainer;
