@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, TouchableWithoutFeedback, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import NavigationItem from './navigationItem';
 import InvisibleNavButtons from './invisibleNavButtons';
 import Metrics from '../config/gridSizes';
-import COLORS from '../config/colors.js';
 
 const GLOBALS = {
   itemWidth: Metrics.gridSize * 28,
