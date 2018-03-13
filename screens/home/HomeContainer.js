@@ -1,45 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Swiper from 'react-native-swiper';
 import HomeScreen from './HomeScreen';
 import SchedulePagination from '../../components/schedulePagination';
 import sessions from '../../assets/sessions.json';
 import tracks from '../../assets/tracks.json';
+import { SortByDate } from '../../utils/sort';
 
-const HomeContainer = () => {
-  let swiper;
+export default class HomeContainer extends Component {
+  get trackSessions() {
+    return tracks.map((track) => {
+      const trackSessions = sessions.filter(session => (
+        session.tags.some(sessionTrack => sessionTrack.id === track.id)
+      ));
+      return SortByDate(trackSessions);
+    });
+  }
 
-  const handleTouchableTap = (destination, total, index) => {
-    if (index + destination >= 0 && index + destination < total) swiper.scrollBy(destination, true);
-  };
+  handleTouchableTap = (destination, total, index) => {
+    if (index + destination >= 0 && index + destination < total) this.swiperRef.scrollBy(destination, true);
+  }
 
-  return (
-    <Swiper
-      showsButtons={false}
-      loop={false}
-      removeClippedSubviews={false}
-      ref={($el) => { swiper = $el; }}
-      renderPagination={
-        (i, t) => (
-          <SchedulePagination
-            index={i}
-            total={t}
-            tracks={tracks}
-            onNextTap={handleTouchableTap}
-          />
-        )
-      }
-    >
-      {
-        tracks.map((t) => {
-          const trackSessions = sessions.filter(s => (
-            s.tags.some(st => st.id === t.id)
-          ));
-          const sortedSessions = trackSessions.sort((a, b) => new Date(a.date) - new Date(b.date));
-          return <HomeScreen key={t.id} trackName={t.title} trackId={t.id} sessions={sortedSessions} />;
-        })
-      }
-    </Swiper>
-  );
-};
-
-export default HomeContainer;
+  render() {
+    return (
+      <Swiper
+        showsButtons={false}
+        loop={false}
+        removeClippedSubviews={false}
+        ref={(el) => { this.swiperRef = el; }}
+        renderPagination={
+          (index, total) => (
+            <SchedulePagination
+              index={index}
+              total={total}
+              tracks={tracks}
+              onNextTap={this.handleTouchableTap}
+            />
+          )
+        }
+      >
+        {
+          tracks.map((track, i) => <HomeScreen key={track.id} trackName={track.title} trackId={track.id} sessions={this.trackSessions[i]} />)
+        }
+      </Swiper>
+    );
+  }
+}
