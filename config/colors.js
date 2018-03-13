@@ -3,5 +3,6 @@ export default {
   white: 'white',
   black: 'black',
   grey: '#424749',
-  pink: '#e54cfe',
+  violetPink: '#e54cfe',
+  cyan: '#35E2AA',
 };

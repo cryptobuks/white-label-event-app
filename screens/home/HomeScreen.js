@@ -7,6 +7,7 @@ import ScheduleItem from '../../components/scheduleItem';
 const CONTAINER = {
   paddingHorizontal: Metrics.gridSize * 2,
   marginTop: Metrics.gridSize * 4,
+  paddingBottom: Metrics.gridSize * 13,
 };
 
 const styles = StyleSheet.create({
@@ -18,6 +19,7 @@ const styles = StyleSheet.create({
   flatlist: {
     paddingHorizontal: CONTAINER.paddingHorizontal,
     marginTop: CONTAINER.marginTop,
+    paddingBottom: CONTAINER.paddingBottom,
   },
 });
 

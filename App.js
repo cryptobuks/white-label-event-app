@@ -1,19 +1,38 @@
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 import { View, StyleSheet, StatusBar } from 'react-native';
-import { HomeContainer, LoginContainer } from './screens';
+import { HomeContainer, LoginContainer, PersonalScheduleModal } from './screens';
 import { initializeFirebase, subscribeToTrack } from './utils/firebaseService';
-import { handleFacebookLogin, handleGoogleLogin } from './utils/authenticationService';
+import {
+  handleFacebookLogin,
+  handleGoogleLogin,
+} from './utils/authenticationService';
 
-const Navigator = StackNavigator({
-  Login: { screen: LoginContainer },
-  Home: { screen: HomeContainer },
-},
-{
-  navigationOptions: {
-    header: null,
+const Navigator = StackNavigator(
+  {
+    // Login: { screen: LoginContainer },
+    Home: { screen: HomeContainer },
   },
-},
+  {
+    navigationOptions: {
+      header: null,
+    },
+  },
+);
+
+const RootStack = StackNavigator(
+  {
+    Main: {
+      screen: Navigator,
+    },
+    PersonalSchedule: {
+      screen: PersonalScheduleModal,
+    },
+  },
+  {
+    mode: 'modal',
+    headerMode: 'none',
+  },
 );
 
 const styles = StyleSheet.create({
@@ -41,7 +60,9 @@ export default class App extends Component {
   }
 
   componentWillUnmount() {
-    Object.keys(this.firebaseRefs).forEach(trackId => this.firebaseRefs[trackId].off('value', this.onChangeUsers));
+    Object.keys(this.firebaseRefs).forEach(trackId =>
+      this.firebaseRefs[trackId].off('value', this.onChangeUsers),
+    );
   }
 
   onChangeUsers = (snapshot, trackId) => {
@@ -75,7 +96,7 @@ export default class App extends Component {
     const { userInfo } = this.state;
     return (
       <View style={styles.container}>
-        <Navigator
+        <RootStack
           screenProps={{
             userInfo,
             facebookLogin: () => this.handleFacebookLogin(),

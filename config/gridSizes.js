@@ -1,4 +1,4 @@
-import { Dimensions } from 'react-native';
+import { Dimensions, Platform } from 'react-native';
 
 export const SIZE = {
   SMALL: 'small',
@@ -22,3 +22,5 @@ const Metrics = {
 };
 
 export default Metrics;
+
+export const IS_IPHONE_X = Platform.OS === 'ios' && (height === 812 || width === 812);
