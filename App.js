@@ -10,7 +10,7 @@ import {
 
 const Navigator = StackNavigator(
   {
-    Login: { screen: LoginContainer },
+    // Login: { screen: LoginContainer },
     Home: { screen: HomeContainer },
   },
   {

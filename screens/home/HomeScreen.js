@@ -6,7 +6,7 @@ import ScheduleItem from '../../components/scheduleItem';
 const CONTAINER = {
   paddingHorizontal: METRICS.gridSize * 2,
   marginTop: METRICS.gridSize * 14,
-  paddingBottom: METRICS.gridSize * 13,
+  paddingBottom: METRICS.gridSize * 25,
 };
 
 const styles = StyleSheet.create({

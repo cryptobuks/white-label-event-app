@@ -34,6 +34,7 @@ export const COLORS = {
   transparent: 'transparent',
   white: 'white',
   black: 'black',
+  blackTransparent: 'rgba(0,0,0,.5)',
   grey: '#424749',
   violetPink: '#e54cfe',
   cyan: '#35e2aa',
