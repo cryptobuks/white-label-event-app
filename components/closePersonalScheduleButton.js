@@ -1,18 +1,16 @@
 import React from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback, Image } from 'react-native';
-import COLORS from '../config/colors';
-import Metrics from '../config/gridSizes';
-import ASSETS from '../config/assets';
+import { COLORS, METRICS, ASSETS } from '../config';
 
 const styles = StyleSheet.create({
   closeContainer: {
     position: 'absolute',
-    right: Metrics.gridSize / 2,
+    right: METRICS.gridSize / 2,
   },
   close: {
     tintColor: COLORS.white,
-    width: Metrics.gridSize * 3,
-    height: Metrics.gridSize * 3,
+    width: METRICS.gridSize * 3,
+    height: METRICS.gridSize * 3,
   },
 });
 

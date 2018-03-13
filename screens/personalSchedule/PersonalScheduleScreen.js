@@ -2,13 +2,11 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import ClosePersonalScheduleButton from '../../components/closePersonalScheduleButton';
 import ScheduleItem from '../../components/scheduleItem';
-import COLORS from '../../config/colors';
-import FONT_SIZES from '../../config/fontSizes';
-import Metrics from '../../config/gridSizes';
+import { COLORS, FONT_SIZES, METRICS } from '../../config';
 
 const CONSTANTS = {
-  paddingTop: Metrics.gridSize * 9,
-  paddingBottom: Metrics.gridSize * 4,
+  paddingTop: METRICS.gridSize * 9,
+  paddingBottom: METRICS.gridSize * 4,
 };
 
 const styles = StyleSheet.create({
@@ -17,12 +15,12 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.cyan,
     alignItems: 'center',
     shadowColor: COLORS.transparent,
-    width: Metrics.width,
+    width: METRICS.width,
   },
   header: {
-    top: Metrics.gridSize * 7,
-    width: Metrics.width - (Metrics.gridSize * 4),
-    height: Metrics.gridSize * 2,
+    top: METRICS.gridSize * 7,
+    width: METRICS.width - (METRICS.gridSize * 4),
+    height: METRICS.gridSize * 2,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -34,12 +32,12 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     top: CONSTANTS.paddingTop,
-    height: Metrics.height - CONSTANTS.paddingTop,
+    height: METRICS.height - CONSTANTS.paddingTop,
     flexDirection: 'column',
     justifyContent: 'center',
   },
   flatlist: {
-    paddingHorizontal: Metrics.gridSize * 2,
+    paddingHorizontal: METRICS.gridSize * 2,
     paddingBottom: CONSTANTS.paddingBottom,
   },
 });

@@ -16,6 +16,7 @@ const Navigator = StackNavigator(
   {
     navigationOptions: {
       header: null,
+      gesturesEnabled: false,
     },
   },
 );

@@ -1,16 +1,14 @@
 import React from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from 'react-native';
-import Metrics, { IS_IPHONE_X } from '../config/gridSizes';
-import COLORS from '../config/colors';
-import FONT_SIZES from '../config/fontSizes';
+import { COLORS, FONT_SIZES, METRICS, IS_IPHONE_X } from '../config';
 
 const styles = StyleSheet.create({
   buttonContainer: {
     flex: 1,
     position: 'absolute',
     backgroundColor: COLORS.cyan,
-    height: Metrics.gridSize * 7,
-    width: Metrics.width,
+    height: METRICS.gridSize * 7,
+    width: METRICS.width,
     bottom: 0,
     justifyContent: 'center',
     alignItems: 'center',
@@ -25,8 +23,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   iPhoneXPaddingBottom: {
-    paddingBottom: Metrics.gridSize * 3,
-    height: Metrics.gridSize * 10,
+    paddingBottom: METRICS.gridSize * 3,
+    height: METRICS.gridSize * 10,
   },
 });
 

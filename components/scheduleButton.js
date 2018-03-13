@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { TouchableWithoutFeedback, Image, StyleSheet } from 'react-native';
-import ASSETS from '../config/assets';
-import Metrics from '../config/gridSizes';
+import { ASSETS, METRICS } from '../config';
 
 const styles = StyleSheet.create({
   image: {
-    width: Metrics.gridSize * 2.5,
-    height: Metrics.gridSize * 2.5,
+    width: METRICS.gridSize * 2.5,
+    height: METRICS.gridSize * 2.5,
   },
 });
 
