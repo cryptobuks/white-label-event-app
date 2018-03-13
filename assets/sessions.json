@@ -60,6 +60,10 @@
       {
         "id": "newTech",
         "name": "New Tech"
+      },
+      {
+        "id": "innovation",
+        "name": "Innovation"
       }
     ],
     "attendees": [
@@ -101,6 +105,10 @@
       {
         "id": "agile",
         "name": "Agile"
+      },
+      {
+        "id": "productAndBusinessDevelopment",
+        "name": "Product & Business Development"
       }
     ],
     "attendees": [
