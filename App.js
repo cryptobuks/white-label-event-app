@@ -6,7 +6,7 @@ import { initializeFirebase, subscribeToTrack } from './utils/firebaseService';
 import { handleFacebookLogin, handleGoogleLogin } from './utils/authenticationService';
 
 const Navigator = StackNavigator({
-  // Login: { screen: LoginContainer },
+  Login: { screen: LoginContainer },
   Home: { screen: HomeContainer },
 },
 {
