@@ -1,10 +1,37 @@
+import * as firebase from 'firebase';
+import { authenticationProviders } from './auth/providers';
+
 // Facebook Authenthication
-const FB_APP_ID = '2049634398613694';
+// const FB_APP_ID = '2049634398613694';
 // Google Authenthication
 const ANDROID_CLIENT_ID = '';
 const IOS_CLIENT_ID = '';
 
 export const handleFacebookLogin = async () => {
+  debugger;
+  firebase.auth().signInWithRedirect(authenticationProviders.facebook);
+  firebase.auth().getRedirectResult().then((result) => {
+    console.log(result);
+    if (result.credential) {
+      debugger;
+      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+      const token = result.credential.accessToken;
+      // ...
+    }
+    // The signed-in user info.
+    const user = result.user;
+  }).catch((error) => {
+    debugger;
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    const credential = error.credential;
+    // ...
+  });
+  /*
   const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync(FB_APP_ID, {
     permissions: ['public_profile'],
     behavior: 'web',
@@ -16,6 +43,7 @@ export const handleFacebookLogin = async () => {
     return userInfoResponse.json();
   }
   return {};
+  */
 };
 
 export const handleGoogleLogin = async () => {

@@ -39,7 +39,7 @@
   "dependencies": {
     "itp-react-native-scripts": "git+https://github.com/inthepocket/itp-react-native-scripts.git",
     "expo": "^21.0.0",
-    "firebase": "^4.4.0",
+    "firebase": "^4.11.0",
     "react": "16.0.0-alpha.12",
     "react-native": "^0.48.4",
     "react-native-elements": "^0.17.0",
