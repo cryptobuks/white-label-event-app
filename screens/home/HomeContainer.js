@@ -4,7 +4,7 @@ import HomeScreen from './HomeScreen';
 import SchedulePagination from '../../components/schedulePagination';
 import sessions from '../../assets/sessions.json';
 import tracks from '../../assets/tracks.json';
-import { SortByDate } from '../../utils/sort';
+import { sortByDate } from '../../utils/sort';
 
 export default class HomeContainer extends Component {
   get trackSessions() {
@@ -12,7 +12,7 @@ export default class HomeContainer extends Component {
       const trackSessions = sessions.filter(session => (
         session.tags.some(sessionTrack => sessionTrack.id === track.id)
       ));
-      return SortByDate(trackSessions);
+      return sortByDate(trackSessions);
     });
   }
 
