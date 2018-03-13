@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, TouchableHighlight, Text } from 'react-native';
+import { View, StyleSheet, TouchableWithoutFeedback, Text } from 'react-native';
 import Metrics, { IS_IPHONE_X } from '../config/gridSizes';
 import COLORS from '../config/colors';
 import FONT_SIZES from '../config/fontSizes';
@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: FONT_SIZES.primary,
     color: COLORS.white,
+    fontWeight: '600',
   },
   iPhoneXPaddingBottom: {
     paddingBottom: Metrics.gridSize * 3,
@@ -30,11 +31,11 @@ const styles = StyleSheet.create({
 });
 
 const PersonalScheduleButton = ({ onPress }) => (
-  <TouchableHighlight onPress={onPress}>
+  <TouchableWithoutFeedback onPress={onPress}>
     <View style={[styles.buttonContainer, IS_IPHONE_X ? styles.iPhoneXPaddingBottom : null]}>
-      <Text style={styles.buttonText}>{'my schedule'}</Text>
+      <Text style={styles.buttonText}>{'My Schedule'}</Text>
     </View>
-  </TouchableHighlight>
+  </TouchableWithoutFeedback>
 );
 
 export default PersonalScheduleButton;

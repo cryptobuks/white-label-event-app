@@ -4,5 +4,5 @@ export default {
   black: 'black',
   grey: '#424749',
   violetPink: '#e54cfe',
-  cyan: '#35E2AA',
+  cyan: '#35e2aa',
 };

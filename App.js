@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 import { View, StyleSheet, StatusBar } from 'react-native';
-import { HomeContainer, LoginContainer, PersonalScheduleModal } from './screens';
+import { HomeContainer, LoginContainer, PersonalScheduleContainer } from './screens';
 import { initializeFirebase, subscribeToTrack } from './utils/firebaseService';
 import {
   handleFacebookLogin,
@@ -10,7 +10,7 @@ import {
 
 const Navigator = StackNavigator(
   {
-    // Login: { screen: LoginContainer },
+    Login: { screen: LoginContainer },
     Home: { screen: HomeContainer },
   },
   {
@@ -26,12 +26,15 @@ const RootStack = StackNavigator(
       screen: Navigator,
     },
     PersonalSchedule: {
-      screen: PersonalScheduleModal,
+      screen: PersonalScheduleContainer,
     },
   },
   {
     mode: 'modal',
     headerMode: 'none',
+    cardStyle: {
+      shadowOpacity: 0,
+    },
   },
 );
 

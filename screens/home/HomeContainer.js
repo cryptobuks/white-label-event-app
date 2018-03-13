@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 const HomeContainer = ({ navigation }) => (
   <View style={styles.container}>
     <HomeScreen sessions={sessions} />
-    <PersonalScheduleButton onPress={() => (navigation.navigate(PERSONAL_SCHEDULE))} />
+    <PersonalScheduleButton onPress={() => navigation.navigate(PERSONAL_SCHEDULE)} />
   </View>
 );
 
