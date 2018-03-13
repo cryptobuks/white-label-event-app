@@ -34,7 +34,8 @@ const HomeContainer = () => {
           const trackSessions = sessions.filter(s => (
             s.tags.some(st => st.id === t.id)
           ));
-          return <HomeScreen key={t.id} trackName={t.title} trackId={t.id} sessions={trackSessions} />;
+          const sortedSessions = trackSessions.sort((a, b) => new Date(a.date) - new Date(b.date));
+          return <HomeScreen key={t.id} trackName={t.title} trackId={t.id} sessions={sortedSessions} />;
         })
       }
     </Swiper>
