@@ -21,7 +21,11 @@ export default class HomeContainer extends Component {
       const trackSessions = sessions.filter(session => (
         session.tags.some(sessionTrack => sessionTrack.id === track.id)
       ));
-      return sortByDate(trackSessions);
+      const sortedTrackSessions = sortByDate(trackSessions);
+      return {
+        id: track.id,
+        tracks: [...sortedTrackSessions],
+      };
     });
   }
 
@@ -29,9 +33,11 @@ export default class HomeContainer extends Component {
     if (index + destination >= 0 && index + destination < total) this.swiperRef.scrollBy(destination, true);
   }
 
-  render() {
-    const { navigation } = this.props;
+  handleScheduleButtonPress = () => {
+    this.props.navigation.navigate(PERSONAL_SCHEDULE);
+  }
 
+  render() {
     return (
       <View style={styles.container}>
         <Swiper
@@ -51,10 +57,13 @@ export default class HomeContainer extends Component {
           }
         >
           {
-            tracks.map((track, i) => <HomeScreen key={track.id} trackName={track.title} trackId={track.id} sessions={this.trackSessions[i]} />)
+            tracks.map((track, i) => {
+              const currTrackSessions = this.trackSessions.find(currTrack => track.id === currTrack.id);
+              return <HomeScreen key={track.id} trackName={track.title} trackId={track.id} sessions={currTrackSessions.tracks} />;
+            })
           }
         </Swiper>
-        <PersonalScheduleButton onPress={() => navigation.navigate(PERSONAL_SCHEDULE)} />
+        <PersonalScheduleButton handleScheduleButtonPress={this.handleScheduleButtonPress} />
       </View>
     );
   }

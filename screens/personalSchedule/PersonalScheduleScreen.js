@@ -42,11 +42,11 @@ const styles = StyleSheet.create({
   },
 });
 
-const PersonalScheduleScreen = ({ sessions, navigation }) => (
+const PersonalScheduleScreen = ({ sessions, handleGoBack }) => (
   <View style={styles.container}>
     <View style={styles.header}>
-      <Text style={styles.title}>{'My Schedule'}</Text>
-      <ClosePersonalScheduleButton goBack={navigation.goBack} />
+      <Text style={styles.title}>My Schedule</Text>
+      <ClosePersonalScheduleButton handleGoBack={handleGoBack} />
     </View>
     <View style={styles.listContainer} >
       <FlatList

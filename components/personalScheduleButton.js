@@ -40,15 +40,15 @@ const styles = StyleSheet.create({
   },
 });
 
-const PersonalScheduleButton = ({ onPress }) => (
-  <TouchableWithoutFeedback onPress={!DISABLED ? onPress : null}>
+const PersonalScheduleButton = ({ handleScheduleButtonPress }) => (
+  <TouchableWithoutFeedback onPress={!DISABLED ? handleScheduleButtonPress : null}>
     <View style={[
       styles.buttonContainer,
       IS_IPHONE_X ? styles.iPhoneXPaddingBottom : null,
       DISABLED ? styles.disabled : null,
     ]}
     >
-      <Text style={styles.buttonText}>{'My Schedule'}</Text>
+      <Text style={styles.buttonText}>My Schedule</Text>
     </View>
   </TouchableWithoutFeedback>
 );

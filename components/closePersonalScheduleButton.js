@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const ClosePersonalScheduleButton = ({ goBack }) => (
-  <TouchableWithoutFeedback onPress={() => goBack()} >
+const ClosePersonalScheduleButton = ({ handleGoBack }) => (
+  <TouchableWithoutFeedback onPress={handleGoBack} >
     <View style={styles.closeContainer} >
       <Image source={ASSETS.close} style={styles.close} />
     </View>

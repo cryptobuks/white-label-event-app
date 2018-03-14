@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PersonalScheduleScreen from './PersonalScheduleScreen';
 import sessions from '../../assets/sessions.json';
 
 // Temporary dummy data until userId is stored in state
 const USER_ID = '10';
 
-const PersonalScheduleContainer = ({ navigation }) => {
-  const personalSessions = sessions.filter(ps => ps.attendees.some(a => a.id === USER_ID));
+export default class PersonalScheduleContainer extends Component {
+  handleGoBack = () => this.props.navigation.goBack();
 
-  return (
-    <PersonalScheduleScreen sessions={personalSessions} navigation={navigation} />
-  );
-};
+  personalSessions = sessions.filter(ps => ps.attendees.some(a => a.id === USER_ID));
 
-export default PersonalScheduleContainer;
+  render() {
+    return (
+      <PersonalScheduleScreen sessions={this.personalSessions} handleGoBack={this.handleGoBack} />
+    );
+  }
+}
 
