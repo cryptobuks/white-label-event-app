@@ -1,6 +1,12 @@
 import React from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from 'react-native';
-import { COLORS, FONT_SIZES, METRICS, IS_IPHONE_X } from '../config';
+import { COLORS, FONT_SIZES, METRICS, IS_IPHONE_X, FONT_WEIGHTS } from '../config';
+
+const SHADOW = {
+  offset: { x: -5 },
+  opacity: 0.5,
+  radius: 12,
+};
 
 const styles = StyleSheet.create({
   buttonContainer: {
@@ -13,14 +19,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: COLORS.black,
-    shadowOffset: { x: -5 },
-    shadowOpacity: 0.5,
-    shadowRadius: 12,
+    shadowOffset: SHADOW.offset,
+    shadowOpacity: SHADOW.opacity,
+    shadowRadius: SHADOW.radius,
   },
   buttonText: {
     fontSize: FONT_SIZES.primary,
     color: COLORS.white,
-    fontWeight: '600',
+    fontWeight: FONT_WEIGHTS.bold,
   },
   iPhoneXPaddingBottom: {
     paddingBottom: METRICS.gridSize * 3,

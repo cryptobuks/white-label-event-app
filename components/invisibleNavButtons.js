@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   view: {
-    width: 150,
-    height: 50,
+    width: METRICS.gridSize * 18,
+    height: METRICS.gridSize * 6,
   },
   right: {
     left: GLOBALS.itemWidth - 10,

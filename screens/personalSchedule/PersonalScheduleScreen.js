@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import ClosePersonalScheduleButton from '../../components/closePersonalScheduleButton';
 import ScheduleItem from '../../components/scheduleItem';
-import { COLORS, FONT_SIZES, METRICS } from '../../config';
+import { COLORS, FONT_SIZES, METRICS, FONT_WEIGHTS } from '../../config';
 
 const CONSTANTS = {
   paddingTop: METRICS.gridSize * 9,
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: FONT_SIZES.primary,
-    fontWeight: '600',
+    fontWeight: FONT_WEIGHTS.bold,
     color: COLORS.white,
   },
   listContainer: {

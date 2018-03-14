@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, ActivityIndicator } from 'react-native';
+import { COLORS } from '../config';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,7 +18,7 @@ const Loading = ({ animating, color, hidesWhenStopped, size }) => (
 
 Loading.defaultProps = {
   animating: true,
-  color: '#000',
+  color: COLORS.black,
   hidesWhenStopped: true,
   size: 'large',
 };

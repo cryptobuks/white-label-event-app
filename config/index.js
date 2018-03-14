@@ -46,4 +46,11 @@ export const FONT_SIZES = {
   tertiary: 12,
 };
 
+export const FONT_WEIGHTS = {
+  heavy: '800',
+  bold: '600',
+  normal: '400',
+  light: '300',
+};
+
 export const IS_IPHONE_X = Platform.OS === 'ios' && (height === 812 || width === 812);
