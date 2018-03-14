@@ -2,8 +2,7 @@
 import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { TEvents, TEvent } from '../../types/eventdata';
-import COLORS from '../../config/colors';
-import Metrics from '../../config/gridSizes';
+import { COLORS, METRICS } from '../../config';
 import ScheduleItem from '../../components/scheduleItem';
 
 type Props = {
@@ -11,8 +10,8 @@ type Props = {
 };
 
 const CONTAINER = {
-  paddingHorizontal: Metrics.gridSize * 2,
-  marginTop: Metrics.gridSize * 4,
+  paddingHorizontal: METRICS.gridSize * 2,
+  marginTop: METRICS.gridSize * 14,
 };
 
 const styles = StyleSheet.create({
@@ -27,7 +26,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const HomeScreen = ({ events }: Props) => (
+const HomeScreen = ({ events, trackName, trackId }: Props) => (
   <View style={styles.container}>
     <FlatList
       data={events}

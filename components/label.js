@@ -2,8 +2,7 @@
 import * as React from 'react';
 import { Text } from 'react-native';
 import { TStyleSheet } from '../types/stylesheet';
-import COLORS from '../config/colors';
-import FONT_SIZES from '../config/fontSizes';
+import { COLORS, FONT_SIZES } from '../config';
 
 type Props = {
   value: React.ReactText,

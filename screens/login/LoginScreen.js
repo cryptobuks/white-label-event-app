@@ -2,8 +2,7 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
-import COLORS from '../../config/colors';
-import Metrics from '../../config/gridSizes';
+import { COLORS, METRICS } from '../../config';
 
 type Props = {
   onFacebookLogin: Function,
@@ -19,11 +18,11 @@ const styles = StyleSheet.create({
   },
   whiteText: {
     color: COLORS.white,
-    padding: Metrics.gridSize * 7.5,
+    padding: METRICS.gridSize * 7.5,
     paddingTop: 0,
   },
   buttons: {
-    height: Metrics.gridSize * 12.5,
+    height: METRICS.gridSize * 12.5,
     justifyContent: 'space-between',
   },
 });

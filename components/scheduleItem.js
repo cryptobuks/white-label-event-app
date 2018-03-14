@@ -1,8 +1,7 @@
 // @flow
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
-import COLORS from '../config/colors';
-import Metrics from '../config/gridSizes';
+import { COLORS, METRICS } from '../config';
 import ScheduleHeader from './scheduleHeader';
 import ScheduleDetail from './scheduleDetail';
 import { TEvent } from '../types/eventdata';
@@ -10,20 +9,20 @@ import { TEvent } from '../types/eventdata';
 type Props = TEvent;
 
 const CONTAINER = {
-  width: Metrics.width - Metrics.gridSize * 6,
-  height: Metrics.gridSize * 17.5,
-  margin: Metrics.gridSize * 2,
-  borderRadius: Metrics.gridSize * 0.375,
+  width: METRICS.width - METRICS.gridSize * 6,
+  height: METRICS.gridSize * 17.5,
+  margin: METRICS.gridSize * 2,
+  borderRadius: METRICS.gridSize * 0.375,
 };
 
 const CONTENT = {
-  marginLeft: Metrics.gridSize * 13,
+  marginLeft: METRICS.gridSize * 13,
 };
 
 const IMAGE = {
-  height: Metrics.gridSize * 12.5,
-  width: Metrics.gridSize * 12.5,
-  borderRadius: Metrics.gridSize * 0.375,
+  height: METRICS.gridSize * 12.5,
+  width: METRICS.gridSize * 12.5,
+  borderRadius: METRICS.gridSize * 0.375,
 };
 
 const styles = StyleSheet.create({
