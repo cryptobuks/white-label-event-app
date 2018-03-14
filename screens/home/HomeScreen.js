@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
 import { COLORS, METRICS } from '../../config';
-import ScheduleItem from '../../components/scheduleItem';
+import { ScheduleItem } from '../../components';
 
 const CONTAINER = {
   paddingHorizontal: METRICS.gridSize * 2,

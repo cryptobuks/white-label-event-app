@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import ClosePersonalScheduleButton from '../../components/closePersonalScheduleButton';
-import ScheduleItem from '../../components/scheduleItem';
+import { ScheduleItem } from '../../components';
 import { COLORS, FONT_SIZES, METRICS, FONT_WEIGHTS } from '../../config';
 
 const CONSTANTS = {
