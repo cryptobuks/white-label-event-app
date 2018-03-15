@@ -23,15 +23,17 @@ const styles = StyleSheet.create({
   },
 });
 
-const SchedulePagination = ({ index, total, tracks, onNextTap }) => (
+const SchedulePagination = ({ index, total, tracks, onNextTap, onLongPress }) => (
   <View style={styles.container}>
     {
       tracks[index - 1] ?
         <NavigationItem title={tracks[index - 1].title} position="left" /> :
         <NavigationItem title={''} position="left" />
     }
-    <TouchableWithoutFeedback onLongPress={console.log}>
-      <NavigationItem title={tracks[index].title} position="middle" />
+    <TouchableWithoutFeedback onLongPress={onLongPress}>
+      <View>
+        <NavigationItem title={tracks[index].title} position="middle" />
+      </View>
     </TouchableWithoutFeedback>
     {
       tracks[index + 1] ?

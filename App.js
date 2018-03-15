@@ -56,6 +56,7 @@ export default class App extends Component {
       shiftData: [],
       userInfo: {},
       usersPerSchedule: {},
+      isStorybookEnabled: false,
     };
 
     StatusBar.setBarStyle('light-content', true);
@@ -98,26 +99,43 @@ export default class App extends Component {
     });
   };
 
+  handleStorybookGesture = () => {
+    if (process.env.NODE_ENV === 'development') {
+      this.setState({
+        isStorybookEnabled: true,
+      });
+    }
+  }
+
+  renderStorybook() {
+    return <StorybookUI />;
+  }
+
   render() {
-    const { userInfo } = this.state;
+    const {
+      userInfo,
+      isStorybookEnabled,
+    } = this.state;
     return (
-      <StorybookUI />
-      // <View style={styles.container}>
-      //   <RootStack
-      //     screenProps={{
-      //       userInfo,
-      //       facebookLogin: () => this.handleFacebookLogin(),
-      //       googleLogin: () => this.handleGoogleLogin(),
-      //       onChangeSubscription: trackId =>
-      //         subscribeToTrack({
-      //           trackId,
-      //           currentUserId: this.state.userInfo.id,
-      //           subscribedUsers: this.state.usersPerSchedule[trackId] || [],
-      //         }),
-      //       userId: this.state.userInfo.id,
-      //     }}
-      //   />
-      // </View>
+      isStorybookEnabled ?
+        this.renderStorybook() :
+        (<View style={styles.container}>
+          <RootStack
+            screenProps={{
+              handleStorybookGesture: () => this.handleStorybookGesture(),
+              userInfo,
+              facebookLogin: () => this.handleFacebookLogin(),
+              googleLogin: () => this.handleGoogleLogin(),
+              onChangeSubscription: trackId =>
+                subscribeToTrack({
+                  trackId,
+                  currentUserId: this.state.userInfo.id,
+                  subscribedUsers: this.state.usersPerSchedule[trackId] || [],
+                }),
+              userId: this.state.userInfo.id,
+            }}
+          />
+        </View>)
     );
   }
 }

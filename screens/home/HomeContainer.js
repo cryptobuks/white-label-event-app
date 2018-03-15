@@ -52,6 +52,7 @@ export default class HomeContainer extends Component {
                 total={total}
                 tracks={tracks}
                 onNextTap={this.handleTouchableTap}
+                onLongPress={this.props.screenProps.handleStorybookGesture}
               />
             )
           }
