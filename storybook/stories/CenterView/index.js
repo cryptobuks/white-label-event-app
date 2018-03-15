@@ -8,4 +8,4 @@ const CenterView = props => (
   </View>
 );
 
-export { CenterView as default };
+export default CenterView;

@@ -13,4 +13,4 @@ const SmallView = props => (
   </View>
 );
 
-export { SmallView as default };
+export default SmallView;

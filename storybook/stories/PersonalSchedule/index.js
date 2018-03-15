@@ -1,3 +1,2 @@
-import PersonalScheduleButton from '../../../components/personalScheduleButton';
+export { PersonalScheduleButton } from '../../../components/';
 
-export { PersonalScheduleButton };
