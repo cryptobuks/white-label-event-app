@@ -1,8 +1,18 @@
+// @flow
 import React, { Component } from 'react';
 import LoginScreen from './LoginScreen';
 import { HOME } from '../../config/screenIds';
 
-export default class LoginContainer extends Component {
+type Props = {
+  screenProps: {
+    handleFacebookLogin: Function,
+    handleGoogleLogin: Function,
+    userInfo: {},
+    userId: string,
+  },
+};
+
+export default class LoginContainer extends Component<Props> {
   componentWillReceiveProps(newProps) {
     const { userInfo } = newProps.screenProps;
 
@@ -11,7 +21,20 @@ export default class LoginContainer extends Component {
     }
   }
 
+  handleFacebookLogin = () => {
+    this.props.screenProps.handleFacebookLogin();
+  };
+
+  handleGoogleLogin = () => {
+    this.props.screenProps.handleGoogleLogin();
+  };
+
   render() {
-    return <LoginScreen screenProps={this.props.screenProps} />;
+    return (
+      <LoginScreen
+        onFacebookLogin={this.handleFacebookLogin}
+        onGoogleLogin={this.handleGoogleLogin}
+      />
+    );
   }
 }

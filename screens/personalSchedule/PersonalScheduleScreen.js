@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
   header: {
     top: METRICS.gridSize * 7,
-    width: METRICS.width - (METRICS.gridSize * 4),
+    width: METRICS.width - METRICS.gridSize * 4,
     height: METRICS.gridSize * 2,
     flexDirection: 'row',
     justifyContent: 'center',
@@ -48,19 +48,16 @@ const PersonalScheduleScreen = ({ sessions, handleGoBack }) => (
       <Text style={styles.title}>My Schedule</Text>
       <ClosePersonalScheduleButton handleGoBack={handleGoBack} />
     </View>
-    <View style={styles.listContainer} >
+    <View style={styles.listContainer}>
       <FlatList
         data={sessions}
         contentContainerStyle={styles.flatlist}
         keyExtractor={item => item.id}
         showsVerticalScrollIndicator={false}
-        renderItem={({ item }) => (
-          <ScheduleItem {...item} />
-        )}
+        renderItem={({ item }) => <ScheduleItem {...item} />}
       />
     </View>
   </View>
 );
 
 export default PersonalScheduleScreen;
-

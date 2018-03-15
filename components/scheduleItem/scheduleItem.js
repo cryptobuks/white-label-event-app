@@ -1,11 +1,15 @@
+// @flow
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
+import { TEvent } from '../../types/eventdata';
 import { COLORS, METRICS } from '../../config';
 import ScheduleItemHeader from './scheduleItemHeader';
 import ScheduleItemDetail from './scheduleItemDetail';
 
+type Props = TEvent;
+
 const CONTAINER = {
-  width: METRICS.width - (METRICS.gridSize * 6),
+  width: METRICS.width - METRICS.gridSize * 6,
   height: METRICS.gridSize * 17.5,
   margin: METRICS.gridSize * 2,
   borderRadius: METRICS.gridSize * 0.375,
@@ -44,14 +48,14 @@ const styles = StyleSheet.create({
   image: {
     position: 'absolute',
     left: -CONTAINER.margin,
-    top: ((CONTAINER.height / 2) - (IMAGE.height / 2)),
+    top: CONTAINER.height / 2 - IMAGE.height / 2,
     width: IMAGE.width,
     height: IMAGE.height,
     borderRadius: IMAGE.borderRadius,
   },
 });
 
-const ScheduleItem = ({ author, title, location, date }) => (
+const ScheduleItem = ({ author, title, location, date }: Props) => (
   <View style={styles.container}>
     <View style={styles.blockContainer}>
       <View style={styles.contentContainer}>

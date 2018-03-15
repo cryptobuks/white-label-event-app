@@ -25,17 +25,17 @@ const styles = StyleSheet.create({
 
 const SchedulePagination = ({ index, total, tracks, onNextTap }) => (
   <View style={styles.container}>
-    {
-      tracks[index - 1] ?
-        <NavigationItem title={tracks[index - 1].title} position="left" /> :
-        <NavigationItem title={''} position="left" />
-    }
+    {tracks[index - 1] ? (
+      <NavigationItem title={tracks[index - 1].title} position="left" />
+    ) : (
+      <NavigationItem title={''} position="left" />
+    )}
     <NavigationItem title={tracks[index].title} position="middle" />
-    {
-      tracks[index + 1] ?
-        <NavigationItem title={tracks[index + 1].title} position="right" /> :
-        <NavigationItem title="" position="right" />
-    }
+    {tracks[index + 1] ? (
+      <NavigationItem title={tracks[index + 1].title} position="right" />
+    ) : (
+      <NavigationItem title="" position="right" />
+    )}
     <InvisibleNavButtons index={index} total={total} onNextTap={onNextTap} />
   </View>
 );

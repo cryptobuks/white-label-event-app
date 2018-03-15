@@ -1,8 +1,14 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import { Text } from 'react-native';
+import { TStyleSheet } from '../types/stylesheet';
 import { COLORS, FONT_SIZES } from '../config';
 
-const Label = ({ value, fontSize, color }) => (
+type Props = {
+  value: React.ReactText,
+} & TStyleSheet;
+
+const Label = ({ value, fontSize, color }: Props) => (
   <Text style={{ fontSize, color }}>{value}</Text>
 );
 

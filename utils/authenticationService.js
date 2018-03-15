@@ -1,10 +1,8 @@
-// Facebook Authenthication
-const FB_APP_ID = '2049634398613694';
-// Google Authenthication
-const ANDROID_CLIENT_ID = '';
-const IOS_CLIENT_ID = '';
+// @flow
+import { FB_APP_ID, GOOGLE_APP_ID } from '../config/keys';
+import { TFacebookUserInfo } from '../types/authentication';
 
-export const handleFacebookLogin = async () => {
+export const handleFacebookLogin = async (): Promise<TFacebookUserInfo | {}> => {
   const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync(FB_APP_ID, {
     permissions: ['public_profile'],
     behavior: 'web',
@@ -12,16 +10,18 @@ export const handleFacebookLogin = async () => {
 
   if (type === 'success') {
     // Get the user's name using Facebook's Graph API
-    const userInfoResponse = await fetch(`https://graph.facebook.com/me?access_token=${token}&fields=id,first_name,picture.type(large)`);
+    const userInfoResponse = await fetch(
+      `https://graph.facebook.com/me?access_token=${token}&fields=id,first_name,picture.type(large)`,
+    );
     return userInfoResponse.json();
   }
   return {};
 };
 
-export const handleGoogleLogin = async () => {
+export const handleGoogleLogin = async (): Promise<*> => {
   const result = await Expo.Google.logInAsync({
-    androidClientId: ANDROID_CLIENT_ID,
-    iosClientId: IOS_CLIENT_ID,
+    androidClientId: GOOGLE_APP_ID.clientIdAndroid,
+    iosClientId: GOOGLE_APP_ID.clientIdIos,
     scopes: ['profile', 'email'],
   });
 

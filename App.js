@@ -1,12 +1,12 @@
+// @flow
 import React, { Component } from 'react';
-import { StackNavigator } from 'react-navigation';
 import { View, StyleSheet, StatusBar } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+import { TFacebookUserInfo } from './types/authentication';
+import { TFirebaseSnapshot } from './types/firebase';
 import { HomeContainer, LoginContainer, PersonalScheduleContainer } from './screens';
 import { initializeFirebase, subscribeToTrack } from './utils/firebaseService';
-import {
-  handleFacebookLogin,
-  handleGoogleLogin,
-} from './utils/authenticationService';
+import { handleFacebookLogin, handleGoogleLogin } from './utils/authenticationService';
 
 const Navigator = StackNavigator(
   {
@@ -39,19 +39,23 @@ const RootStack = StackNavigator(
   },
 );
 
+type State = {
+  userInfo: TFacebookUserInfo | {},
+  usersPerSchedule: {},
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
 });
 
-export default class App extends Component {
+export default class App extends Component<*, State> {
   constructor(props) {
     super(props);
 
     this.firebaseRefs = {};
     this.state = {
-      shiftData: [],
       userInfo: {},
       usersPerSchedule: {},
     };
@@ -69,7 +73,7 @@ export default class App extends Component {
     );
   }
 
-  onChangeUsers = (snapshot, trackId) => {
+  onChangeUsers = (snapshot: TFirebaseSnapshot, trackId: string) => {
     const visitors = snapshot.val() && snapshot.val().userIds;
     this.setState({
       usersPerSchedule: { ...this.state.usersPerSchedule, [trackId]: visitors },
@@ -78,6 +82,8 @@ export default class App extends Component {
 
   handleFacebookLogin = async () => {
     const userInfo = await handleFacebookLogin();
+    if (!userInfo.id) return;
+
     this.setState({
       userInfo: {
         ...userInfo,
@@ -88,6 +94,8 @@ export default class App extends Component {
 
   handleGoogleLogin = async () => {
     const userInfo = await handleGoogleLogin();
+    if (!userInfo.id) return;
+
     this.setState({
       userInfo: {
         ...userInfo,
@@ -103,9 +111,9 @@ export default class App extends Component {
         <RootStack
           screenProps={{
             userInfo,
-            facebookLogin: () => this.handleFacebookLogin(),
-            googleLogin: () => this.handleGoogleLogin(),
-            onChangeSubscription: trackId =>
+            handleFacebookLogin: () => this.handleFacebookLogin(),
+            handleGoogleLogin: () => this.handleGoogleLogin(),
+            onChangeSubscription: (trackId: string) =>
               subscribeToTrack({
                 trackId,
                 currentUserId: this.state.userInfo.id,

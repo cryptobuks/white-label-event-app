@@ -1,6 +1,11 @@
+// @flow
 import React, { Component } from 'react';
 import { TouchableWithoutFeedback, Image, StyleSheet } from 'react-native';
 import { ASSETS, METRICS } from '../../config';
+
+type State = {
+  isActive: boolean,
+};
 
 const styles = StyleSheet.create({
   image: {
@@ -9,10 +14,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class ScheduleItemButton extends Component {
+export default class ScheduleItemButton extends Component<*, State> {
   state = {
     isActive: false,
-  }
+  };
 
   render() {
     const { isActive } = this.state;
