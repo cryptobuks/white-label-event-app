@@ -8,9 +8,11 @@ import {
   handleGoogleLogin,
 } from './utils/authenticationService';
 
+import StorybookUI from './storybook';
+
 const Navigator = StackNavigator(
   {
-    Login: { screen: LoginContainer },
+    // Login: { screen: LoginContainer },
     Home: { screen: HomeContainer },
   },
   {
@@ -99,22 +101,23 @@ export default class App extends Component {
   render() {
     const { userInfo } = this.state;
     return (
-      <View style={styles.container}>
-        <RootStack
-          screenProps={{
-            userInfo,
-            facebookLogin: () => this.handleFacebookLogin(),
-            googleLogin: () => this.handleGoogleLogin(),
-            onChangeSubscription: trackId =>
-              subscribeToTrack({
-                trackId,
-                currentUserId: this.state.userInfo.id,
-                subscribedUsers: this.state.usersPerSchedule[trackId] || [],
-              }),
-            userId: this.state.userInfo.id,
-          }}
-        />
-      </View>
+      <StorybookUI />
+      // <View style={styles.container}>
+      //   <RootStack
+      //     screenProps={{
+      //       userInfo,
+      //       facebookLogin: () => this.handleFacebookLogin(),
+      //       googleLogin: () => this.handleGoogleLogin(),
+      //       onChangeSubscription: trackId =>
+      //         subscribeToTrack({
+      //           trackId,
+      //           currentUserId: this.state.userInfo.id,
+      //           subscribedUsers: this.state.usersPerSchedule[trackId] || [],
+      //         }),
+      //       userId: this.state.userInfo.id,
+      //     }}
+      //   />
+      // </View>
     );
   }
 }

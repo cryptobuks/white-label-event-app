@@ -23,8 +23,6 @@ const IMAGE = {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignSelf: 'stretch',
     height: CONTAINER.height,
     marginVertical: CONTAINER.margin,
   },
@@ -37,7 +35,6 @@ const styles = StyleSheet.create({
     borderRadius: CONTAINER.borderRadius,
   },
   contentContainer: {
-    flex: 1,
     margin: CONTAINER.margin,
     marginLeft: CONTENT.marginLeft,
   },

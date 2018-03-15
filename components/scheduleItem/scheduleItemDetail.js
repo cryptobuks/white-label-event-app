@@ -7,7 +7,6 @@ import Label from '../label';
 
 const styles = StyleSheet.create({
   detailContainer: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-end',
