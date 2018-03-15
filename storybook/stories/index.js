@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react-native';
+import tracks from '../../assets/tracks.json';
+import mockData from '../mockData.json';
 
 import CenterView from './CenterView';
 import SmallView from './SmallView';
@@ -27,15 +29,9 @@ storiesOf('ScheduleItem', module)
   .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
   .add('Main', () => (
     <ScheduleItem
-      author={
-        {
-          id: '8',
-          name: 'Cedric Devroey',
-          imageUrl: 'https://picsum.photos/300/250/?random',
-        }
-      }
-      title="Bridging the gap"
-      location="Arena"
+      author={mockData.author}
+      title={mockData.title}
+      location={mockData.location}
       date={Date.now()}
     />
   ))
@@ -43,52 +39,39 @@ storiesOf('ScheduleItem', module)
     <ScheduleItemButton />
   ))
   .add('Header', () => (
-    <ScheduleItemHeader author="Thibault Maekelbergh" title="Bridging the gap" />
+    <ScheduleItemHeader author={mockData.author.name} title={mockData.title} />
   ))
   .add('Title', () => (
-    <Title value="Bridging The Gap" />
+    <Title value={mockData.title} />
   ))
   .add('Label', () => (
-    <Label value="Label" color="pink" />
+    <Label value={mockData.labelValue} color={mockData.labelColor} />
   ))
   .addDecorator(getStory => <CenterView><SmallView>{getStory()}</SmallView></CenterView>)
   .add('Detail', () => (
-    <ScheduleItemDetail date={Date.now()} location="Arena" />
+    <ScheduleItemDetail date={Date.now()} location={mockData.location} />
   ));
 
 storiesOf('ScheduleNavigation', module)
   .addDecorator(getStory => <DarkView>{getStory()}</DarkView>)
-  .add('Pagination', () => (
-    <SchedulePagination
-      index={1}
-      total={5}
-      tracks={[
-        {
-          id: 'innovation',
-          title: 'Innovation',
-        },
-        {
-          id: 'productAndBusinessDevelopment',
-          title: 'Product & Business development',
-        },
-        {
-          id: 'newTech',
-          title: 'New Tech',
-        },
-        {
-          id: 'ai',
-          title: 'AI',
-        },
-        {
-          id: 'agile',
-          title: 'Agile',
-        },
-      ]}
-      onNextTap={() => {}}
-    />
-  ))
+  .add('Pagination', () => {
+    let currIndex = 0;
+
+    const updateIndex = (destination, total, index) => {
+      if (index + destination >= 0 && index + destination < total) currIndex += destination;
+      console.log(currIndex);
+    };
+
+    return (
+      <SchedulePagination
+        index={currIndex}
+        total={5}
+        tracks={tracks}
+        onNextTap={(destination, total, index) => updateIndex(destination, total, index)}
+      />);
+  })
   .add('Item', () => (
-    <NavigationItem title="Innovation" position="middle" />
+    <NavigationItem title={tracks[0].title} position="middle" />
   ));
 
 storiesOf('PersonalSchedule', module)

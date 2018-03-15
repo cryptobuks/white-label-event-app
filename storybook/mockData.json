@@ -1,0 +1,13 @@
+{
+  "id": "scheduleItem",
+  "author":   {
+    "id": 8,
+    "name": "Cedric Devroey",
+    "imageUrl": "https://picsum.photos/300/250/?random"
+  },
+  "title": "Bridging the Gap",
+  "location": "Arena",
+  "date": "Tue Mar 06 2018 16:22:31 GMT+0100 (CET)",
+  "labelColor": "pink",
+  "labelValue": "Label"
+}

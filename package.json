@@ -28,7 +28,7 @@
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start": "npm run storybook & react-native-scripts start",
+    "start": "npm run storybook & react-native-scripts start & wait",
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
