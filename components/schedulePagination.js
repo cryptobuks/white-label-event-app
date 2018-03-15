@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import NavigationItem from './navigationItem';
 import InvisibleNavButtons from './invisibleNavButtons';
-import { METRICS } from '../config';
+import { METRICS, COLORS } from '../config';
 
 const GLOBALS = {
   itemWidth: METRICS.gridSize * 28,
@@ -12,10 +12,12 @@ const GLOBALS = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: COLORS.blackTransparent,
     width: GLOBALS.itemWidth * 3,
+    height: METRICS.gridSize * 13,
+    paddingTop: METRICS.gridSize * 8,
     flexDirection: 'row',
     position: 'absolute',
-    top: METRICS.gridSize * 8,
     alignSelf: 'center',
     justifyContent: 'center',
   },

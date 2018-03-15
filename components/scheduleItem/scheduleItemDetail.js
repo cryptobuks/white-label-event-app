@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import format from 'date-fns/format';
-import { COLORS, METRICS } from '../config';
-import ScheduleButton from './scheduleButton';
-import Label from './label';
+import { COLORS, METRICS } from '../../config';
+import ScheduleItemButton from './scheduleItemButton';
+import Label from '../label';
 
 const styles = StyleSheet.create({
   detailContainer: {
@@ -20,14 +20,14 @@ const styles = StyleSheet.create({
   },
 });
 
-const ScheduleDetail = ({ location, date }) => (
+const ScheduleItemDetail = ({ location, date }) => (
   <View style={styles.detailContainer}>
     <View style={styles.detailTextContainer}>
       <Label value={location} />
       <Label value={format(date, 'hh:mm A')} color={COLORS.violetPink} />
     </View>
-    <ScheduleButton />
+    <ScheduleItemButton />
   </View>
 );
 
-export default ScheduleDetail;
+export default ScheduleItemDetail;

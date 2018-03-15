@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TouchableWithoutFeedback, Image, StyleSheet } from 'react-native';
-import { ASSETS, METRICS } from '../config';
+import { ASSETS, METRICS } from '../../config';
 
 const styles = StyleSheet.create({
   image: {
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class ScheduleButton extends Component {
+export default class ScheduleItemButton extends Component {
   state = {
     isActive: false,
   }

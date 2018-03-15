@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
-import { COLORS, METRICS } from '../config';
-import ScheduleHeader from './scheduleHeader';
-import ScheduleDetail from './scheduleDetail';
+import { COLORS, METRICS } from '../../config';
+import ScheduleItemHeader from './scheduleItemHeader';
+import ScheduleItemDetail from './scheduleItemDetail';
 
 const CONTAINER = {
   width: METRICS.width - (METRICS.gridSize * 6),
@@ -55,8 +55,8 @@ const ScheduleItem = ({ author, title, location, date }) => (
   <View style={styles.container}>
     <View style={styles.blockContainer}>
       <View style={styles.contentContainer}>
-        <ScheduleHeader author={author.name} title={title} />
-        <ScheduleDetail date={date} location={location} />
+        <ScheduleItemHeader author={author.name} title={title} />
+        <ScheduleItemDetail date={date} location={location} />
       </View>
     </View>
     <Image style={styles.image} source={{ uri: author.imageUrl }} />

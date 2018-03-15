@@ -5,6 +5,7 @@ import { COLORS, METRICS } from '../config';
 const GLOBALS = {
   itemWidth: METRICS.gridSize * 28,
   marginHorizontal: METRICS.gridSize * 3,
+  top: METRICS.gridSize * 7,
 };
 
 const styles = StyleSheet.create({
@@ -16,14 +17,16 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   view: {
-    width: 150,
-    height: 50,
+    width: METRICS.gridSize * 18,
+    height: METRICS.gridSize * 6,
   },
   right: {
     left: GLOBALS.itemWidth - 10,
   },
   touchableContainer: {
     left: GLOBALS.itemWidth - 70,
+    top: GLOBALS.top,
+    backgroundColor: COLORS.transparent,
   },
 });
 
