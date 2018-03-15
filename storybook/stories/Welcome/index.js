@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import PropTypes from 'prop-types';
 
 export default class Welcome extends React.Component {
   styles = {
@@ -12,11 +11,13 @@ export default class Welcome extends React.Component {
     header: {
       fontSize: 18,
       marginBottom: 18,
+      textAlign: 'center',
     },
     content: {
       fontSize: 12,
       marginBottom: 10,
       lineHeight: 18,
+      textAlign: 'center',
     },
   };
 
@@ -28,25 +29,16 @@ export default class Welcome extends React.Component {
   render() {
     return (
       <View style={this.styles.wrapper}>
-        <Text style={this.styles.header}>Welcome to React Native Storybook</Text>
+        <Text style={this.styles.header}>Welcome to our white-label-event-app Storybook!</Text>
         <Text style={this.styles.content}>
-          This is a UI Component development environment for your React Native app. Here you can
-          display and interact with your UI components as stories. A story is a single state of one
-          or more UI components. You can have as many stories as you want. In other words a story is
-          like a visual test case.
-        </Text>
-        <Text style={this.styles.content}>
-          We have added some stories inside the "storybook/stories" directory for examples. Try
-          editing the "storybook/stories/Welcome.js" file to edit this message.
+          As our component library grows, so will this Storybook. It gives a great overview of all
+          the components. Give it a go!
         </Text>
       </View>
     );
   }
 }
 
-Welcome.propTypes = {
-  showApp: PropTypes.func,
-};
 Welcome.defaultProps = {
   showApp: () => {},
 };

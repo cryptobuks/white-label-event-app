@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import NavigationItem from './navigationItem';
 import InvisibleNavButtons from './invisibleNavButtons';
 import { METRICS, COLORS } from '../config';
@@ -30,7 +30,9 @@ const SchedulePagination = ({ index, total, tracks, onNextTap }) => (
         <NavigationItem title={tracks[index - 1].title} position="left" /> :
         <NavigationItem title={''} position="left" />
     }
-    <NavigationItem title={tracks[index].title} position="middle" />
+    <TouchableWithoutFeedback onLongPress={console.log}>
+      <NavigationItem title={tracks[index].title} position="middle" />
+    </TouchableWithoutFeedback>
     {
       tracks[index + 1] ?
         <NavigationItem title={tracks[index + 1].title} position="right" /> :
