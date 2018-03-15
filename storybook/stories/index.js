@@ -14,16 +14,10 @@ import {
   ScheduleItemDetail,
   Title,
   Label,
-} from './ScheduleItem';
-
-import {
   SchedulePagination,
   NavigationItem,
-} from './ScheduleNavigation';
-
-import {
   PersonalScheduleButton,
-} from './PersonalSchedule';
+} from './../../components';
 
 storiesOf('ScheduleItem', module)
   .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)

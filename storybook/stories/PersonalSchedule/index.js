@@ -1,2 +1,0 @@
-export { PersonalScheduleButton } from '../../../components/';
-
