@@ -54,22 +54,14 @@ storiesOf('ScheduleItem', module)
 
 storiesOf('ScheduleNavigation', module)
   .addDecorator(getStory => <DarkView>{getStory()}</DarkView>)
-  .add('Pagination', () => {
-    let currIndex = 0;
-
-    const updateIndex = (destination, total, index) => {
-      if (index + destination >= 0 && index + destination < total) currIndex += destination;
-      console.log(currIndex);
-    };
-
-    return (
-      <SchedulePagination
-        index={currIndex}
-        total={5}
-        tracks={tracks}
-        onNextTap={(destination, total, index) => updateIndex(destination, total, index)}
-      />);
-  })
+  .add('Pagination', () => (
+    <SchedulePagination
+      index={0}
+      total={5}
+      tracks={tracks}
+      onNextTap={() => {}}
+    />
+  ))
   .add('Item', () => (
     <NavigationItem title={tracks[0].title} position="middle" />
   ));
