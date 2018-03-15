@@ -28,7 +28,7 @@
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start": "npm run storybook & react-native-scripts start & wait",
+    "start": "react-native-scripts start",
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
@@ -41,7 +41,7 @@
     "contributors:add": "all-contributors add",
     "contributors:check-missing": "all-contributors check",
     "contributors:generate": "all-contributors generate",
-    "storybook": "storybook start -p 7007"
+    "storybook": "storybook -p 7007 & react-native-scripts start & wait"
   },
   "jest": {
     "preset": "jest-expo"
