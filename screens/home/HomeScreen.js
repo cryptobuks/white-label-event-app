@@ -3,7 +3,7 @@ import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { TEvents, TEvent } from '../../types/eventdata';
 import { COLORS, METRICS } from '../../config';
-import ScheduleItem from '../../components/scheduleItem';
+import { ScheduleItem } from '../../components';
 
 type Props = {
   events: TEvents,
@@ -12,6 +12,7 @@ type Props = {
 const CONTAINER = {
   paddingHorizontal: METRICS.gridSize * 2,
   marginTop: METRICS.gridSize * 14,
+  paddingBottom: METRICS.gridSize * 25,
 };
 
 const styles = StyleSheet.create({
@@ -23,6 +24,7 @@ const styles = StyleSheet.create({
   flatlist: {
     paddingHorizontal: CONTAINER.paddingHorizontal,
     marginTop: CONTAINER.marginTop,
+    paddingBottom: CONTAINER.paddingBottom,
   },
 });
 

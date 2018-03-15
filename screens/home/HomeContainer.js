@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
 import Swiper from 'react-native-swiper';
+import { StyleSheet, View } from 'react-native';
 import HomeScreen from './HomeScreen';
+import PersonalScheduleButton from '../../components/personalScheduleButton';
 import SchedulePagination from '../../components/schedulePagination';
 import events from '../../assets/events.json';
 import tracks from '../../assets/tracks.json';
 import { sortByDate } from '../../utils/sort';
+import { PERSONAL_SCHEDULE } from '../../config/screenIds';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
+
+// TODO: @mikeverf: type methods & component in this file
 
 export default class HomeContainer extends Component {
   get trackSessions() {
@@ -12,7 +23,11 @@ export default class HomeContainer extends Component {
       const trackSessions = events.filter(session =>
         session.tags.some(sessionTrack => sessionTrack.id === track.id),
       );
-      return sortByDate(trackSessions);
+      const sortedTrackSessions = sortByDate(trackSessions);
+      return {
+        id: track.id,
+        tracks: sortedTrackSessions,
+      };
     });
   }
 
@@ -22,33 +37,45 @@ export default class HomeContainer extends Component {
     }
   };
 
+  handleScheduleButtonPress = () => {
+    this.props.navigation.navigate(PERSONAL_SCHEDULE);
+  };
+
   render() {
     return (
-      <Swiper
-        showsButtons={false}
-        loop={false}
-        removeClippedSubviews={false}
-        ref={(el) => {
-          this.swiperRef = el;
-        }}
-        renderPagination={(index, total) => (
-          <SchedulePagination
-            index={index}
-            total={total}
-            tracks={tracks}
-            onNextTap={this.handleTouchableTap}
-          />
-        )}
-      >
-        {tracks.map((track, i) => (
-          <HomeScreen
-            key={track.id}
-            trackName={track.title}
-            trackId={track.id}
-            events={this.trackSessions[i]}
-          />
-        ))}
-      </Swiper>
+      <View style={styles.container}>
+        <Swiper
+          showsButtons={false}
+          loop={false}
+          removeClippedSubviews={false}
+          ref={(el) => {
+            this.swiperRef = el;
+          }}
+          renderPagination={(index, total) => (
+            <SchedulePagination
+              index={index}
+              total={total}
+              tracks={tracks}
+              onNextTap={this.handleTouchableTap}
+            />
+          )}
+        >
+          {tracks.map((track, i) => {
+            const currTrackSessions = this.trackSessions.find(
+              currTrack => track.id === currTrack.id,
+            );
+            return (
+              <HomeScreen
+                key={track.id}
+                trackName={track.title}
+                trackId={track.id}
+                events={currTrackSessions.tracks}
+              />
+            );
+          })}
+        </Swiper>
+        <PersonalScheduleButton handleScheduleButtonPress={this.handleScheduleButtonPress} />
+      </View>
     );
   }
 }

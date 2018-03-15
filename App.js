@@ -4,7 +4,7 @@ import { View, StyleSheet, StatusBar } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { TFacebookUserInfo } from './types/authentication';
 import { TFirebaseSnapshot } from './types/firebase';
-import { HomeContainer, LoginContainer } from './screens';
+import { HomeContainer, LoginContainer, PersonalScheduleContainer } from './screens';
 import { initializeFirebase, subscribeToTrack } from './utils/firebaseService';
 import { handleFacebookLogin, handleGoogleLogin } from './utils/authenticationService';
 
@@ -17,6 +17,24 @@ const Navigator = StackNavigator(
     navigationOptions: {
       header: null,
       gesturesEnabled: false,
+    },
+  },
+);
+
+const RootStack = StackNavigator(
+  {
+    Main: {
+      screen: Navigator,
+    },
+    PersonalSchedule: {
+      screen: PersonalScheduleContainer,
+    },
+  },
+  {
+    mode: 'modal',
+    headerMode: 'none',
+    cardStyle: {
+      shadowOpacity: 0,
     },
   },
 );
@@ -90,7 +108,7 @@ export default class App extends Component<*, State> {
     const { userInfo } = this.state;
     return (
       <View style={styles.container}>
-        <Navigator
+        <RootStack
           screenProps={{
             userInfo,
             handleFacebookLogin: () => this.handleFacebookLogin(),

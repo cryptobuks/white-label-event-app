@@ -1,9 +1,11 @@
-import { Dimensions } from 'react-native';
-
 /* eslint-disable global-require */
+
+import { Dimensions, Platform } from 'react-native';
+
 export const ASSETS = {
   buttonImg: require('../assets/button.png'),
   buttonImgActive: require('../assets/button--active.png'),
+  close: require('../assets/close.png'),
 };
 
 export const SIZE = {
@@ -32,8 +34,10 @@ export const COLORS = {
   transparent: 'transparent',
   white: 'white',
   black: 'black',
+  blackTransparent: 'rgba(0,0,0,.5)',
   grey: '#424749',
   violetPink: '#e54cfe',
+  cyan: '#35e2aa',
 };
 
 export const FONT_SIZES = {
@@ -41,3 +45,12 @@ export const FONT_SIZES = {
   secondary: 14,
   tertiary: 12,
 };
+
+export const FONT_WEIGHTS = {
+  heavy: '800',
+  bold: '600',
+  normal: '400',
+  light: '300',
+};
+
+export const IS_IPHONE_X = Platform.OS === 'ios' && (height === 812 || width === 812);

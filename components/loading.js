@@ -2,6 +2,7 @@
 import React from 'react';
 import { View, StyleSheet, ActivityIndicator } from 'react-native';
 import { TStyleSheet } from '../types/stylesheet';
+import { COLORS } from '../config';
 
 type Props = {
   animating?: boolean,
@@ -30,7 +31,7 @@ const Loading = ({ animating, color, hidesWhenStopped, size }: Props) => (
 
 Loading.defaultProps = {
   animating: true,
-  color: '#000',
+  color: COLORS.black,
   hidesWhenStopped: true,
   size: 'large',
 };

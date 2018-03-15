@@ -124,5 +124,98 @@
         "name": "Jonathan Dierckens"
       }
     ]
+  },
+  {
+    "id": "4",
+    "title": "Shift The Game",
+    "description": "",
+    "imageUrl": "https://picsum.photos/300/250/?random",
+    "author": {
+      "id": "6",
+      "name": "Tom Van Helleputte",
+      "imageUrl": "https://picsum.photos/300/250/?random"
+    },
+    "date": "Tue Mar 07 2018 12:22:31 GMT+0100 (CET)",
+    "location": "Workshop Area",
+    "tags": [
+      {
+        "id": "agile",
+        "name": "Agile"
+      }
+    ],
+    "attendees": [
+      {
+        "id": "10",
+        "avatarUrl": "https://picsum.photos/300/250/?random",
+        "name": "Thibault Maekelbergh"
+      },
+      {
+        "id": "11",
+        "avatarUrl": "https://picsum.photos/300/250/?random",
+        "name": "Jonathan Dierckens"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Shift The Game",
+    "description": "",
+    "imageUrl": "https://picsum.photos/300/250/?random",
+    "author": {
+      "id": "6",
+      "name": "Tom Van Helleputte",
+      "imageUrl": "https://picsum.photos/300/250/?random"
+    },
+    "date": "Tue Mar 07 2018 12:22:31 GMT+0100 (CET)",
+    "location": "Workshop Area",
+    "tags": [
+      {
+        "id": "agile",
+        "name": "Agile"
+      }
+    ],
+    "attendees": [
+      {
+        "id": "10",
+        "avatarUrl": "https://picsum.photos/300/250/?random",
+        "name": "Thibault Maekelbergh"
+      },
+      {
+        "id": "11",
+        "avatarUrl": "https://picsum.photos/300/250/?random",
+        "name": "Jonathan Dierckens"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Shift The Game",
+    "description": "",
+    "imageUrl": "https://picsum.photos/300/250/?random",
+    "author": {
+      "id": "6",
+      "name": "Tom Van Helleputte",
+      "imageUrl": "https://picsum.photos/300/250/?random"
+    },
+    "date": "Tue Mar 07 2018 12:22:31 GMT+0100 (CET)",
+    "location": "Workshop Area",
+    "tags": [
+      {
+        "id": "agile",
+        "name": "Agile"
+      }
+    ],
+    "attendees": [
+      {
+        "id": "10",
+        "avatarUrl": "https://picsum.photos/300/250/?random",
+        "name": "Thibault Maekelbergh"
+      },
+      {
+        "id": "11",
+        "avatarUrl": "https://picsum.photos/300/250/?random",
+        "name": "Jonathan Dierckens"
+      }
+    ]
   }
 ]
