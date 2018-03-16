@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import ClosePersonalScheduleButton from '../../components/closePersonalScheduleButton';

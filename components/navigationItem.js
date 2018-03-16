@@ -1,3 +1,4 @@
+// @flow
 /* eslint-disable react-native/no-unused-styles */
 
 import React from 'react';

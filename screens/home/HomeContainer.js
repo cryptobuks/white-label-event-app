@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import Swiper from 'react-native-swiper';
 import { StyleSheet, View } from 'react-native';

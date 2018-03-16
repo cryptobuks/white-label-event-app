@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback, Image } from 'react-native';
 import { COLORS, METRICS, ASSETS } from '../config';
