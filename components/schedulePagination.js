@@ -3,6 +3,14 @@ import { View, StyleSheet } from 'react-native';
 import NavigationItem from './navigationItem';
 import InvisibleNavButtons from './invisibleNavButtons';
 import { METRICS, COLORS } from '../config';
+import { TTracks } from '../types/trackdata';
+
+type Props = {
+  index: number,
+  total: number,
+  tracks: TTracks,
+  onNextTap: Function,
+};
 
 const GLOBALS = {
   itemWidth: METRICS.gridSize * 28,
@@ -23,7 +31,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const SchedulePagination = ({ index, total, tracks, onNextTap }) => (
+const SchedulePagination = ({ index, total, tracks, onNextTap }: Props) => (
   <View style={styles.container}>
     {tracks[index - 1] ? (
       <NavigationItem title={tracks[index - 1].title} position="left" />

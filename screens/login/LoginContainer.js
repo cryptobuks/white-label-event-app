@@ -2,14 +2,10 @@
 import React, { Component } from 'react';
 import LoginScreen from './LoginScreen';
 import { HOME } from '../../config/screenIds';
+import { TScreenProps } from '../../types/screenprops';
 
 type Props = {
-  screenProps: {
-    handleFacebookLogin: Function,
-    handleGoogleLogin: Function,
-    userInfo: {},
-    userId: string,
-  },
+  screenProps: TScreenProps,
 };
 
 export default class LoginContainer extends Component<Props> {

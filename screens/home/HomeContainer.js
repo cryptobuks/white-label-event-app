@@ -8,6 +8,9 @@ import events from '../../assets/events.json';
 import tracks from '../../assets/tracks.json';
 import { sortByDate } from '../../utils/sort';
 import { PERSONAL_SCHEDULE } from '../../config/screenIds';
+import { TNavigation } from '../../types/navigation';
+import { TEvents } from '../../types/eventdata';
+import { TTracks } from '../../types/trackdata';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,12 +18,16 @@ const styles = StyleSheet.create({
   },
 });
 
-// TODO: @mikeverf: type methods & component in this file
+type Props = {
+  navigation: TNavigation,
+};
+const eventData: TEvents = events;
+const trackData: TTracks = tracks;
 
-export default class HomeContainer extends Component {
+export default class HomeContainer extends Component<Props> {
   get trackSessions() {
-    return tracks.map((track) => {
-      const trackSessions = events.filter(session =>
+    return trackData.map((track) => {
+      const trackSessions = eventData.filter(session =>
         session.tags.some(sessionTrack => sessionTrack.id === track.id),
       );
       const sortedTrackSessions = sortByDate(trackSessions);
@@ -55,12 +62,12 @@ export default class HomeContainer extends Component {
             <SchedulePagination
               index={index}
               total={total}
-              tracks={tracks}
+              tracks={trackData}
               onNextTap={this.handleTouchableTap}
             />
           )}
         >
-          {tracks.map((track, i) => {
+          {trackData.map((track, i) => {
             const currTrackSessions = this.trackSessions.find(
               currTrack => track.id === currTrack.id,
             );

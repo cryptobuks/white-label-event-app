@@ -4,6 +4,13 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { FONT_SIZES, METRICS, COLORS } from '../config';
 
+type TPosition = 'left' | 'middle' | 'right';
+
+type Props = {
+  title: string,
+  position: TPosition,
+};
+
 const GLOBALS = {
   itemWidth: METRICS.gridSize * 28,
   marginHorizontal: METRICS.gridSize * 3,
@@ -41,7 +48,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const NavigationItem = ({ title, position }) => (
+const NavigationItem = ({ title, position }: Props) => (
   <View style={styles.container}>
     <Text style={[styles.item, styles[position]]}>{title}</Text>
     {position === 'middle' ? <View style={styles.line} /> : null}
