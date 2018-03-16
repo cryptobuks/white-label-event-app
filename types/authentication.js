@@ -11,6 +11,7 @@ export type TFacebookUserInfo = {
       width: number,
     },
   },
+  error: string,
 };
 
 export type TUser = {

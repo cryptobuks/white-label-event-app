@@ -17,12 +17,11 @@ type State = {
 };
 
 export default class App extends Component<*, State> {
-  constructor(props) {
+  constructor(props: *) {
     super(props);
 
     this.firebaseRefs = {};
     this.state = {
-      shiftData: [],
       usersPerSchedule: {},
     };
 
@@ -53,9 +52,10 @@ export default class App extends Component<*, State> {
   RootStack: StackNavigatorConfig;
 
   render() {
+    const RootStack = this.RootStack;
     return (
       <Provider inject={[user]}>
-        <this.RootStack
+        <RootStack
           screenProps={{
             onChangeSubscription: (trackId: string) =>
               subscribeToTrack({

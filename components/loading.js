@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { View, StyleSheet, ActivityIndicator } from 'react-native';
-import { TStyleSheet } from '../types/stylesheet';
+import type { TStyleSheet } from '../types/stylesheet';
 import { COLORS } from '../config';
 
 type Props = {
