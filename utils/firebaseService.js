@@ -1,7 +1,16 @@
 import * as firebase from 'firebase';
 import firebaseConfig from './firebaseConfig.json';
 
-export function subscribeToTrack({ trackId, currentUserId, subscribedUsers = [] }) {
+type subscribeToTrackArgs = {
+  trackId: string,
+  currentUserId: string,
+  subscribedUsers?: Array<{}>,
+};
+export function subscribeToTrack({
+  trackId,
+  currentUserId,
+  subscribedUsers = [],
+}: subscribeToTrackArgs) {
   const userIds = [...subscribedUsers];
   if (subscribedUsers.indexOf(currentUserId) !== -1) {
     userIds.pop(currentUserId);
@@ -12,9 +21,7 @@ export function subscribeToTrack({ trackId, currentUserId, subscribedUsers = [] 
   firebase
     .database()
     .ref(`tracks/${trackId}`)
-    .set({
-      userIds,
-    });
+    .set({ userIds });
 }
 
 export function initializeFirebase() {
@@ -26,7 +33,6 @@ export function initializeFirebase() {
   }
 }
 
-// Returns a firebase Database reference
-export function listenFirebaseChanges(trackId) {
+export function listenFirebaseChanges(trackId: string): firebase.database.Reference {
   return firebase.database().ref(`tracks/${trackId}`);
 }

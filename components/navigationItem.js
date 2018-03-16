@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
 
 const NavigationItem = ({ title, position }) => (
   <View style={styles.container}>
-    <Text style={[styles.item, styles[position]]} >{title}</Text>
-    { position === 'middle' ? <View style={styles.line} /> : null }
+    <Text style={[styles.item, styles[position]]}>{title}</Text>
+    {position === 'middle' ? <View style={styles.line} /> : null}
   </View>
 );
 

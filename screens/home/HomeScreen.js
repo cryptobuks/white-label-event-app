@@ -1,7 +1,13 @@
+// @flow
 import React from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
+import { TEvents, TEvent } from '../../types/eventdata';
 import { COLORS, METRICS } from '../../config';
 import { ScheduleItem } from '../../components';
+
+type Props = {
+  events: TEvents,
+};
 
 const CONTAINER = {
   paddingHorizontal: METRICS.gridSize * 2,
@@ -22,15 +28,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const HomeScreen = ({ sessions, trackName, trackId }) => (
-  <View style={styles.container} >
+const HomeScreen = ({ events, trackName, trackId }: Props) => (
+  <View style={styles.container}>
     <FlatList
-      data={sessions}
+      data={events}
       contentContainerStyle={styles.flatlist}
       keyExtractor={item => item.id}
-      renderItem={({ item }) => (
-        <ScheduleItem {...item} />
-      )}
+      renderItem={({ item: event }: TEvent) => <ScheduleItem {...event} />}
     />
   </View>
 );

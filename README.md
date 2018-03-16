@@ -54,3 +54,16 @@ When you completed an issue, you can open a pull request to develop.
    "messagingSenderId": "<MESSAGING-SENDER-ID>"
  }
  ```
+
+### Tooling
+
+* [Flow](https://flowtype.org) for type checking & type safety
+  - `npm run flow`
+* For consistent formatting across collaborators we use [Prettier](https://prettier.io).
+  - `npm run format` will output formatting errors
+  - `npm run format:fix` will auto-fix every formatting issue
+  - You can install it in [VS Code ](https://github.com/prettier/prettier-vscode) or [Atom](https://atom.io/packages/prettier-atom)
+* There are git hooks in place which, on every commit, will check changed files and:
+  1. Format them with prettier
+  2. Format & fix them with eslint, stop the commit if there are non-auto-fixable errors
+  3. Auto-add any changes to the commit
