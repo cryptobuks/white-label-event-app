@@ -12,3 +12,9 @@ export type TFacebookUserInfo = {
     },
   },
 };
+
+export type TUser = {
+  first_name: string,
+  id: string,
+  picture: string,
+};

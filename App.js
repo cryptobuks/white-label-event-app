@@ -1,54 +1,20 @@
 // @flow
 import React, { Component } from 'react';
-import { View, StyleSheet, StatusBar } from 'react-native';
+import { StatusBar } from 'react-native';
+import { Provider } from 'unstated';
 import { StackNavigator } from 'react-navigation';
 import { TFacebookUserInfo } from './types/authentication';
 import { TFirebaseSnapshot } from './types/firebase';
-import { HomeContainer, LoginContainer, PersonalScheduleContainer } from './screens';
+import { HOME, LOGIN, createRootStackNavigator } from './screens';
 import { initializeFirebase, subscribeToTrack } from './utils/firebaseService';
-import { handleFacebookLogin, handleGoogleLogin } from './utils/authenticationService';
+import UserContainer from './state/UserContainer';
 
-const Navigator = StackNavigator(
-  {
-    Login: { screen: LoginContainer },
-    Home: { screen: HomeContainer },
-  },
-  {
-    navigationOptions: {
-      header: null,
-      gesturesEnabled: false,
-    },
-  },
-);
-
-const RootStack = StackNavigator(
-  {
-    Main: {
-      screen: Navigator,
-    },
-    PersonalSchedule: {
-      screen: PersonalScheduleContainer,
-    },
-  },
-  {
-    mode: 'modal',
-    headerMode: 'none',
-    cardStyle: {
-      shadowOpacity: 0,
-    },
-  },
-);
+const user = new UserContainer();
 
 type State = {
   userInfo: TFacebookUserInfo | {},
   usersPerSchedule: {},
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default class App extends Component<*, State> {
   constructor(props) {
@@ -56,15 +22,18 @@ export default class App extends Component<*, State> {
 
     this.firebaseRefs = {};
     this.state = {
-      userInfo: {},
+      shiftData: [],
       usersPerSchedule: {},
     };
 
     StatusBar.setBarStyle('light-content', true);
   }
 
-  componentWillMount() {
+  async componentWillMount() {
     initializeFirebase();
+    const isLoggedIn = user.isAuthenticatedUser();
+
+    this.RootStack = isLoggedIn ? createRootStackNavigator(HOME) : createRootStackNavigator(LOGIN);
   }
 
   componentWillUnmount() {
@@ -80,49 +49,23 @@ export default class App extends Component<*, State> {
     });
   };
 
-  handleFacebookLogin = async () => {
-    const userInfo = await handleFacebookLogin();
-    if (!userInfo.id) return;
-
-    this.setState({
-      userInfo: {
-        ...userInfo,
-        picture: userInfo.picture.data.url,
-      },
-    });
-  };
-
-  handleGoogleLogin = async () => {
-    const userInfo = await handleGoogleLogin();
-    if (!userInfo.id) return;
-
-    this.setState({
-      userInfo: {
-        ...userInfo,
-        first_name: userInfo.given_name,
-      },
-    });
-  };
+  RootStack: typeof StackNavigator;
 
   render() {
-    const { userInfo } = this.state;
     return (
-      <View style={styles.container}>
-        <RootStack
+      <Provider inject={[user]}>
+        <this.RootStack
           screenProps={{
-            userInfo,
-            handleFacebookLogin: () => this.handleFacebookLogin(),
-            handleGoogleLogin: () => this.handleGoogleLogin(),
             onChangeSubscription: (trackId: string) =>
               subscribeToTrack({
                 trackId,
-                currentUserId: this.state.userInfo.id,
+                currentUserId: user.state.id,
                 subscribedUsers: this.state.usersPerSchedule[trackId] || [],
               }),
-            userId: this.state.userInfo.id,
+            userId: user.state.id,
           }}
         />
-      </View>
+      </Provider>
     );
   }
 }
