@@ -25,7 +25,6 @@ class LoginContainer extends Component<Props> {
       // TODO #62 add error handling
       console.error('Facebook error', userInfo.error);
     } else {
-      console.log('wait wut facebook', userInfo);
       this.props.user.setUser({
         ...userInfo,
         firstName: userInfo.first_name,
