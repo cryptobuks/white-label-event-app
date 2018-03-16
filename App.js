@@ -37,6 +37,7 @@ export default class App extends Component<*, State> {
   }
 
   componentWillUnmount() {
+    // TODO move to HomeContainer
     Object.keys(this.firebaseRefs).forEach(trackId =>
       this.firebaseRefs[trackId].off('value', this.onChangeUsers),
     );
