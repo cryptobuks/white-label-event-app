@@ -22,7 +22,7 @@ export default class PersonalScheduleContainer extends Component<Props> {
           <PersonalScheduleScreen
             sessions={this.personalSessions}
             handleGoBack={this.handleGoBack}
-            firstName={user.state.first_name}
+            firstName={user.state.firstName}
           />
         )}
       </Subscribe>

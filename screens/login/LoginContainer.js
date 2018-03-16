@@ -20,17 +20,25 @@ class LoginContainer extends Component<Props> {
 
   handleFacebookLogin = async () => {
     const userInfo = await handleFacebookLogin();
-    this.props.user.setUser({
-      ...userInfo,
-      picture: userInfo.picture.data.url,
-    });
+
+    if (userInfo.error) {
+      // TODO #62 add error handling
+      console.error('Facebook error', userInfo.error);
+    } else {
+      console.log('wait wut facebook', userInfo);
+      this.props.user.setUser({
+        ...userInfo,
+        firstName: userInfo.first_name,
+        picture: userInfo.picture && userInfo.picture.data.url,
+      });
+    }
   };
 
   handleGoogleLogin = async () => {
     const userInfo = await handleGoogleLogin();
     this.props.user.setUser({
       ...userInfo,
-      first_name: userInfo.given_name,
+      firstName: userInfo.given_name,
     });
   };
 

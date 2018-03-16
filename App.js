@@ -2,9 +2,9 @@
 import React, { Component } from 'react';
 import { StatusBar } from 'react-native';
 import { Provider } from 'unstated';
-import { StackNavigator } from 'react-navigation';
-import { TFacebookUserInfo } from './types/authentication';
-import { TFirebaseSnapshot } from './types/firebase';
+import type { StackNavigatorConfig } from 'react-navigation/src/TypeDefinition';
+import type { TFacebookUserInfo } from './types/authentication';
+import type { TFirebaseSnapshot } from './types/firebase';
 import { HOME, LOGIN, createRootStackNavigator } from './screens';
 import { initializeFirebase, subscribeToTrack } from './utils/firebaseService';
 import UserContainer from './state/UserContainer';
@@ -29,7 +29,7 @@ export default class App extends Component<*, State> {
     StatusBar.setBarStyle('light-content', true);
   }
 
-  async componentWillMount() {
+  componentWillMount() {
     initializeFirebase();
     const isLoggedIn = user.isAuthenticatedUser();
 
@@ -37,7 +37,7 @@ export default class App extends Component<*, State> {
   }
 
   componentWillUnmount() {
-    // TODO move to HomeContainer
+    // TODO #44 move to HomeContainer
     Object.keys(this.firebaseRefs).forEach(trackId =>
       this.firebaseRefs[trackId].off('value', this.onChangeUsers),
     );
@@ -50,7 +50,7 @@ export default class App extends Component<*, State> {
     });
   };
 
-  RootStack: typeof StackNavigator;
+  RootStack: StackNavigatorConfig;
 
   render() {
     return (

@@ -1,4 +1,5 @@
 import { StackNavigator } from 'react-navigation';
+import type { StackNavigatorConfig } from 'react-navigation/src/TypeDefinition';
 import { HomeContainer, LoginContainer, PersonalScheduleContainer } from './';
 
 export const HOME = 'Home';
@@ -6,7 +7,9 @@ export const PERSONAL_SCHEDULE = 'PersonalSchedule';
 export const LOGIN = 'Login';
 export const MAIN = 'Main';
 
-const createMainNavigator = initialRouteName =>
+type TRouteName = HOME | LOGIN;
+
+const createMainNavigator = (initialRouteName: TRouteName): StackNavigatorConfig =>
   StackNavigator(
     {
       [HOME]: { screen: HomeContainer },
@@ -21,7 +24,7 @@ const createMainNavigator = initialRouteName =>
     },
   );
 
-export const createRootStackNavigator = initialRouteName =>
+export const createRootStackNavigator = (initialRouteName: TRouteName): StackNavigatorConfig =>
   StackNavigator(
     {
       [MAIN]: {

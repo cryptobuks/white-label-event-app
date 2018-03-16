@@ -12,13 +12,16 @@ export default class UserContainer extends Container<UserState> {
     this.getFromStorage();
   }
 
-  state = {};
+  state = {
+    id: null,
+    firstName: null,
+    picture: null,
+  };
 
   async getFromStorage() {
     const result = await AsyncStorage.getItem(USER_STORAGE);
 
     if (result) {
-      // console.log('Read AsyncStorage', USER_STORAGE, result);
       this.setState(JSON.parse(result));
     }
   }
@@ -27,13 +30,12 @@ export default class UserContainer extends Container<UserState> {
     try {
       await AsyncStorage.setItem(USER_STORAGE, JSON.stringify(this.state));
     } catch (error) {
+      // TODO #62 add error handling
       console.error('Error updating storage', error);
     }
   }
 
-  isAuthenticatedUser() {
-    return this.state.first_name;
-  }
+  isAuthenticatedUser = () => this.state.firstName;
 
   setUser(user: TUser) {
     this.setState(user);
