@@ -1,32 +1,44 @@
 // @flow
 import React, { Component } from 'react';
+import { Subscribe } from 'unstated';
+import UserContainer from '../../state/UserContainer';
+import type { TUser } from '../../types/authentication';
 import LoginScreen from './LoginScreen';
-import { HOME } from '../../config/screenIds';
+import { HOME } from '../../screens';
+import { handleFacebookLogin, handleGoogleLogin } from '../../utils/authenticationService';
 
 type Props = {
-  screenProps: {
-    handleFacebookLogin: Function,
-    handleGoogleLogin: Function,
-    userInfo: {},
-    userId: string,
-  },
+  user: TUser,
 };
 
-export default class LoginContainer extends Component<Props> {
-  componentWillReceiveProps(newProps) {
-    const { userInfo } = newProps.screenProps;
-
-    if (Object.keys(userInfo).length > 0) {
-      this.props.navigation.navigate(HOME);
-    }
+class LoginContainer extends Component<Props> {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.user.isAuthenticatedUser()) this.handleSuccessfulLogin();
   }
 
-  handleFacebookLogin = () => {
-    this.props.screenProps.handleFacebookLogin();
+  handleSuccessfulLogin = () => this.props.navigation.navigate(HOME);
+
+  handleFacebookLogin = async () => {
+    const userInfo = await handleFacebookLogin();
+
+    if (userInfo.error) {
+      // TODO #62 add error handling
+      console.error('Facebook error', userInfo.error);
+    } else {
+      this.props.user.setUser({
+        ...userInfo,
+        firstName: userInfo.first_name,
+        picture: userInfo.picture && userInfo.picture.data.url,
+      });
+    }
   };
 
-  handleGoogleLogin = () => {
-    this.props.screenProps.handleGoogleLogin();
+  handleGoogleLogin = async () => {
+    const userInfo = await handleGoogleLogin();
+    this.props.user.setUser({
+      ...userInfo,
+      firstName: userInfo.given_name,
+    });
   };
 
   render() {
@@ -38,3 +50,7 @@ export default class LoginContainer extends Component<Props> {
     );
   }
 }
+
+export default props => (
+  <Subscribe to={[UserContainer]}>{user => <LoginContainer user={user} {...props} />}</Subscribe>
+);

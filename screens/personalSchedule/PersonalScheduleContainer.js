@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Subscribe } from 'unstated';
 import PersonalScheduleScreen from './PersonalScheduleScreen';
 import events from '../../assets/events.json';
+import UserContainer from '../../state/UserContainer';
 
 // Temporary dummy data until userId is stored in state
 const USER_ID = '10';
@@ -15,7 +17,15 @@ export default class PersonalScheduleContainer extends Component<Props> {
 
   render() {
     return (
-      <PersonalScheduleScreen sessions={this.personalSessions} handleGoBack={this.handleGoBack} />
+      <Subscribe to={[UserContainer]}>
+        {user => (
+          <PersonalScheduleScreen
+            sessions={this.personalSessions}
+            handleGoBack={this.handleGoBack}
+            firstName={user.state.firstName}
+          />
+        )}
+      </Subscribe>
     );
   }
 }

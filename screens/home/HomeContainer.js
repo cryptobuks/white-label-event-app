@@ -7,7 +7,7 @@ import SchedulePagination from '../../components/schedulePagination';
 import events from '../../assets/events.json';
 import tracks from '../../assets/tracks.json';
 import { sortByDate } from '../../utils/sort';
-import { PERSONAL_SCHEDULE } from '../../config/screenIds';
+import { PERSONAL_SCHEDULE, LOGIN } from '../../screens';
 
 const styles = StyleSheet.create({
   container: {
@@ -31,6 +31,10 @@ export default class HomeContainer extends Component {
     });
   }
 
+  navigateToLogin = () => this.props.navigation.navigate(LOGIN);
+
+  navigateToPersonalSchedule = () => this.props.navigation.navigate(PERSONAL_SCHEDULE);
+
   handleTouchableTap = (destination, total, index) => {
     if (index + destination >= 0 && index + destination < total) {
       this.swiperRef.scrollBy(destination, true);
@@ -38,7 +42,7 @@ export default class HomeContainer extends Component {
   };
 
   handleScheduleButtonPress = () => {
-    this.props.navigation.navigate(PERSONAL_SCHEDULE);
+    this.navigateToPersonalSchedule();
   };
 
   render() {

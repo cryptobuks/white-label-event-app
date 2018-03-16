@@ -1,6 +1,6 @@
 // @flow
 import { FB_APP_ID, GOOGLE_APP_ID } from '../config/keys';
-import { TFacebookUserInfo } from '../types/authentication';
+import type { TFacebookUserInfo } from '../types/authentication';
 
 export const handleFacebookLogin = async (): Promise<TFacebookUserInfo | {}> => {
   const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync(FB_APP_ID, {
@@ -15,6 +15,8 @@ export const handleFacebookLogin = async (): Promise<TFacebookUserInfo | {}> => 
     );
     return userInfoResponse.json();
   }
+  // TODO #62 add error handling
+  console.error(type);
   return {};
 };
 
@@ -31,5 +33,7 @@ export const handleGoogleLogin = async (): Promise<*> => {
     });
     return userInfoResponse.json();
   }
+  // TODO #62 add error handling
+  console.error(result);
   return {};
 };
