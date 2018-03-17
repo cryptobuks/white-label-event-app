@@ -19,7 +19,7 @@ export const handleFacebookLogin = async (): Promise<TFacebookUserInfo> => {
     return userInfoResponse.json();
   }
   // TODO #62 add error handling
-  return Promise.reject(new Error(`Login to Facebook was not successful${result}`));
+  return Promise.reject(new Error(`Login to Facebook was not successful: ${result}`));
 };
 
 export const handleGoogleLogin = async (): Promise<*> => {
@@ -36,5 +36,5 @@ export const handleGoogleLogin = async (): Promise<*> => {
     return userInfoResponse.json();
   }
   // TODO #62 add error handling
-  return Promise.reject(new Error(`Login to Facebook was not successful: ${result}`));
+  return Promise.reject(new Error(`Login to Google was not successful: ${result}`));
 };
