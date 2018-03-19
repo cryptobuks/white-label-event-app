@@ -7,10 +7,6 @@ const style = {
   height: 50,
 };
 
-const SmallView = props => (
-  <View style={style}>
-    {props.children}
-  </View>
-);
+const SmallView = props => <View style={style}>{props.children}</View>;
 
 export default SmallView;

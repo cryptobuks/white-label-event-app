@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Text, View, StyleSheet, Button } from 'react-native';
 import { COLORS, METRICS } from '../../config';
 
 type TProps = {
