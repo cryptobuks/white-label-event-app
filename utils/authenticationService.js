@@ -1,12 +1,15 @@
 // @flow
+import Expo from 'expo';
 import { FB_APP_ID, GOOGLE_APP_ID } from '../config/keys';
 import type { TFacebookUserInfo } from '../types/authentication';
 
-export const handleFacebookLogin = async (): Promise<TFacebookUserInfo | {}> => {
-  const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync(FB_APP_ID, {
+export const handleFacebookLogin = async (): Promise<TFacebookUserInfo> => {
+  const result = await Expo.Facebook.logInWithReadPermissionsAsync(FB_APP_ID, {
     permissions: ['public_profile'],
     behavior: 'web',
   });
+
+  const { type, token } = result;
 
   if (type === 'success') {
     // Get the user's name using Facebook's Graph API
@@ -16,8 +19,7 @@ export const handleFacebookLogin = async (): Promise<TFacebookUserInfo | {}> => 
     return userInfoResponse.json();
   }
   // TODO #62 add error handling
-  console.error(type);
-  return {};
+  return Promise.reject(new Error(`Login to Facebook was not successful: ${result}`));
 };
 
 export const handleGoogleLogin = async (): Promise<*> => {
@@ -34,6 +36,5 @@ export const handleGoogleLogin = async (): Promise<*> => {
     return userInfoResponse.json();
   }
   // TODO #62 add error handling
-  console.error(result);
-  return {};
+  return Promise.reject(new Error(`Login to Google was not successful: ${result}`));
 };

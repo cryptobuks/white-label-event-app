@@ -2,18 +2,18 @@
 import React, { Component } from 'react';
 import { Subscribe } from 'unstated';
 import UserContainer from '../../state/UserContainer';
-import type { TUser } from '../../types/authentication';
+import type { TNavigationProps } from '../../types/navigation';
 import LoginScreen from './LoginScreen';
 import { HOME } from '../../screens';
 import { handleFacebookLogin, handleGoogleLogin } from '../../utils/authenticationService';
 
-type Props = {
-  user: TUser,
-};
+type TProps = {
+  userState: UserContainer,
+} & TNavigationProps;
 
-class LoginContainer extends Component<Props> {
+class LoginContainer extends Component<TProps> {
   componentWillReceiveProps(nextProps) {
-    if (nextProps.user.isAuthenticatedUser()) this.handleSuccessfulLogin();
+    if (nextProps.userState.isAuthenticatedUser()) this.handleSuccessfulLogin();
   }
 
   handleSuccessfulLogin = () => this.props.navigation.navigate(HOME);
@@ -25,7 +25,7 @@ class LoginContainer extends Component<Props> {
       // TODO #62 add error handling
       console.error('Facebook error', userInfo.error);
     } else {
-      this.props.user.setUser({
+      this.props.userState.setUser({
         ...userInfo,
         firstName: userInfo.first_name,
         picture: userInfo.picture && userInfo.picture.data.url,
@@ -35,7 +35,7 @@ class LoginContainer extends Component<Props> {
 
   handleGoogleLogin = async () => {
     const userInfo = await handleGoogleLogin();
-    this.props.user.setUser({
+    this.props.userState.setUser({
       ...userInfo,
       firstName: userInfo.given_name,
     });
@@ -51,6 +51,8 @@ class LoginContainer extends Component<Props> {
   }
 }
 
-export default props => (
-  <Subscribe to={[UserContainer]}>{user => <LoginContainer user={user} {...props} />}</Subscribe>
+export default (props: TNavigationProps) => (
+  <Subscribe to={[UserContainer]}>
+    {userState => <LoginContainer userState={userState} {...props} />}
+  </Subscribe>
 );

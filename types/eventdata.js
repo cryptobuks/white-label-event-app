@@ -1,5 +1,5 @@
 // @flow
-import { TDateLike } from './primitives';
+import type { TDateLike } from './primitives';
 
 export type TAttendee = {
   id: string | number,

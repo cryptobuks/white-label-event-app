@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { Text } from 'react-native';
-import { TStyleSheet } from '../types/stylesheet';
+import type { TStyleSheet } from '../types/stylesheet';
 import { COLORS, FONT_SIZES } from '../config';
 
 type Props = {
