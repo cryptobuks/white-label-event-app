@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { FONT_SIZES, METRICS } from '../../config';
-import Title from '../title';
+import Title from '../Title';
 
 type TProps = {
   author: string,

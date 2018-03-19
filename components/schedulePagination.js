@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import NavigationItem from './navigationItem';
-import InvisibleNavButtons from './invisibleNavButtons';
+import NavigationItem from './NavigationItem';
+import InvisibleNavButtons from './InvisibleNavButtons';
 import { METRICS, COLORS } from '../config';
 import type { TTracks } from '../types/trackdata';
 

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
-import ClosePersonalScheduleButton from '../../components/closePersonalScheduleButton';
+import CloseButton from '../../components/CloseButton';
 import { ScheduleItem } from '../../components';
 import { COLORS, FONT_SIZES, METRICS, FONT_WEIGHTS } from '../../config';
 import type { TEvents } from '../../types/eventdata';
@@ -54,7 +54,7 @@ const PersonalScheduleScreen = ({ events, handleGoBack, firstName }: TProps) => 
   <View style={styles.container}>
     <View style={styles.header}>
       <Text style={styles.title}>{`Your Schedule, ${firstName}`}</Text>
-      <ClosePersonalScheduleButton handleGoBack={handleGoBack} />
+      <CloseButton handleGoBack={handleGoBack} />
     </View>
     <View style={styles.listContainer}>
       <FlatList

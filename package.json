@@ -47,7 +47,8 @@
     "contributors:generate": "all-contributors generate",
     "storybook": "storybook start -p 7007 & react-native-scripts start & wait",
     "flow": "flow --show-all-errors",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "clean": "rm -rf node_modules && npm i"
   },
   "jest": {
     "preset": "jest-expo"

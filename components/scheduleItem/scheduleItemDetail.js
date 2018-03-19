@@ -4,8 +4,8 @@ import { View, StyleSheet } from 'react-native';
 import format from 'date-fns/format';
 import type { TDateLike } from '../../types/primitives';
 import { COLORS, METRICS } from '../../config';
-import ScheduleItemButton from './scheduleItemButton';
-import Label from '../label';
+import ScheduleItemButton from './ScheduleItemButton';
+import Label from '../Label';
 
 type TProps = {
   location: string,

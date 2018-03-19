@@ -3,8 +3,8 @@ import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import type { TEvent } from '../../types/eventdata';
 import { COLORS, METRICS } from '../../config';
-import ScheduleItemHeader from './scheduleItemHeader';
-import ScheduleItemDetail from './scheduleItemDetail';
+import ScheduleItemHeader from './ScheduleItemHeader';
+import ScheduleItemDetail from './ScheduleItemDetail';
 
 type TProps = TEvent;
 
