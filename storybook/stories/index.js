@@ -29,40 +29,24 @@ storiesOf('ScheduleItem', module)
       date={Date.now()}
     />
   ))
-  .add('Button', () => (
-    <ScheduleItemButton />
+  .add('Button', () => <ScheduleItemButton />)
+  .add('Header', () => <ScheduleItemHeader author={mockData.author.name} title={mockData.title} />)
+  .add('Title', () => <Title value={mockData.title} />)
+  .add('Label', () => <Label value={mockData.labelValue} color={mockData.labelColor} />)
+  .addDecorator(getStory => (
+    <CenterView>
+      <SmallView>{getStory()}</SmallView>
+    </CenterView>
   ))
-  .add('Header', () => (
-    <ScheduleItemHeader author={mockData.author.name} title={mockData.title} />
-  ))
-  .add('Title', () => (
-    <Title value={mockData.title} />
-  ))
-  .add('Label', () => (
-    <Label value={mockData.labelValue} color={mockData.labelColor} />
-  ))
-  .addDecorator(getStory => <CenterView><SmallView>{getStory()}</SmallView></CenterView>)
-  .add('Detail', () => (
-    <ScheduleItemDetail date={Date.now()} location={mockData.location} />
-  ));
+  .add('Detail', () => <ScheduleItemDetail date={Date.now()} location={mockData.location} />);
 
 storiesOf('ScheduleNavigation', module)
   .addDecorator(getStory => <DarkView>{getStory()}</DarkView>)
   .add('Pagination', () => (
-    <SchedulePagination
-      index={0}
-      total={5}
-      tracks={tracks}
-      onNextTap={() => {}}
-    />
+    <SchedulePagination index={0} total={5} tracks={tracks} onNextTap={() => {}} />
   ))
-  .add('Item', () => (
-    <NavigationItem title={tracks[0].title} position="middle" />
-  ));
+  .add('Item', () => <NavigationItem title={tracks[0].title} position="middle" />);
 
 storiesOf('PersonalSchedule', module)
   .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
-  .add('Button', () => (
-    <PersonalScheduleButton />
-  ));
-
+  .add('Button', () => <PersonalScheduleButton />);

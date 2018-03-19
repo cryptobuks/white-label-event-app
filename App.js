@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { StatusBar } from 'react-native';
 import { Provider } from 'unstated';
-import type { StackNavigatorConfig } from 'react-navigation/src/TypeDefinition';
+import type { StackNavigatorConfig } from 'react-navigation';
 import type { TFirebaseSnapshot } from './types/firebase';
 import { HOME, LOGIN, createRootStackNavigator } from './screens';
 import { initializeFirebase, subscribeToTrack } from './utils/firebaseService';
