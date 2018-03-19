@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationItem renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "column",
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "white",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "width": 224,
+        },
+        Object {
+          "marginHorizontal": 24,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Bridging the Gap
+  </Text>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#e54cfe",
+        "height": 2,
+        "marginTop": 8,
+        "width": 20,
+      }
+    }
+  />
+</View>
+`;
