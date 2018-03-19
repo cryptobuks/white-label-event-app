@@ -4,11 +4,12 @@ import { View, Text, StyleSheet, FlatList } from 'react-native';
 import ClosePersonalScheduleButton from '../../components/closePersonalScheduleButton';
 import { ScheduleItem } from '../../components';
 import { COLORS, FONT_SIZES, METRICS, FONT_WEIGHTS } from '../../config';
-import { TEvents } from '../../types/eventdata';
+import type { TEvents } from '../../types/eventdata';
 
-type Props = {
+type TProps = {
   events: TEvents,
   handleGoBack: Function,
+  firstName: string,
 };
 
 const CONSTANTS = {
@@ -49,10 +50,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const PersonalScheduleScreen = ({ events, handleGoBack }: Props) => (
+const PersonalScheduleScreen = ({ events, handleGoBack, firstName }: TProps) => (
   <View style={styles.container}>
     <View style={styles.header}>
-      <Text style={styles.title}>My Schedule</Text>
+      <Text style={styles.title}>{`Your Schedule, ${firstName}`}</Text>
       <ClosePersonalScheduleButton handleGoBack={handleGoBack} />
     </View>
     <View style={styles.listContainer}>

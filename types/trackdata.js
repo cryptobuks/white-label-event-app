@@ -1,7 +1,7 @@
 // @flow
 
 export type TTrack = {
-  id: string | number,
+  id: string,
   title: string,
 };
 
