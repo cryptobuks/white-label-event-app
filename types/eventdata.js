@@ -13,7 +13,7 @@ export type TTag = {
 };
 
 export type TEvent = {
-  attendees: Array<*>,
+  attendees: Array<TAttendee>,
   author: TAttendee,
   date: TDateLike,
   description?: string,

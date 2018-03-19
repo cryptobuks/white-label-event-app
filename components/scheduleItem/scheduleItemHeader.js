@@ -4,7 +4,7 @@ import { View, StyleSheet } from 'react-native';
 import { FONT_SIZES, METRICS } from '../../config';
 import Title from '../title';
 
-type Props = {
+type TProps = {
   author: string,
   title: string,
 };
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ScheduleItemHeader = ({ author, title }: Props) => (
+const ScheduleItemHeader = ({ author, title }: TProps) => (
   <View style={styles.titleContainer}>
     <Title fontSize={FONT_SIZES.primary} value={author} />
     <Title fontSize={FONT_SIZES.secondary} value={title} />

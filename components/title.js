@@ -1,13 +1,14 @@
+// @flow
 import React from 'react';
 import { Text } from 'react-native';
-import { TStyleSheet } from '../types/stylesheet';
+import type { TStyleSheet } from '../types/stylesheet';
 import { COLORS, FONT_SIZES, FONT_WEIGHTS } from '../config/';
 
-type Props = {
+type TProps = {
   value: string,
 } & TStyleSheet;
 
-const Title = ({ value, color, fontSize, fontWeight }: Props) => (
+const Title = ({ value, color, fontSize, fontWeight }: TProps) => (
   <Text style={{ color, fontSize, fontWeight }}>{value}</Text>
 );
 

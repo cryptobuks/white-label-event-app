@@ -1,8 +1,18 @@
+// @flow
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import NavigationItem from './navigationItem';
 import InvisibleNavButtons from './invisibleNavButtons';
 import { METRICS, COLORS } from '../config';
+import type { TTracks } from '../types/trackdata';
+
+type TProps = {
+  index: number,
+  total: number,
+  tracks: TTracks,
+  onNextTap: Function,
+  onLongPress: Function,
+};
 
 const GLOBALS = {
   itemWidth: METRICS.gridSize * 28,
@@ -23,14 +33,18 @@ const styles = StyleSheet.create({
   },
 });
 
-const SchedulePagination = ({ index, total, tracks, onNextTap }) => (
+const SchedulePagination = ({ index, total, tracks, onNextTap, onLongPress }: TProps) => (
   <View style={styles.container}>
     {tracks[index - 1] ? (
       <NavigationItem title={tracks[index - 1].title} position="left" />
     ) : (
       <NavigationItem title={''} position="left" />
     )}
-    <NavigationItem title={tracks[index].title} position="middle" />
+    <TouchableWithoutFeedback onLongPress={onLongPress}>
+      <View>
+        <NavigationItem title={tracks[index].title} position="middle" />
+      </View>
+    </TouchableWithoutFeedback>
     {tracks[index + 1] ? (
       <NavigationItem title={tracks[index + 1].title} position="right" />
     ) : (

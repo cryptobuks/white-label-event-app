@@ -4,7 +4,7 @@ import { Text, View, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import { COLORS, METRICS } from '../../config';
 
-type Props = {
+type TProps = {
   onFacebookLogin: Function,
   onGoogleLogin: Function,
 };
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const LoginScreen = ({ onFacebookLogin, onGoogleLogin }: Props) => (
+const LoginScreen = ({ onFacebookLogin, onGoogleLogin }: TProps) => (
   <View style={styles.container}>
     <Text style={styles.whiteText}>
       Please login to subscribe for talks & sessions troughout the day.

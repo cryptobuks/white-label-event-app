@@ -1,11 +1,11 @@
 // @flow
 import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
-import { TEvents, TEvent } from '../../types/eventdata';
+import type { TEvents, TEvent } from '../../types/eventdata';
 import { COLORS, METRICS } from '../../config';
 import { ScheduleItem } from '../../components';
 
-type Props = {
+type TProps = {
   events: TEvents,
 };
 
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const HomeScreen = ({ events, trackName, trackId }: Props) => (
+const HomeScreen = ({ events }: TProps) => (
   <View style={styles.container}>
     <FlatList
       data={events}

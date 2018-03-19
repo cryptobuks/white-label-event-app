@@ -6,7 +6,7 @@ import { COLORS, METRICS } from '../../config';
 import ScheduleItemHeader from './scheduleItemHeader';
 import ScheduleItemDetail from './scheduleItemDetail';
 
-type Props = TEvent;
+type TProps = TEvent;
 
 const CONTAINER = {
   width: METRICS.width - METRICS.gridSize * 6,
@@ -27,8 +27,6 @@ const IMAGE = {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignSelf: 'stretch',
     height: CONTAINER.height,
     marginVertical: CONTAINER.margin,
   },
@@ -41,7 +39,6 @@ const styles = StyleSheet.create({
     borderRadius: CONTAINER.borderRadius,
   },
   contentContainer: {
-    flex: 1,
     margin: CONTAINER.margin,
     marginLeft: CONTENT.marginLeft,
   },
@@ -55,7 +52,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ScheduleItem = ({ author, title, location, date }: Props) => (
+const ScheduleItem = ({ author, title, location, date }: TProps) => (
   <View style={styles.container}>
     <View style={styles.blockContainer}>
       <View style={styles.contentContainer}>

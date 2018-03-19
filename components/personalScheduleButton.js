@@ -1,6 +1,11 @@
+// @flow
 import React from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from 'react-native';
 import { COLORS, FONT_SIZES, METRICS, IS_IPHONE_X, FONT_WEIGHTS } from '../config';
+
+type TProps = {
+  handleScheduleButtonPress: Function,
+};
 
 // Dummy boolean, will be calculated based on content of subscribedTracks in state
 const DISABLED = false;
@@ -40,7 +45,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const PersonalScheduleButton = ({ handleScheduleButtonPress }) => (
+const PersonalScheduleButton = ({ handleScheduleButtonPress }: TProps) => (
   <TouchableWithoutFeedback onPress={!DISABLED ? handleScheduleButtonPress : null}>
     <View
       style={[

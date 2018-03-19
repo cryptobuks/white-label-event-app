@@ -3,17 +3,17 @@ import React, { Component } from 'react';
 import { StatusBar } from 'react-native';
 import { Provider } from 'unstated';
 import type { StackNavigatorConfig } from 'react-navigation/src/TypeDefinition';
-import type { TFacebookUserInfo } from './types/authentication';
 import type { TFirebaseSnapshot } from './types/firebase';
 import { HOME, LOGIN, createRootStackNavigator } from './screens';
 import { initializeFirebase, subscribeToTrack } from './utils/firebaseService';
 import UserContainer from './state/UserContainer';
+import StorybookUI from './storybook';
 
 const user = new UserContainer();
 
 type State = {
-  userInfo: TFacebookUserInfo | {},
   usersPerSchedule: {},
+  isStorybookEnabled: boolean,
 };
 
 export default class App extends Component<*, State> {
@@ -21,8 +21,10 @@ export default class App extends Component<*, State> {
     super(props);
 
     this.firebaseRefs = {};
+
     this.state = {
       usersPerSchedule: {},
+      isStorybookEnabled: false,
     };
 
     StatusBar.setBarStyle('light-content', true);
@@ -49,14 +51,30 @@ export default class App extends Component<*, State> {
     });
   };
 
+  handleStorybookGesture = () => {
+    if (process.env.NODE_ENV === 'development') {
+      this.setState({
+        isStorybookEnabled: true,
+      });
+    }
+  };
+
   RootStack: StackNavigatorConfig;
+
+  renderStorybook() {
+    return <StorybookUI />;
+  }
 
   render() {
     const RootStack = this.RootStack;
-    return (
+    const { isStorybookEnabled } = this.state;
+    return isStorybookEnabled ? (
+      this.renderStorybook()
+    ) : (
       <Provider inject={[user]}>
         <RootStack
           screenProps={{
+            handleStorybookGesture: () => this.handleStorybookGesture(),
             onChangeSubscription: (trackId: string) =>
               subscribeToTrack({
                 trackId,

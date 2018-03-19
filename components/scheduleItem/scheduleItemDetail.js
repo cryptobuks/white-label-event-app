@@ -7,14 +7,13 @@ import { COLORS, METRICS } from '../../config';
 import ScheduleItemButton from './scheduleItemButton';
 import Label from '../label';
 
-type Props = {
+type TProps = {
   location: string,
   date: TDateLike,
 };
 
 const styles = StyleSheet.create({
   detailContainer: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-end',
@@ -27,7 +26,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ScheduleItemDetail = ({ location, date }: Props) => (
+const ScheduleItemDetail = ({ location, date }: TProps) => (
   <View style={styles.detailContainer}>
     <View style={styles.detailTextContainer}>
       <Label value={location} />

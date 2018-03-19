@@ -1,8 +1,16 @@
+// @flow
 /* eslint-disable react-native/no-unused-styles */
 
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { FONT_SIZES, METRICS, COLORS } from '../config';
+
+type TPosition = 'left' | 'middle' | 'right';
+
+type TProps = {
+  title: string,
+  position: TPosition,
+};
 
 const GLOBALS = {
   itemWidth: METRICS.gridSize * 28,
@@ -41,7 +49,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const NavigationItem = ({ title, position }) => (
+const NavigationItem = ({ title, position }: TProps) => (
   <View style={styles.container}>
     <Text style={[styles.item, styles[position]]}>{title}</Text>
     {position === 'middle' ? <View style={styles.line} /> : null}

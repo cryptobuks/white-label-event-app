@@ -1,8 +1,16 @@
+// @flow
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import ClosePersonalScheduleButton from '../../components/closePersonalScheduleButton';
 import { ScheduleItem } from '../../components';
 import { COLORS, FONT_SIZES, METRICS, FONT_WEIGHTS } from '../../config';
+import type { TEvents } from '../../types/eventdata';
+
+type TProps = {
+  events: TEvents,
+  handleGoBack: Function,
+  firstName: string,
+};
 
 const CONSTANTS = {
   paddingTop: METRICS.gridSize * 9,
@@ -42,7 +50,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const PersonalScheduleScreen = ({ sessions, handleGoBack, firstName }) => (
+const PersonalScheduleScreen = ({ events, handleGoBack, firstName }: TProps) => (
   <View style={styles.container}>
     <View style={styles.header}>
       <Text style={styles.title}>{`Your Schedule, ${firstName}`}</Text>
@@ -50,7 +58,7 @@ const PersonalScheduleScreen = ({ sessions, handleGoBack, firstName }) => (
     </View>
     <View style={styles.listContainer}>
       <FlatList
-        data={sessions}
+        data={events}
         contentContainerStyle={styles.flatlist}
         keyExtractor={item => item.id}
         showsVerticalScrollIndicator={false}

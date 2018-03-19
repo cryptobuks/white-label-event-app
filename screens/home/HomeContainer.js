@@ -1,12 +1,15 @@
+// @flow
 import React, { Component } from 'react';
 import Swiper from 'react-native-swiper';
 import { StyleSheet, View } from 'react-native';
 import HomeScreen from './HomeScreen';
-import PersonalScheduleButton from '../../components/personalScheduleButton';
-import SchedulePagination from '../../components/schedulePagination';
+import { PersonalScheduleButton, SchedulePagination } from '../../components';
 import events from '../../assets/events.json';
 import tracks from '../../assets/tracks.json';
 import { sortByDate } from '../../utils/sort';
+import type { TNavigation } from '../../types/navigation';
+import type { TEvents } from '../../types/eventdata';
+import type { TScreenProps } from '../../types/screenprops';
 import { PERSONAL_SCHEDULE, LOGIN } from '../../screens';
 
 const styles = StyleSheet.create({
@@ -15,10 +18,20 @@ const styles = StyleSheet.create({
   },
 });
 
-// TODO: @mikeverf: type methods & component in this file
+type TProps = {
+  navigation: TNavigation,
+  screenProps: TScreenProps,
+};
 
-export default class HomeContainer extends Component {
-  get trackSessions() {
+type TTrackSession = {
+  id: string,
+  tracks: TEvents,
+};
+
+type TTrackSessions = Array<TTrackSession>;
+
+export default class HomeContainer extends Component<TProps> {
+  get trackSessions(): TTrackSessions {
     return tracks.map((track) => {
       const trackSessions = events.filter(session =>
         session.tags.some(sessionTrack => sessionTrack.id === track.id),
@@ -31,11 +44,13 @@ export default class HomeContainer extends Component {
     });
   }
 
+  swiperRef: typeof Swiper;
+
   navigateToLogin = () => this.props.navigation.navigate(LOGIN);
 
   navigateToPersonalSchedule = () => this.props.navigation.navigate(PERSONAL_SCHEDULE);
 
-  handleTouchableTap = (destination, total, index) => {
+  handleTouchableTap = (destination: number, total: number, index: number) => {
     if (index + destination >= 0 && index + destination < total) {
       this.swiperRef.scrollBy(destination, true);
     }
@@ -61,10 +76,11 @@ export default class HomeContainer extends Component {
               total={total}
               tracks={tracks}
               onNextTap={this.handleTouchableTap}
+              onLongPress={this.props.screenProps.handleStorybookGesture}
             />
           )}
         >
-          {tracks.map((track, i) => {
+          {tracks.map((track) => {
             const currTrackSessions = this.trackSessions.find(
               currTrack => track.id === currTrack.id,
             );
