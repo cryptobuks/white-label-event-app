@@ -1,21 +1,36 @@
+// @flow
 import React, { Component } from 'react';
+import { Subscribe } from 'unstated';
 import PersonalScheduleScreen from './PersonalScheduleScreen';
 import events from '../../assets/events.json';
+import type { TNavigation } from '../../types/navigation';
+import type { TEvents } from '../../types/eventdata';
+import UserContainer from '../../state/UserContainer';
 
 // Temporary dummy data until userId is stored in state
 const USER_ID = '10';
 
-// TODO: @mikeverf type this
-type Props = {};
+type Props = {
+  navigation: TNavigation,
+};
+const eventData: TEvents = events;
 
 export default class PersonalScheduleContainer extends Component<Props> {
   handleGoBack = () => this.props.navigation.goBack();
 
-  personalSessions = events.filter(session => session.attendees.some(a => a.id === USER_ID));
+  personalSessions = eventData.filter(session => session.attendees.some(a => a.id === USER_ID));
 
   render() {
     return (
-      <PersonalScheduleScreen sessions={this.personalSessions} handleGoBack={this.handleGoBack} />
+      <Subscribe to={[UserContainer]}>
+        {user => (
+          <PersonalScheduleScreen
+            events={this.personalSessions}
+            handleGoBack={this.handleGoBack}
+            firstName={user.state.firstName}
+          />
+        )}
+      </Subscribe>
     );
   }
 }

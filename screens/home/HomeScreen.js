@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const HomeScreen = ({ events, trackName, trackId }: Props) => (
+const HomeScreen = ({ events }: Props) => (
   <View style={styles.container}>
     <FlatList
       data={events}

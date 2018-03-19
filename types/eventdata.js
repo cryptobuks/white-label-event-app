@@ -1,5 +1,5 @@
 // @flow
-import { TDateLike } from './primitives';
+import type { TDateLike } from './primitives';
 
 export type TAttendee = {
   id: string | number,
@@ -13,7 +13,7 @@ export type TTag = {
 };
 
 export type TEvent = {
-  attendees: Array<*>,
+  attendees: Array<TAttendee>,
   author: TAttendee,
   date: TDateLike,
   description?: string,

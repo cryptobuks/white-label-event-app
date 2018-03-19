@@ -1,6 +1,11 @@
+// @flow
 import React from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback, Image } from 'react-native';
 import { COLORS, METRICS, ASSETS } from '../config';
+
+type Props = {
+  handleGoBack: Function,
+};
 
 const styles = StyleSheet.create({
   closeContainer: {
@@ -14,7 +19,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ClosePersonalScheduleButton = ({ handleGoBack }) => (
+const ClosePersonalScheduleButton = ({ handleGoBack }: Props) => (
   <TouchableWithoutFeedback onPress={handleGoBack}>
     <View style={styles.closeContainer}>
       <Image source={ASSETS.close} style={styles.close} />

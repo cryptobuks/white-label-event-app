@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
-import { TEvent } from '../../types/eventdata';
+import type { TEvent } from '../../types/eventdata';
 import { COLORS, METRICS } from '../../config';
 import ScheduleItemHeader from './scheduleItemHeader';
 import ScheduleItemDetail from './scheduleItemDetail';

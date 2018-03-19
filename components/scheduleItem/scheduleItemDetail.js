@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import format from 'date-fns/format';
-import { TDateLike } from '../../types/primitives';
+import type { TDateLike } from '../../types/primitives';
 import { COLORS, METRICS } from '../../config';
 import ScheduleItemButton from './scheduleItemButton';
 import Label from '../label';

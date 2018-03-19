@@ -1,64 +1,28 @@
 // @flow
 import React, { Component } from 'react';
-import { View, StyleSheet, StatusBar } from 'react-native';
-import { StackNavigator } from 'react-navigation';
-import { TFacebookUserInfo } from './types/authentication';
-import { TFirebaseSnapshot } from './types/firebase';
-import { HomeContainer, LoginContainer, PersonalScheduleContainer } from './screens';
+import { StatusBar } from 'react-native';
+import { Provider } from 'unstated';
+import type { StackNavigatorConfig } from 'react-navigation/src/TypeDefinition';
+import type { TFirebaseSnapshot } from './types/firebase';
+import { HOME, LOGIN, createRootStackNavigator } from './screens';
 import { initializeFirebase, subscribeToTrack } from './utils/firebaseService';
-import { handleFacebookLogin, handleGoogleLogin } from './utils/authenticationService';
-
+import UserContainer from './state/UserContainer';
 import StorybookUI from './storybook';
 
-const Navigator = StackNavigator(
-  {
-    Login: { screen: LoginContainer },
-    Home: { screen: HomeContainer },
-  },
-  {
-    navigationOptions: {
-      header: null,
-      gesturesEnabled: false,
-    },
-  },
-);
-
-const RootStack = StackNavigator(
-  {
-    Main: {
-      screen: Navigator,
-    },
-    PersonalSchedule: {
-      screen: PersonalScheduleContainer,
-    },
-  },
-  {
-    mode: 'modal',
-    headerMode: 'none',
-    cardStyle: {
-      shadowOpacity: 0,
-    },
-  },
-);
+const user = new UserContainer();
 
 type State = {
-  userInfo: TFacebookUserInfo | {},
   usersPerSchedule: {},
+  isStorybookEnabled: boolean,
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-
 export default class App extends Component<*, State> {
-  constructor(props) {
+  constructor(props: *) {
     super(props);
 
     this.firebaseRefs = {};
+
     this.state = {
-      userInfo: {},
       usersPerSchedule: {},
       isStorybookEnabled: false,
     };
@@ -68,9 +32,13 @@ export default class App extends Component<*, State> {
 
   componentWillMount() {
     initializeFirebase();
+    const isLoggedIn = user.isAuthenticatedUser();
+
+    this.RootStack = isLoggedIn ? createRootStackNavigator(HOME) : createRootStackNavigator(LOGIN);
   }
 
   componentWillUnmount() {
+    // TODO #44 move to HomeContainer
     Object.keys(this.firebaseRefs).forEach(trackId =>
       this.firebaseRefs[trackId].off('value', this.onChangeUsers),
     );
@@ -83,30 +51,6 @@ export default class App extends Component<*, State> {
     });
   };
 
-  handleFacebookLogin = async () => {
-    const userInfo = await handleFacebookLogin();
-    if (!userInfo.id) return;
-
-    this.setState({
-      userInfo: {
-        ...userInfo,
-        picture: userInfo.picture.data.url,
-      },
-    });
-  };
-
-  handleGoogleLogin = async () => {
-    const userInfo = await handleGoogleLogin();
-    if (!userInfo.id) return;
-
-    this.setState({
-      userInfo: {
-        ...userInfo,
-        first_name: userInfo.given_name,
-      },
-    });
-  };
-
   handleStorybookGesture = () => {
     if (process.env.NODE_ENV === 'development') {
       this.setState({
@@ -115,32 +59,32 @@ export default class App extends Component<*, State> {
     }
   };
 
+  RootStack: StackNavigatorConfig;
+
   renderStorybook() {
     return <StorybookUI />;
   }
 
   render() {
-    const { userInfo, isStorybookEnabled } = this.state;
+    const RootStack = this.RootStack;
+    const { isStorybookEnabled } = this.state;
     return isStorybookEnabled ? (
       this.renderStorybook()
     ) : (
-      <View style={styles.container}>
+      <Provider inject={[user]}>
         <RootStack
           screenProps={{
             handleStorybookGesture: () => this.handleStorybookGesture(),
-            userInfo,
-            facebookLogin: () => this.handleFacebookLogin(),
-            googleLogin: () => this.handleGoogleLogin(),
-            onChangeSubscription: trackId =>
+            onChangeSubscription: (trackId: string) =>
               subscribeToTrack({
                 trackId,
-                currentUserId: this.state.userInfo.id,
+                currentUserId: user.state.id,
                 subscribedUsers: this.state.usersPerSchedule[trackId] || [],
               }),
-            userId: this.state.userInfo.id,
+            userId: user.state.id,
           }}
         />
-      </View>
+      </Provider>
     );
   }
 }
