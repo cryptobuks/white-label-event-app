@@ -3,7 +3,7 @@ import React from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from 'react-native';
 import { COLORS, FONT_SIZES, METRICS, IS_IPHONE_X, FONT_WEIGHTS } from '../config';
 
-type Props = {
+type TProps = {
   handleScheduleButtonPress: Function,
 };
 
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const PersonalScheduleButton = ({ handleScheduleButtonPress }: Props) => (
+const PersonalScheduleButton = ({ handleScheduleButtonPress }: TProps) => (
   <TouchableWithoutFeedback onPress={!DISABLED ? handleScheduleButtonPress : null}>
     <View
       style={[

@@ -3,7 +3,7 @@ import React from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from 'react-native';
 import { COLORS, METRICS } from '../config';
 
-type Props = {
+type TProps = {
   index: number,
   total: number,
   onNextTap: Function,
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const InvisibleNavButtons = ({ index, total, onNextTap }: Props) => (
+const InvisibleNavButtons = ({ index, total, onNextTap }: TProps) => (
   <View style={[styles.absolute, styles.touchableContainer]}>
     <TouchableWithoutFeedback onPress={() => onNextTap(-1, total, index)}>
       <View style={[styles.left, styles.absolute, styles.view]}>
