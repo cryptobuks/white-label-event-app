@@ -7,7 +7,7 @@ import { FONT_SIZES, METRICS, COLORS } from '../config';
 
 type TPosition = 'left' | 'middle' | 'right';
 
-type Props = {
+type TProps = {
   title: string,
   position: TPosition,
 };
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const NavigationItem = ({ title, position }: Props) => (
+const NavigationItem = ({ title, position }: TProps) => (
   <View style={styles.container}>
     <Text style={[styles.item, styles[position]]}>{title}</Text>
     {position === 'middle' ? <View style={styles.line} /> : null}

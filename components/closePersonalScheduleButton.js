@@ -3,7 +3,7 @@ import React from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback, Image } from 'react-native';
 import { COLORS, METRICS, ASSETS } from '../config';
 
-type Props = {
+type TProps = {
   handleGoBack: Function,
 };
 
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ClosePersonalScheduleButton = ({ handleGoBack }: Props) => (
+const ClosePersonalScheduleButton = ({ handleGoBack }: TProps) => (
   <TouchableWithoutFeedback onPress={handleGoBack}>
     <View style={styles.closeContainer}>
       <Image source={ASSETS.close} style={styles.close} />

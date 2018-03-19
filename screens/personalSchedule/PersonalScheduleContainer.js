@@ -10,15 +10,18 @@ import UserContainer from '../../state/UserContainer';
 // Temporary dummy data until userId is stored in state
 const USER_ID = '10';
 
-type Props = {
+type TProps = {
   navigation: TNavigation,
 };
+
 const eventData: TEvents = events;
 
-export default class PersonalScheduleContainer extends Component<Props> {
-  handleGoBack = () => this.props.navigation.goBack();
+export default class PersonalScheduleContainer extends Component<TProps> {
+  get personalSessions(): TEvents {
+    return eventData.filter(session => session.attendees.some(attendee => attendee.id === USER_ID));
+  }
 
-  personalSessions = eventData.filter(session => session.attendees.some(a => a.id === USER_ID));
+  handleGoBack = () => this.props.navigation.goBack();
 
   render() {
     return (
