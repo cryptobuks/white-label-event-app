@@ -276,7 +276,7 @@ exports[`HomeContainer renders correctly 1`] = `
                                 }
                               }
                             >
-                              04:22 PM
+                              Tue Mar 06 2018 16:22:31 GMT+0100 (CET)
                             </Text>
                           </View>
                           <Image
@@ -533,7 +533,7 @@ exports[`HomeContainer renders correctly 1`] = `
                                 }
                               }
                             >
-                              12:22 PM
+                              Tue Mar 07 2018 12:22:31 GMT+0100 (CET)
                             </Text>
                           </View>
                           <Image
@@ -845,7 +845,7 @@ exports[`HomeContainer renders correctly 1`] = `
                                 }
                               }
                             >
-                              02:22 PM
+                              Tue Mar 06 2018 14:22:31 GMT+0100 (CET)
                             </Text>
                           </View>
                           <Image
@@ -1006,7 +1006,7 @@ exports[`HomeContainer renders correctly 1`] = `
                                 }
                               }
                             >
-                              04:22 PM
+                              Tue Mar 06 2018 16:22:31 GMT+0100 (CET)
                             </Text>
                           </View>
                           <Image
@@ -1273,7 +1273,7 @@ exports[`HomeContainer renders correctly 1`] = `
                                 }
                               }
                             >
-                              02:22 PM
+                              Tue Mar 06 2018 14:22:31 GMT+0100 (CET)
                             </Text>
                           </View>
                           <Image
@@ -1623,7 +1623,7 @@ exports[`HomeContainer renders correctly 1`] = `
                                 }
                               }
                             >
-                              12:22 PM
+                              Tue Mar 07 2018 12:22:31 GMT+0100 (CET)
                             </Text>
                           </View>
                           <Image
@@ -1784,7 +1784,7 @@ exports[`HomeContainer renders correctly 1`] = `
                                 }
                               }
                             >
-                              12:22 PM
+                              Tue Mar 07 2018 12:22:31 GMT+0100 (CET)
                             </Text>
                           </View>
                           <Image
@@ -1945,7 +1945,7 @@ exports[`HomeContainer renders correctly 1`] = `
                                 }
                               }
                             >
-                              12:22 PM
+                              Tue Mar 07 2018 12:22:31 GMT+0100 (CET)
                             </Text>
                           </View>
                           <Image
@@ -2106,7 +2106,7 @@ exports[`HomeContainer renders correctly 1`] = `
                                 }
                               }
                             >
-                              12:22 PM
+                              Tue Mar 07 2018 12:22:31 GMT+0100 (CET)
                             </Text>
                           </View>
                           <Image
