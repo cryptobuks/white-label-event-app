@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import InvisibleNavButtons from '../InvisibleNavButtons';
+import { InvisibleNavButtons } from '../';
 
 describe('InvisibleNavButtons', () => {
   it('renders correctly', () => {

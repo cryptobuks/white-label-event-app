@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ScheduleItemButton from '../ScheduleItem/ScheduleItemButton';
+import { ScheduleItemButton } from '../';
 
 describe('ScheduleItemButton', () => {
   it('renders correctly', () => {

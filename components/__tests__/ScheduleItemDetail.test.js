@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ScheduleItemDetail from '../ScheduleItem/ScheduleItemDetail';
+import { ScheduleItemDetail } from '../';
 import mockData from '../../assets/mockData.json';
 
 describe('ScheduleItemDetail', () => {

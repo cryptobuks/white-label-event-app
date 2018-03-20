@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import SchedulePagination from '../SchedulePagination';
+import { SchedulePagination } from '../';
 import tracks from '../../assets/tracks.json';
 
 describe('SchedulePagination', () => {

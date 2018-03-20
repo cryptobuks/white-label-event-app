@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ScheduleItemHeader from '../ScheduleItem/ScheduleItemHeader';
+import { ScheduleItemHeader } from '../';
 import mockData from '../../assets/mockData.json';
 
 describe('ScheduleItemHeader', () => {

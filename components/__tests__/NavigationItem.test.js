@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import NavigationItem from '../NavigationItem';
+import { NavigationItem } from '../';
 import mockData from '../../assets/mockData.json';
 
 describe('NavigationItem', () => {

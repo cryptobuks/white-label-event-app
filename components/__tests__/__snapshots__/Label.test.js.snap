@@ -1,38 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ScheduleItemHeader renders correctly 1`] = `
-<View
+exports[`Label renders correctly 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
   style={
     Object {
-      "height": 40,
-      "justifyContent": "space-between",
-      "width": 200,
+      "color": "#424749",
+      "fontSize": 12,
     }
   }
 >
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "color": "black",
-        "fontSize": 16,
-        "fontWeight": "600",
-      }
-    }
-  />
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "color": "black",
-        "fontSize": 14,
-        "fontWeight": "600",
-      }
-    }
-  />
-</View>
+  labelValue
+</Text>
 `;

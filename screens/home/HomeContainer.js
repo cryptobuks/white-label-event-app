@@ -7,9 +7,8 @@ import { PersonalScheduleButton, SchedulePagination } from '../../components';
 import events from '../../assets/events.json';
 import tracks from '../../assets/tracks.json';
 import { sortByDate } from '../../utils/sort';
-import type { TNavigation } from '../../types/navigation';
+import type { TNavigationProps } from '../../types/navigation';
 import type { TEvents } from '../../types/eventdata';
-import type { TScreenProps } from '../../types/screenprops';
 import { PERSONAL_SCHEDULE, LOGIN } from '../../screens';
 
 const styles = StyleSheet.create({
@@ -18,10 +17,7 @@ const styles = StyleSheet.create({
   },
 });
 
-type TProps = {
-  navigation: TNavigation,
-  screenProps: TScreenProps,
-};
+type TProps = TNavigationProps;
 
 type TTrackSession = {
   id: string,

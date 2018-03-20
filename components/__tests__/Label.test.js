@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Label from '../ScheduleItem/ScheduleItemHeader';
+import { Label } from '../';
 
-describe('ScheduleItemHeader', () => {
+describe('Label', () => {
   it('renders correctly', () => {
     const comp = <Label value="labelValue" />;
 

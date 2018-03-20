@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import CloseButton from '../CloseButton';
+import { CloseButton } from '../';
 
 describe('CloseButton', () => {
   it('renders correctly', () => {
