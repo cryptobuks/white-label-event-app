@@ -2,8 +2,6 @@
 
 export type TScreenProps = {
   handleStorybookGesture: Function,
-  handleFacebookLogin: Function,
-  handleGoogleLogin: Function,
-  userInfo: {},
+  onChangeSubscription: Function,
   userId: string,
 };

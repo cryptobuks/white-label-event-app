@@ -1,11 +1,11 @@
 // @flow
-import * as React from 'react';
+import React from 'react';
 import { Text } from 'react-native';
 import type { TStyleSheet } from '../types/stylesheet';
 import { COLORS, FONT_SIZES } from '../config';
 
 type TProps = {
-  value: React.ReactText,
+  value: string,
 } & TStyleSheet;
 
 const Label = ({ value, fontSize, color }: TProps) => (

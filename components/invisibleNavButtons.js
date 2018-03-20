@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
 const InvisibleNavButtons = ({ index, total, onNextTap }: TProps) => (
   <View style={[styles.absolute, styles.touchableContainer]}>
     <TouchableWithoutFeedback onPress={() => onNextTap(-1, total, index)}>
-      <View style={[styles.left, styles.absolute, styles.view]}>
+      <View style={[styles.absolute, styles.view]}>
         <Text style={[styles.touchableText, styles.view, styles.absolute]}>{}</Text>
       </View>
     </TouchableWithoutFeedback>

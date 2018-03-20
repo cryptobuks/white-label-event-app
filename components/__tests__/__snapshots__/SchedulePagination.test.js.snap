@@ -164,7 +164,6 @@ exports[`SchedulePagination renders correctly 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Array [
-          undefined,
           Object {
             "position": "absolute",
           },

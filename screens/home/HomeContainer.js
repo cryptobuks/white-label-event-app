@@ -9,6 +9,7 @@ import tracks from '../../assets/tracks.json';
 import { sortByDate } from '../../utils/sort';
 import type { TNavigationProps } from '../../types/navigation';
 import type { TEvents } from '../../types/eventdata';
+import type { TTrack } from '../../types/trackdata';
 import { PERSONAL_SCHEDULE, LOGIN } from '../../screens';
 
 const styles = StyleSheet.create({
@@ -21,21 +22,21 @@ type TProps = TNavigationProps;
 
 type TTrackSession = {
   id: string,
-  tracks: TEvents,
+  events: TEvents,
 };
 
 type TTrackSessions = Array<TTrackSession>;
 
 export default class HomeContainer extends Component<TProps> {
   get trackSessions(): TTrackSessions {
-    return tracks.map((track) => {
+    return tracks.map((track: TTrack) => {
       const trackSessions = events.filter(session =>
-        session.tags.some(sessionTrack => sessionTrack.id === track.id),
+        session.tags.some((sessionTrack: TTrack) => sessionTrack.id === track.id),
       );
-      const sortedTrackSessions = sortByDate(trackSessions);
+      const sortedTrackSessions: TEvents = sortByDate(trackSessions);
       return {
         id: track.id,
-        tracks: sortedTrackSessions,
+        events: sortedTrackSessions,
       };
     });
   }
@@ -85,7 +86,7 @@ export default class HomeContainer extends Component<TProps> {
                 key={track.id}
                 trackName={track.title}
                 trackId={track.id}
-                events={currTrackSessions.tracks}
+                events={currTrackSessions.events}
               />
             );
           })}

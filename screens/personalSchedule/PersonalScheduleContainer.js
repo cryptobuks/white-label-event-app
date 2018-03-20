@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Subscribe } from 'unstated';
 import PersonalScheduleScreen from './PersonalScheduleScreen';
 import events from '../../assets/events.json';
-import type { TNavigationProps } from '../../types/navigation';
+import type { TNavigation } from '../../types/navigation';
 import type { TEvents } from '../../types/eventdata';
 import UserContainer from '../../state/UserContainer';
 
@@ -11,7 +11,7 @@ import UserContainer from '../../state/UserContainer';
 const USER_ID = '10';
 
 type TProps = {
-  navigation: TNavigationProps,
+  navigation: TNavigation,
 };
 
 const eventData: TEvents = events;
