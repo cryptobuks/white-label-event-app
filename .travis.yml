@@ -5,6 +5,7 @@ before_install:
 - if [ "$encrypted_a3f2a9459865_iv" ]; then openssl aes-256-cbc -K $encrypted_a3f2a9459865_key -iv $encrypted_a3f2a9459865_iv -in firebaseConfig.json.enc -out utils/firebaseConfig.json -d; else echo "{}" > utils/firebaseConfig.json; fi
 script:
 - npm run lint
+- npm test
 - if [[ "$encrypted_a3f2a9459865_key" ]]; then
     if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
       npm run deploy:pr;
