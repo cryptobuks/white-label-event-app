@@ -2296,12 +2296,11 @@ exports[`HomeContainer renders correctly 1`] = `
       <View
         style={
           Array [
-            Object {
-              "position": "absolute",
-            },
+            undefined,
             Object {
               "backgroundColor": "transparent",
               "left": 154,
+              "position": "absolute",
               "top": 56,
             },
           ]
@@ -2322,15 +2321,10 @@ exports[`HomeContainer renders correctly 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "position": "absolute",
-              },
-              Object {
-                "height": 48,
-                "width": 144,
-              },
-            ]
+            Object {
+              "height": 48,
+              "width": 144,
+            }
           }
           testID={undefined}
         >
@@ -2347,9 +2341,6 @@ exports[`HomeContainer renders correctly 1`] = `
                 Object {
                   "height": 48,
                   "width": 144,
-                },
-                Object {
-                  "position": "absolute",
                 },
               ]
             }
@@ -2372,13 +2363,7 @@ exports[`HomeContainer renders correctly 1`] = `
           style={
             Array [
               Object {
-                "position": "absolute",
-              },
-              Object {
                 "left": 214,
-              },
-              Object {
-                "position": "absolute",
               },
               Object {
                 "height": 48,
@@ -2401,9 +2386,6 @@ exports[`HomeContainer renders correctly 1`] = `
                 Object {
                   "height": 48,
                   "width": 144,
-                },
-                Object {
-                  "position": "absolute",
                 },
               ]
             }
