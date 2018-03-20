@@ -25,6 +25,64 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "thibmaek",
+      "name": "Thibault Maekelbergh",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/6213695?v=4",
+      "profile": "https://thibmaekelbergh.be",
+      "contributions": [
+        "question",
+        "bug",
+        "code",
+        "example",
+        "ideas",
+        "infra",
+        "review",
+        "tool"
+      ]
+    },
+    {
+      "login": "kevinmeyvaert",
+      "name": "Kevin Meyvaert",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/12066078?v=4",
+      "profile": "http://ditiskev.in",
+      "contributions": [
+        "question",
+        "bug",
+        "code",
+        "example",
+        "ideas",
+        "infra",
+        "review",
+        "tool"
+      ]
+    },
+    {
+      "login": "easybird",
+      "name": "Easybird",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/8142934?v=4",
+      "profile": "http://easybird.be",
+      "contributions": [
+        "question",
+        "bug",
+        "code",
+        "example",
+        "ideas",
+        "infra",
+        "review",
+        "test",
+        "tool"
+      ]
+    },
+    {
+      "login": "mikeverf",
+      "name": "mikeverf",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/19315705?v=4",
+      "profile": "https://github.com/mikeverf",
+      "contributions": [
+        "code"
+      ]
     }
   ]
 }

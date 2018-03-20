@@ -1,109 +1,90 @@
+// @flow
 import React, { Component } from 'react';
-import { StackNavigator } from 'react-navigation';
-import { View, StyleSheet } from 'react-native';
-import { HomeScreen, DetailScreen, UserScreen } from './screens';
-import { initializeFirebase, subscribeToTrack, listenFirebaseChanges } from './utils/firebaseService';
-import { handleFacebookLogin, handleGoogleLogin } from './utils/authenticationService';
-import getShiftData from './utils/shiftService';
-import Loading from './components/loading';
+import { StatusBar } from 'react-native';
+import { Provider } from 'unstated';
+import type { StackNavigatorConfig } from 'react-navigation';
+import type { TFirebaseSnapshot } from './types/firebase';
+import { HOME, LOGIN, createRootStackNavigator } from './screens';
+import { initializeFirebase, subscribeToTrack } from './utils/firebaseService';
+import UserContainer from './state/UserContainer';
+import StorybookUI from './storybook';
 
-const Navigator = StackNavigator({
-  Home: { screen: HomeScreen },
-  Detail: { screen: DetailScreen },
-  User: { screen: UserScreen },
-});
+const user = new UserContainer();
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+type State = {
+  usersPerSchedule: {},
+  isStorybookEnabled: boolean,
+};
 
-export default class App extends Component {
-  constructor(props) {
+export default class App extends Component<*, State> {
+  constructor(props: *) {
     super(props);
 
     this.firebaseRefs = {};
+
     this.state = {
-      shiftData: [],
-      userInfo: {},
       usersPerSchedule: {},
+      isStorybookEnabled: false,
     };
+
+    StatusBar.setBarStyle('light-content', true);
   }
 
   componentWillMount() {
     initializeFirebase();
-    getShiftData()
-      .then((response) => {
-        this.setState({ shiftData: response.data });
-        return response.data;
-      })
-      .then((shiftData) => {
-        shiftData.forEach((shiftSchedule) => {
-          const firebaseRef = listenFirebaseChanges(shiftSchedule.name);
-          firebaseRef.on('value', snapshot => this.onChangeUsers(snapshot, shiftSchedule.name));
-          this.firebaseRefs[shiftSchedule.name] = firebaseRef;
-        });
-      });
+    const isLoggedIn = user.isAuthenticatedUser();
+
+    this.RootStack = isLoggedIn ? createRootStackNavigator(HOME) : createRootStackNavigator(LOGIN);
   }
 
   componentWillUnmount() {
-    Object.keys(this.firebaseRefs).forEach(trackId => this.firebaseRefs[trackId].off('value', this.onChangeUsers));
+    // TODO #44 move to HomeContainer
+    Object.keys(this.firebaseRefs).forEach(trackId =>
+      this.firebaseRefs[trackId].off('value', this.onChangeUsers),
+    );
   }
 
-  onChangeUsers = (snapshot, trackId) => {
+  onChangeUsers = (snapshot: TFirebaseSnapshot, trackId: string) => {
     const visitors = snapshot.val() && snapshot.val().userIds;
     this.setState({
       usersPerSchedule: { ...this.state.usersPerSchedule, [trackId]: visitors },
     });
   };
 
-  handleFacebookLogin = async () => {
-    const userInfo = await handleFacebookLogin();
-    this.setState({
-      userInfo: {
-        ...userInfo,
-        picture: userInfo.picture.data.url,
-      },
-    });
+  handleStorybookGesture = () => {
+    if (process.env.NODE_ENV === 'development') {
+      this.setState({
+        isStorybookEnabled: true,
+      });
+    }
   };
 
-  handleGoogleLogin = async () => {
-    const userInfo = await handleGoogleLogin();
-    this.setState({
-      userInfo: {
-        ...userInfo,
-        first_name: userInfo.given_name,
-      },
-    });
-  };
+  RootStack: StackNavigatorConfig;
+
+  renderStorybook() {
+    return <StorybookUI />;
+  }
 
   render() {
-    const { userInfo } = this.state;
-    if (this.state.shiftData.length < 1) {
-      return (
-        <Loading />
-      );
-    }
-    return (
-      <View style={styles.container}>
-        <Navigator
+    const RootStack = this.RootStack;
+    const { isStorybookEnabled } = this.state;
+    return isStorybookEnabled ? (
+      this.renderStorybook()
+    ) : (
+      <Provider inject={[user]}>
+        <RootStack
           screenProps={{
-            shiftData: this.state.shiftData,
-            userInfo,
-            facebookLogin: () => this.handleFacebookLogin(),
-            googleLogin: () => this.handleGoogleLogin(),
-            onChangeSubscription: trackId =>
+            handleStorybookGesture: () => this.handleStorybookGesture(),
+            onChangeSubscription: (trackId: string) =>
               subscribeToTrack({
                 trackId,
-                currentUserId: this.state.userInfo.id,
+                currentUserId: user.state.id,
                 subscribedUsers: this.state.usersPerSchedule[trackId] || [],
               }),
-            userId: this.state.userInfo.id,
-            usersPerSchedule: this.state.usersPerSchedule,
+            userId: user.state.id,
           }}
         />
-      </View>
+      </Provider>
     );
   }
 }

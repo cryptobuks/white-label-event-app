@@ -1,9 +1,11 @@
 {
   "expo": {
-    "sdkVersion": "21.0.0",
-    "icon": "./assets/shift.png",
-    "loading": {
-      "icon": "./assets/shift.png"
-    }
+    "name": "white-label-event-app",
+    "sdkVersion": "25.0.0",
+    "slug": "expo.io/@itpocket/white-label-event-mobile-app",
+    "splash": {
+      "image": "./assets/splash.png"
+    },
+    "icon": "./assets/icon.png"
   }
 }
