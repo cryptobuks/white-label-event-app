@@ -2195,7 +2195,10 @@ exports[`HomeContainer renders correctly 1`] = `
                 "fontWeight": "bold",
                 "width": 224,
               },
-              null,
+              Object {
+                "opacity": 0.4,
+                "textAlign": "right",
+              },
               null,
               null,
             ]
@@ -2242,7 +2245,10 @@ exports[`HomeContainer renders correctly 1`] = `
                   "width": 224,
                 },
                 null,
-                null,
+                Object {
+                  "marginHorizontal": 24,
+                  "textAlign": "center",
+                },
                 null,
               ]
             }
@@ -2283,7 +2289,10 @@ exports[`HomeContainer renders correctly 1`] = `
               },
               null,
               null,
-              null,
+              Object {
+                "opacity": 0.4,
+                "textAlign": "left",
+              },
             ]
           }
         >
@@ -2292,15 +2301,12 @@ exports[`HomeContainer renders correctly 1`] = `
       </View>
       <View
         style={
-          Array [
-            undefined,
-            Object {
-              "backgroundColor": "transparent",
-              "left": 154,
-              "position": "absolute",
-              "top": 56,
-            },
-          ]
+          Object {
+            "backgroundColor": "transparent",
+            "left": 154,
+            "position": "absolute",
+            "top": 56,
+          }
         }
       >
         <View
@@ -2320,6 +2326,7 @@ exports[`HomeContainer renders correctly 1`] = `
           style={
             Object {
               "height": 48,
+              "position": "absolute",
               "width": 144,
             }
           }
@@ -2337,6 +2344,7 @@ exports[`HomeContainer renders correctly 1`] = `
                 },
                 Object {
                   "height": 48,
+                  "position": "absolute",
                   "width": 144,
                 },
               ]
@@ -2364,6 +2372,7 @@ exports[`HomeContainer renders correctly 1`] = `
               },
               Object {
                 "height": 48,
+                "position": "absolute",
                 "width": 144,
               },
             ]
@@ -2382,6 +2391,7 @@ exports[`HomeContainer renders correctly 1`] = `
                 },
                 Object {
                   "height": 48,
+                  "position": "absolute",
                   "width": 144,
                 },
               ]

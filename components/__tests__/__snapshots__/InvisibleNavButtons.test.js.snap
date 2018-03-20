@@ -3,15 +3,12 @@
 exports[`InvisibleNavButtons renders correctly 1`] = `
 <View
   style={
-    Array [
-      undefined,
-      Object {
-        "backgroundColor": "transparent",
-        "left": 154,
-        "position": "absolute",
-        "top": 56,
-      },
-    ]
+    Object {
+      "backgroundColor": "transparent",
+      "left": 154,
+      "position": "absolute",
+      "top": 56,
+    }
   }
 >
   <View
@@ -31,6 +28,7 @@ exports[`InvisibleNavButtons renders correctly 1`] = `
     style={
       Object {
         "height": 48,
+        "position": "absolute",
         "width": 144,
       }
     }
@@ -48,6 +46,7 @@ exports[`InvisibleNavButtons renders correctly 1`] = `
           },
           Object {
             "height": 48,
+            "position": "absolute",
             "width": 144,
           },
         ]
@@ -75,6 +74,7 @@ exports[`InvisibleNavButtons renders correctly 1`] = `
         },
         Object {
           "height": 48,
+          "position": "absolute",
           "width": 144,
         },
       ]
@@ -93,6 +93,7 @@ exports[`InvisibleNavButtons renders correctly 1`] = `
           },
           Object {
             "height": 48,
+            "position": "absolute",
             "width": 144,
           },
         ]

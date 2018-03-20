@@ -53,9 +53,9 @@ const NavigationItem = ({ title, position }: TProps) => (
     <Text
       style={[
         styles.item,
-        title === 'left' ? styles.leftItem : null,
-        title === 'middle' ? styles.middleItem : null,
-        title === 'right' ? styles.rightItem : null,
+        position === 'left' ? styles.leftItem : null,
+        position === 'middle' ? styles.middleItem : null,
+        position === 'right' ? styles.rightItem : null,
       ]}
     >
       {title}
