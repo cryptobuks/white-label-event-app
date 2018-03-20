@@ -21,10 +21,12 @@ exports[`NavigationItem renders correctly 1`] = `
           "fontWeight": "bold",
           "width": 224,
         },
+        null,
         Object {
           "marginHorizontal": 24,
           "textAlign": "center",
         },
+        null,
       ]
     }
   >

@@ -20,10 +20,8 @@ const styles = StyleSheet.create({
     flex: 1,
     color: COLORS.transparent,
   },
-  absolute: {
-    position: 'absolute',
-  },
   view: {
+    position: 'absolute',
     width: METRICS.gridSize * 18,
     height: METRICS.gridSize * 6,
   },
@@ -31,6 +29,7 @@ const styles = StyleSheet.create({
     left: GLOBALS.itemWidth - 10,
   },
   touchableContainer: {
+    position: 'absolute',
     left: GLOBALS.itemWidth - 70,
     top: GLOBALS.top,
     backgroundColor: COLORS.transparent,
@@ -38,15 +37,15 @@ const styles = StyleSheet.create({
 });
 
 const InvisibleNavButtons = ({ index, total, onNextTap }: TProps) => (
-  <View style={[styles.absolute, styles.touchableContainer]}>
+  <View style={styles.touchableContainer}>
     <TouchableWithoutFeedback onPress={() => onNextTap(-1, total, index)}>
-      <View style={[styles.absolute, styles.view]}>
-        <Text style={[styles.touchableText, styles.view, styles.absolute]}>{}</Text>
+      <View style={styles.view}>
+        <Text style={[styles.touchableText, styles.view]} />
       </View>
     </TouchableWithoutFeedback>
     <TouchableWithoutFeedback onPress={() => onNextTap(1, total, index)}>
-      <View style={[styles.absolute, styles.right, styles.absolute, styles.view]}>
-        <Text style={[styles.touchableText, styles.view, styles.absolute]}>{}</Text>
+      <View style={[styles.right, styles.view]}>
+        <Text style={[styles.touchableText, styles.view]} />
       </View>
     </TouchableWithoutFeedback>
   </View>

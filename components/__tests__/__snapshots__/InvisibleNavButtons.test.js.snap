@@ -3,16 +3,12 @@
 exports[`InvisibleNavButtons renders correctly 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "position": "absolute",
-      },
-      Object {
-        "backgroundColor": "transparent",
-        "left": 154,
-        "top": 56,
-      },
-    ]
+    Object {
+      "backgroundColor": "transparent",
+      "left": 154,
+      "position": "absolute",
+      "top": 56,
+    }
   }
 >
   <View
@@ -30,15 +26,11 @@ exports[`InvisibleNavButtons renders correctly 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "position": "absolute",
-        },
-        Object {
-          "height": 48,
-          "width": 144,
-        },
-      ]
+      Object {
+        "height": 48,
+        "position": "absolute",
+        "width": 144,
+      }
     }
     testID={undefined}
   >
@@ -54,10 +46,8 @@ exports[`InvisibleNavButtons renders correctly 1`] = `
           },
           Object {
             "height": 48,
-            "width": 144,
-          },
-          Object {
             "position": "absolute",
+            "width": 144,
           },
         ]
       }
@@ -80,16 +70,11 @@ exports[`InvisibleNavButtons renders correctly 1`] = `
     style={
       Array [
         Object {
-          "position": "absolute",
-        },
-        Object {
           "left": 214,
         },
         Object {
-          "position": "absolute",
-        },
-        Object {
           "height": 48,
+          "position": "absolute",
           "width": 144,
         },
       ]
@@ -108,10 +93,8 @@ exports[`InvisibleNavButtons renders correctly 1`] = `
           },
           Object {
             "height": 48,
-            "width": 144,
-          },
-          Object {
             "position": "absolute",
+            "width": 144,
           },
         ]
       }
