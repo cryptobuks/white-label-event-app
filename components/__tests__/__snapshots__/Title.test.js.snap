@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title renders correctly 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Object {
+      "color": "black",
+      "fontSize": 16,
+      "fontWeight": "600",
+    }
+  }
+>
+  titleValue
+</Text>
+`;

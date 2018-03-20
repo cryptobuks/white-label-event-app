@@ -50,10 +50,11 @@
     "storybook": "storybook start -p 7007 & react-native-scripts start & wait",
     "flow": "flow --show-all-errors",
     "flow:install": "flow-typed install",
-    "update": "npm-check -u --production",
-    "update:dev": "npm-check -u --dev-only",
+    "precommit": "lint-staged",
     "prepush": "npm run test",
-    "precommit": "lint-staged"
+    "clean": "rm -rf node_modules && npm i",
+    "update": "npm-check -u --production",
+    "update:dev": "npm-check -u --dev-only"
   },
   "jest": {
     "preset": "jest-expo"

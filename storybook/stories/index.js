@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react-native';
 import tracks from '../../assets/tracks.json';
-import mockData from '../mockData.json';
+import mockData from '../../assets/mockData.json';
 
 import CenterView from './CenterView';
 import SmallView from './SmallView';

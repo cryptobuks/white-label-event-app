@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScheduleItem renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "height": 140,
+      "marginVertical": 16,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 3,
+        "flex": 1,
+        "flexDirection": "row",
+        "width": 702,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "margin": 16,
+          "marginLeft": 104,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "height": 40,
+            "justifyContent": "space-between",
+            "width": 200,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "black",
+              "fontSize": 16,
+              "fontWeight": "600",
+            }
+          }
+        >
+          Cedric Devroey
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "black",
+              "fontSize": 14,
+              "fontWeight": "600",
+            }
+          }
+        >
+          Bridging the Gap
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "flex-end",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginTop": 32,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "height": 32,
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#424749",
+                "fontSize": 12,
+              }
+            }
+          >
+            Arena
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#e54cfe",
+                "fontSize": 12,
+              }
+            }
+          >
+            Tue Mar 06 2018 16:22:31 GMT+0100 (CET)
+          </Text>
+        </View>
+        <Image
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          source={1}
+          style={
+            Object {
+              "height": 20,
+              "width": 20,
+            }
+          }
+          testID={undefined}
+        />
+      </View>
+    </View>
+  </View>
+  <Image
+    source={
+      Object {
+        "uri": "https://picsum.photos/300/250/?random",
+      }
+    }
+    style={
+      Object {
+        "borderRadius": 3,
+        "height": 100,
+        "left": -16,
+        "position": "absolute",
+        "top": 20,
+        "width": 100,
+      }
+    }
+  />
+</View>
+`;

@@ -1,6 +1,11 @@
+// @flow
+
+export type TNavigation = {
+  navigate: Function,
+  goBack: Function,
+};
+
 export type TNavigationProps = {
   screenProps: Object,
-  navigation: {
-    navigate: Function,
-  },
+  navigation: TNavigation,
 };

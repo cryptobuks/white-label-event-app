@@ -7,9 +7,9 @@ import { PersonalScheduleButton, SchedulePagination } from '../../components';
 import events from '../../assets/events.json';
 import tracks from '../../assets/tracks.json';
 import { sortByDate } from '../../utils/sort';
-import type { TNavigation } from '../../types/navigation';
+import type { TNavigationProps } from '../../types/navigation';
 import type { TEvents } from '../../types/eventdata';
-import type { TScreenProps } from '../../types/screenprops';
+import type { TTrack } from '../../types/trackdata';
 import { PERSONAL_SCHEDULE, LOGIN } from '../../screens';
 
 const styles = StyleSheet.create({
@@ -18,28 +18,25 @@ const styles = StyleSheet.create({
   },
 });
 
-type TProps = {
-  navigation: TNavigation,
-  screenProps: TScreenProps,
-};
+type TProps = TNavigationProps;
 
 type TTrackSession = {
   id: string,
-  tracks: TEvents,
+  events: TEvents,
 };
 
 type TTrackSessions = Array<TTrackSession>;
 
 export default class HomeContainer extends Component<TProps> {
   get trackSessions(): TTrackSessions {
-    return tracks.map((track) => {
+    return tracks.map((track: TTrack) => {
       const trackSessions = events.filter(session =>
-        session.tags.some(sessionTrack => sessionTrack.id === track.id),
+        session.tags.some((sessionTrack: TTrack) => sessionTrack.id === track.id),
       );
-      const sortedTrackSessions = sortByDate(trackSessions);
+      const sortedTrackSessions: TEvents = sortByDate(trackSessions);
       return {
         id: track.id,
-        tracks: sortedTrackSessions,
+        events: sortedTrackSessions,
       };
     });
   }
@@ -89,7 +86,7 @@ export default class HomeContainer extends Component<TProps> {
                 key={track.id}
                 trackName={track.title}
                 trackId={track.id}
-                events={currTrackSessions.tracks}
+                events={currTrackSessions.events}
               />
             );
           })}

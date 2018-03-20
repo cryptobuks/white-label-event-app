@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
-import type { TEvents, TEvent } from '../../types/eventdata';
+import type { TEvents } from '../../types/eventdata';
 import { COLORS, METRICS } from '../../config';
 import { ScheduleItem } from '../../components';
 
@@ -34,7 +34,7 @@ const HomeScreen = ({ events }: TProps) => (
       data={events}
       contentContainerStyle={styles.flatlist}
       keyExtractor={item => item.id}
-      renderItem={({ item: event }: TEvent) => <ScheduleItem {...event} />}
+      renderItem={({ item: event }) => <ScheduleItem {...event} />}
     />
   </View>
 );

@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ClosePersonalScheduleButton = ({ handleGoBack }: TProps) => (
+const CloseButton = ({ handleGoBack }: TProps) => (
   <TouchableWithoutFeedback onPress={handleGoBack}>
     <View style={styles.closeContainer}>
       <Image source={ASSETS.close} style={styles.close} />
@@ -27,4 +27,4 @@ const ClosePersonalScheduleButton = ({ handleGoBack }: TProps) => (
   </TouchableWithoutFeedback>
 );
 
-export default ClosePersonalScheduleButton;
+export default CloseButton;
