@@ -62,12 +62,12 @@
   "dependencies": {
     "date-fns": "^1.29.0",
     "expo": "^25.0.0",
-    "firebase": "^4.4.0",
+    "firebase": "^4.11.0",
     "itp-react-native-scripts": "git+https://github.com/inthepocket/itp-react-native-scripts.git",
     "react": "16.2.0",
     "react-native": "0.52.0",
     "react-native-swiper": "^1.5.13",
-    "react-navigation": "^1.0.0-beta.27",
+    "react-navigation": "^1.5.8",
     "unstated": "^1.1.0"
   },
   "repository": {
