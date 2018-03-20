@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { Text, View, StyleSheet, TouchableHighlight } from 'react-native';
 import { COLORS, METRICS } from '../../config';
 
 type TProps = {
@@ -24,6 +24,16 @@ const styles = StyleSheet.create({
     height: METRICS.gridSize * 12.5,
     justifyContent: 'space-between',
   },
+  button: {
+    padding: METRICS.gridSize * 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: METRICS.gridSize * 5,
+    backgroundColor: COLORS.lightGrey,
+  },
+  buttonText: {
+    color: COLORS.white,
+  },
 });
 
 const LoginScreen = ({ onFacebookLogin, onGoogleLogin }: TProps) => (
@@ -32,8 +42,16 @@ const LoginScreen = ({ onFacebookLogin, onGoogleLogin }: TProps) => (
       Please login to subscribe for talks & sessions troughout the day.
     </Text>
     <View style={styles.buttons}>
-      <Button title="Login with Facebook" onPress={onFacebookLogin} />
-      <Button title="Login with Google" onPress={onGoogleLogin} />
+      <TouchableHighlight onPress={onFacebookLogin}>
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>{'Login with Facebook'}</Text>
+        </View>
+      </TouchableHighlight>
+      <TouchableHighlight onPress={onGoogleLogin}>
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>{'Login with Google'}</Text>
+        </View>
+      </TouchableHighlight>
     </View>
   </View>
 );

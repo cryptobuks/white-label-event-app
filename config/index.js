@@ -36,6 +36,7 @@ export const COLORS = {
   black: 'black',
   blackTransparent: 'rgba(0,0,0,.5)',
   grey: '#424749',
+  lightGrey: '#a0a0a0',
   violetPink: '#e54cfe',
   cyan: '#35e2aa',
 };
