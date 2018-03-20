@@ -1,5 +1,4 @@
 // @flow
-/* eslint-disable react-native/no-unused-styles */
 
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
@@ -35,15 +34,15 @@ const styles = StyleSheet.create({
     width: GLOBALS.itemWidth,
     fontWeight: 'bold',
   },
-  left: {
+  leftItem: {
     textAlign: 'right',
     opacity: GLOBALS.naOpacity,
   },
-  middle: {
+  middleItem: {
     textAlign: 'center',
     marginHorizontal: GLOBALS.marginHorizontal,
   },
-  right: {
+  rightItem: {
     textAlign: 'left',
     opacity: GLOBALS.naOpacity,
   },
@@ -51,9 +50,22 @@ const styles = StyleSheet.create({
 
 const NavigationItem = ({ title, position }: TProps) => (
   <View style={styles.container}>
-    <Text style={[styles.item, styles[position]]}>{title}</Text>
+    <Text
+      style={[
+        styles.item,
+        title === 'left' ? styles.leftItem : null,
+        title === 'middle' ? styles.middleItem : null,
+        title === 'right' ? styles.rightItem : null,
+      ]}
+    >
+      {title}
+    </Text>
     {position === 'middle' ? <View style={styles.line} /> : null}
   </View>
 );
+
+NavigationItem.defaultProps = {
+  title: '',
+};
 
 export default NavigationItem;

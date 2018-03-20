@@ -1,5 +1,4 @@
 // @flow
-import type { TScreenProps } from './screenprops';
 
 export type TNavigation = {
   navigate: Function,
@@ -7,6 +6,6 @@ export type TNavigation = {
 };
 
 export type TNavigationProps = {
-  screenProps: TScreenProps,
+  screenProps: Object,
   navigation: TNavigation,
 };

@@ -36,10 +36,9 @@ exports[`SchedulePagination renders correctly 1`] = `
             "fontWeight": "bold",
             "width": 224,
           },
-          Object {
-            "opacity": 0.4,
-            "textAlign": "right",
-          },
+          null,
+          null,
+          null,
         ]
       }
     >
@@ -83,10 +82,9 @@ exports[`SchedulePagination renders correctly 1`] = `
               "fontWeight": "bold",
               "width": 224,
             },
-            Object {
-              "marginHorizontal": 24,
-              "textAlign": "center",
-            },
+            null,
+            null,
+            null,
           ]
         }
       >
@@ -124,10 +122,9 @@ exports[`SchedulePagination renders correctly 1`] = `
             "fontWeight": "bold",
             "width": 224,
           },
-          Object {
-            "opacity": 0.4,
-            "textAlign": "left",
-          },
+          null,
+          null,
+          null,
         ]
       }
     >
