@@ -1,7 +1,8 @@
 {
   "expo": {
+    "name": "white-label-event-app",
     "sdkVersion": "25.0.0",
-    "icon": "./assets/splash.png",
+    "slug": "expo.io/@itpocket/white-label-event-mobile-app",
     "splash": {
       "image": "./assets/splash.png"
     }
