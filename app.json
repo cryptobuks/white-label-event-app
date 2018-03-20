@@ -5,6 +5,7 @@
     "slug": "expo.io/@itpocket/white-label-event-mobile-app",
     "splash": {
       "image": "./assets/splash.png"
-    }
+    },
+    "icon": "./assets/icon.png"
   }
 }
