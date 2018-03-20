@@ -10,7 +10,7 @@ describe('ScheduleItem', () => {
         author={mockData.author}
         title={mockData.title}
         location={mockData.location}
-        date={new Date('Tue Mar 06 2018 14:22:31 GMT+0100 (CET)')}
+        date={new Date(mockData.date)}
       />
     );
 

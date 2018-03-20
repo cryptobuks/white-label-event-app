@@ -110,7 +110,7 @@ exports[`ScheduleItem renders correctly 1`] = `
               }
             }
           >
-            02:22 PM
+            04:22 PM
           </Text>
         </View>
         <Image
